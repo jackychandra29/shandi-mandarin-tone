@@ -1,5 +1,5 @@
 //
-//  HomeScreen.swift
+//  HomeView.swift
 //  Shandi
 //
 //  Created by Jacky Chandra on 26/05/26.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct HomeScreen: View {
+struct HomeView: View {
     var body: some View {
-        VStack (alignment: .leading, spacing: 16){
+        VStack(alignment: .leading, spacing: 16) {
             Text("Ni Hao, User").font(Font.title2.bold())
 
             Divider()
-            
+
             Text("Lorem Ipsum").font(.title.bold())
             Text("Welcome to the Shandi App").font(.title2)
-            
+
             Button {
             } label: {
                 HStack(spacing: 16) {
@@ -47,9 +47,12 @@ struct HomeScreen: View {
             } label: {
                 HStack(spacing: 16) {
                     Image(systemName: "waveform").font(Font.title.bold())
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+                        .background(
+                            RoundedRectangle(cornerRadius: 10).fill(Color.white)
+                        )
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Tone Pair Practice").font(.headline).foregroundStyle(Color.white)
+                        Text("Tone Pair Practice").font(.headline)
+                            .foregroundStyle(Color.white)
                         Text("Practice tone combinations").font(
                             Font.subheadline
                         ).foregroundStyle(Color.white)
@@ -64,18 +67,19 @@ struct HomeScreen: View {
                 .padding(.horizontal, 16)
                 .frame(maxWidth: .infinity)
                 .background(
-                    RoundedRectangle(cornerRadius: 24).fill(Color(red: 1.0, green: 0.45, blue: 0.35, opacity: 0.8))
+                    RoundedRectangle(cornerRadius: 24).fill(
+                        Color(red: 1.0, green: 0.45, blue: 0.35, opacity: 0.8)
+                    )
                 )
                 .shadow(radius: 4)
             }
             .padding(.horizontal)
-
+            Spacer()
         }
         .padding(16)
-        Spacer()
     }
 }
 
 #Preview {
-    HomeScreen()
+    HomeView()
 }
