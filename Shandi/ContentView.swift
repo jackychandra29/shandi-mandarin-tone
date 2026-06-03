@@ -15,11 +15,11 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-            PracticeView()
-                .tabItem {
-                    Image(systemName: "mic.fill")
-                    Text("Practice")
-                }
+//            PracticeView()
+//                .tabItem {
+//                    Image(systemName: "mic.fill")
+//                    Text("Practice")
+//                }
             LibraryView()
                 .tabItem {
                     Image(systemName: "character.book.closed.fill")
