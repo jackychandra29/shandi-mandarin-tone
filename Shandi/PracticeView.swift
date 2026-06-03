@@ -32,7 +32,7 @@ struct PracticeView: View {
                     
                 }
                 Spacer()
-                WaveformView()
+                WaveformView(values: [4,1,4], )
                 Spacer()
                 Spacer()
                 Spacer()
