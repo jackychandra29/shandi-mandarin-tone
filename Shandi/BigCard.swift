@@ -32,6 +32,6 @@ struct BigCard <Content: View> : View {
 
 #Preview {
     BigCard{
-        Text("Coeg")
+        Text("Holla Mandarin")
     }
 }
