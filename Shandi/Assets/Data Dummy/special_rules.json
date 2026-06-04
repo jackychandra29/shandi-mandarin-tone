@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "letter": "w + u",
+    "desc": "'w' tidak dibaca. Langsung u.",
+    "example": "午安",
+    "pinyin": "wǔ ān",
+    "read": "u an",
+    "meaning": "selamat siang"
+  },
+  {
+    "id": 2,
+    "letter": "y + i",
+    "desc": "'y' tidak dibaca. Langsung i.",
+    "example": "一",
+    "pinyin": "yī",
+    "read": "i",
+    "meaning": "satu"
+  },
+  {
+    "id": 3,
+    "letter": "si",
+    "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
+    "example": "四",
+    "pinyin": "sì",
+    "read": "se",
+    "meaning": "empat"
+  },
+  {
+    "id": 4,
+    "letter": "shi",
+    "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
+    "example": "是",
+    "pinyin": "shì",
+    "read": "she",
+    "meaning": "adalah"
+  },
+  {
+    "id": 5,
+    "letter": "chi",
+    "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
+    "example": "吃",
+    "pinyin": "chī",
+    "read": "che",
+    "meaning": "makan"
+  },
+  {
+    "id": 6,
+    "letter": "zhi",
+    "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
+    "example": "知",
+    "pinyin": "zhī",
+    "read": "ce",
+    "meaning": "tahu"
+  },
+  {
+    "id": 7,
+    "letter": "zi",
+    "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
+    "example": "字",
+    "pinyin": "zì",
+    "read": "ce",
+    "meaning": "huruf"
+  },
+  {
+    "id": 8,
+    "letter": "ci",
+    "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
+    "example": "次",
+    "pinyin": "cì",
+    "read": "che",
+    "meaning": "kali"
+  }
+]

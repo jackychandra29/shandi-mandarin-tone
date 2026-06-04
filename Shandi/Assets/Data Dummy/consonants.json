@@ -1,0 +1,170 @@
+[
+    {
+      "id": 1,
+      "letter": "b",
+      "desc": "Seperti 'p'.",
+      "example": "爸 (Bà)",
+      "read": "pa",
+      "meaning": "ayah"
+    },
+    {
+      "id": 2,
+      "letter": "p",
+      "desc": "Seperti 'ph'.",
+      "example": "怕 (Pà)",
+      "read": "pha",
+      "meaning": "takut"
+    },
+    {
+      "id": 3,
+      "letter": "m",
+      "desc": "Seperti 'm'.",
+      "example": "妈 (Mā)",
+      "read": "ma",
+      "meaning": "ibu"
+    },
+    {
+      "id": 4,
+      "letter": "f",
+      "desc": "Seperti 'f'.",
+      "example": "饭 (Fàn)",
+      "read": "fan",
+      "meaning": "nasi"
+    },
+    {
+      "id": 5,
+      "letter": "d",
+      "desc": "Seperti 't'.",
+      "example": "大 (Dà)",
+      "read": "ta",
+      "meaning": "besar"
+    },
+    {
+      "id": 6,
+      "letter": "t",
+      "desc": "Seperti 'th'.",
+      "example": "他 (Tā)",
+      "read": "tha",
+      "meaning": "dia"
+    },
+    {
+      "id": 7,
+      "letter": "n",
+      "desc": "Seperti 'n'.",
+      "example": "你 (Nǐ)",
+      "read": "ni",
+      "meaning": "kamu"
+    },
+    {
+      "id": 8,
+      "letter": "l",
+      "desc": "Seperti 'l'.",
+      "example": "老 (Lǎo)",
+      "read": "lao",
+      "meaning": "tua"
+    },
+    {
+      "id": 9,
+      "letter": "g",
+      "desc": "Seperti 'k'.",
+      "example": "高 (Gāo)",
+      "read": "kao",
+      "meaning": "tinggi"
+    },
+    {
+      "id": 10,
+      "letter": "k",
+      "desc": "Seperti 'kh'.",
+      "example": "口 (Kǒu)",
+      "read": "khou",
+      "meaning": "mulut"
+    },
+    {
+      "id": 11,
+      "letter": "h",
+      "desc": "Seperti mengembus napas.",
+      "example": "好 (Hǎo)",
+      "read": "hao",
+      "meaning": "baik"
+    },
+    {
+      "id": 12,
+      "letter": "j",
+      "desc": "Seperti 'c'.",
+      "example": "家 (Jiā)",
+      "read": "cia",
+      "meaning": "rumah"
+    },
+    {
+      "id": 13,
+      "letter": "q",
+      "desc": "Seperti 'ch'.",
+      "example": "去 (Qù)",
+      "read": "chi",
+      "meaning": "pergi"
+    },
+    {
+      "id": 14,
+      "letter": "x",
+      "desc": "Seperti 's'.",
+      "example": "小 (Xiǎo)",
+      "read": "siao",
+      "meaning": "kecil"
+    },
+    {
+      "id": 15,
+      "letter": "zh",
+      "desc": "Seperti 'c', lidah agak ke belakang.",
+      "example": "这 (Zhè)",
+      "read": "ce",
+      "meaning": "ini"
+    },
+    {
+      "id": 16,
+      "letter": "ch",
+      "desc": "Seperti 'ch', lidah agak ke belakang.",
+      "example": "出 (Chū)",
+      "read": "chu",
+      "meaning": "keluar"
+    },
+    {
+      "id": 17,
+      "letter": "sh",
+      "desc": "Seperti 'sh', lidah agak ke belakang.",
+      "example": "树 (Shù)",
+      "read": "shu",
+      "meaning": "pohon"
+    },
+    {
+      "id": 18,
+      "letter": "r",
+      "desc": "Seperti 'r', lidah agak ke belakang.",
+      "example": "热 (Rè)",
+      "read": "re",
+      "meaning": "panas"
+    },
+    {
+      "id": 19,
+      "letter": "z",
+      "desc": "Seperti 'c'.",
+      "example": "早 (Zǎo)",
+      "read": "cao",
+      "meaning": "pagi"
+    },
+    {
+      "id": 20,
+      "letter": "c",
+      "desc": "Seperti 'ch'.",
+      "example": "从 (Cóng)",
+      "read": "chong",
+      "meaning": "dari"
+    },
+    {
+      "id": 21,
+      "letter": "s",
+      "desc": "Seperti 's'.",
+      "example": "三 (Sān)",
+      "read": "san",
+      "meaning": "tiga"
+    }
+]
