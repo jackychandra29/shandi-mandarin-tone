@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "tone": "Tone 1",
+    "symbol": "ˉ",
+    "example": "mā",
+    "desc": "Nada datar dan tinggi, seperti menyanyikan 'aaaa...'.",
+    "meaning": "ibu"
+  },
+  {
+    "id": 2,
+    "tone": "Tone 2",
+    "symbol": "ˊ",
+    "example": "má",
+    "desc": "Nada naik seperti sedang bertanya, 'hah?'.",
+    "meaning": "rami"
+  },
+  {
+    "id": 3,
+    "tone": "Tone 3",
+    "symbol": "ˇ",
+    "example": "mǎ",
+    "desc": "Nada turun lalu naik seperti saat berkata, 'hmm...?'.",
+    "meaning": "kuda"
+  },
+  {
+    "id": 4,
+    "tone": "Tone 4",
+    "symbol": "ˋ",
+    "example": "mà",
+    "desc": "Nada turun tegas seperti saat memanggil, 'hei!'.",
+    "meaning": "memarahi"
+  }
+]

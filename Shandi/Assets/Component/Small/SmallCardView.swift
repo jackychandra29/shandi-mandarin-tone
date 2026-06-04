@@ -79,4 +79,3 @@ struct SmallCardView: View {
     .padding()
     .background(Color(UIColor.secondarySystemBackground))
 }
-
