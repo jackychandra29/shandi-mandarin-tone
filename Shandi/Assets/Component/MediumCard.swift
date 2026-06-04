@@ -45,8 +45,6 @@ struct ToneCardView: View {
                 .font(.callout)
                 .foregroundStyle(.gray)
 
-            
-
             VStack {
 
                 GeometryReader { geometry in
