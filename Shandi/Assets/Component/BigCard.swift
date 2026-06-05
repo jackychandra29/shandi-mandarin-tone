@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct BigCard <Content: View> : View {
+struct BigCard<Content: View>: View {
     let content: Content
+    
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
@@ -17,16 +18,14 @@ struct BigCard <Content: View> : View {
         VStack {
             content
         }
-        .frame(width: 335, height: 586)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(.white)
+                .fill(Color(.systemBackground))
         )
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 20)
-//                .stroke(.black, lineWidth: 1)
-//        )
         .padding(28)
+//        .background(.red)
+//        .ignoresSafeArea()
     }
 }
 
