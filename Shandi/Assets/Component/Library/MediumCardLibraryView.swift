@@ -8,20 +8,6 @@
 import Foundation
 import SwiftUI
 
-//struct SmallModel: Identifiable {
-//    let id: String
-//    let letter: String
-//    let desc: String
-//    let example: String
-//}
-
-//"id": 1,
-//"tone": "Tone 1",
-//"symbol": "ˉ",
-//"example": "mā",
-//"desc": "Nada datar dan tinggi.",
-//"meaning": "ibu"
-
 struct MediumCardLibraryView: View {
     let data: Tone
     var speaker: Bool
@@ -29,37 +15,26 @@ struct MediumCardLibraryView: View {
     var onPlayExampleAudio: () -> Void
 
     var body: some View {
-        //Button(action: onPlayMainAudio) {
         VStack {
             HStack {
                 Spacer()
-//                if speaker {
-//                    Spacer()
-//                    Button(action: onPlayMainAudio) {
-//                        Image(systemName: "speaker.wave.2.fill")
-//                            .padding(.horizontal, 5)
-//                    }.foregroundStyle(Color.primary)
-//                } else {
-//                    Spacer()
-//                }
             }
 
             Text(data.tone)
-                .font(.headline)
-                .fontWeight(.semibold)
+                .font(Styles.headlineShandi)
                 .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
 
             // Example
             HStack {
                 Text(data.example)
-                    .font(.largeTitle).bold()
+                    .font(Styles.largeTitleShandi)
                     .foregroundColor(Color.redBrand)
             }
 
             // Desc
             Text(data.desc)
-                .font(.subheadline)
+                .font(Styles.subheadlineShandi)
                 .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
 
@@ -67,10 +42,9 @@ struct MediumCardLibraryView: View {
             Button(action: onPlayExampleAudio) {
                 HStack(spacing: 6) {
                     Image(systemName: "speaker.wave.2.fill")
-                        .font(.subheadline)
+                        .font(Styles.subheadlineShandi)
                     Text(data.example)
-                        .font(.subheadline)
-                        .fontWeight(.medium)
+                        .font(Styles.subheadlineShandi)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
@@ -82,9 +56,9 @@ struct MediumCardLibraryView: View {
         }
         .padding()
         .background(Color.white)
-        .cornerRadius(12)
+        .cornerRadius(Sizing.roundedSmall)
         .overlay(alignment: .topTrailing) {
-            Image(systemName: "speaker.wave.2.fill").padding().foregroundStyle(Color.text)
+            Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
         }
     }
 }
