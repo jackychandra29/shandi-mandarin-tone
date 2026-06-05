@@ -23,58 +23,57 @@ struct SmallCardLibraryView: View {
 
     var body: some View {
         //Button(action: onPlayMainAudio) {
-        VStack(spacing: 8) {
+        VStack {
             HStack {
-                if speaker {
-                    Spacer()
-                    Button(action: onPlayMainAudio) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .padding(.horizontal, 5)
-                    }.foregroundStyle(Color.primary)
-                }
-                else{
-                    Spacer()
-                }
+                Spacer()
+//                if speaker {
+//                    Spacer()
+//                    Button(action: onPlayMainAudio) {
+//                        Image(systemName: "speaker.wave.2.fill")
+//                            .padding(.horizontal, 5)
+//                    }.foregroundStyle(Color.primary)
+//                }
+//                else{
+//                    Spacer()
+//                }
             }
 
             // Letter
-            HStack {
-                Spacer()
+            HStack(alignment: .center) {
                 Text(data.letter)
-                    .font(.system(size: 46, weight: .bold))
-                    .foregroundColor(.primary)
-                Spacer()
+                    .font(Font.largeTitle).bold()
+                    .foregroundColor(Color.orange)
             }
 
             // Desc
             Text(data.desc)
-                .font(.footnote)
-                .foregroundColor(.secondary)
+                .font(.caption)
+                .foregroundColor(.text)
                 .multilineTextAlignment(.center)
-                .frame(minHeight: 40)
 
             // Example
             Button(action: onPlayExampleAudio) {
                 HStack(spacing: 6) {
-                    Image(systemName: "speaker.wave.2.fill")
-                        .font(.caption)
+                    Image(systemName: "speaker.wave.2.fill").foregroundStyle(Color.text)
+                        .font(.subheadline)
                     Text(data.example)
                         .font(.subheadline)
                         .fontWeight(.medium)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
-                .foregroundColor(.primary)
+                .foregroundColor(.text)
 
-                .background(Color(UIColor.systemGray6))
+                .background(Color.pillExample)
                 .clipShape(Capsule())
             }
         }
         .padding()
         .background(Color.white)
-        .cornerRadius(12)
-        //}
-
+        .cornerRadius(20)
+        .overlay(alignment: .topTrailing) {
+            Image(systemName: "speaker.wave.2.fill").padding().foregroundStyle(Color.text)
+        }
     }
 }
 
@@ -92,6 +91,7 @@ struct SmallCardLibraryView: View {
         onPlayMainAudio: { print("Play b audio") },
         onPlayExampleAudio: { print("Play ba audio") }
     )
-    .padding()
-    .background(Color(UIColor.secondarySystemBackground))
+    .padding(.horizontal, 30)
+    .padding(.vertical, 18)
+    .background(Color.screen)
 }

@@ -1,47 +1,155 @@
 [
-  {
-    "id": 1,
-    "rule": "Tone 3 + Tone 3",
-    "desc": "Tone 3 pertama berubah menjadi Tone 2.",
-    "example": "你好",
-    "pinyin": "nǐ hǎo",
-    "read": "ní hǎo",
-    "meaning": "halo"
-  },
-  {
-    "id": 2,
-    "rule": "不 (bù)",
-    "desc": "Menjadi Tone 2 jika diikuti Tone 4.",
-    "example": "不是",
-    "pinyin": "bù shì",
-    "read": "bú shì",
-    "meaning": "bukan"
-  },
-  {
-    "id": 3,
-    "rule": "一 (yī)",
-    "desc": "Menjadi Tone 2 sebelum Tone 4.",
-    "example": "一个",
-    "pinyin": "yī gè",
-    "read": "yí gè",
-    "meaning": "satu buah"
-  },
-  {
-    "id": 4,
-    "rule": "一 (yī)",
-    "desc": "Menjadi Tone 4 sebelum Tone 1, 2, atau 3.",
-    "example": "一天",
-    "pinyin": "yī tiān",
-    "read": "yì tiān",
-    "meaning": "satu hari"
-  },
-  {
-    "id": 5,
-    "rule": "Half Third Tone",
-    "desc": "Tone 3 biasanya hanya turun tanpa naik penuh.",
-    "example": "我",
-    "pinyin": "wǒ",
-    "read": "wo",
-    "meaning": "saya"
-  }
+    {
+        "id": 1,
+        "rule": "Tone 3 + Tone 3",
+        "desc": "Kombinasi dua nada 3.",
+        "writing": "nǐ hǎo",
+        "writingTone": "3 + 3",
+        "pronunciation": "ní hǎo",
+        "pronunciationTone": "2 + 3",
+        "ruleExplanation":
+            "Jika dua nada 3 bersebelahan, nada pertama berubah menjadi nada 2.",
+        "why": "Lebih mudah dan cepat diucapkan.",
+        "examples": [
+            {
+                "id": 1,
+                "hanzi": "你好",
+                "writing": "nǐ hǎo",
+                "spoken": "ní hǎo",
+                "meaning": "halo"
+            },
+            {
+                "id": 2,
+                "hanzi": "水果",
+                "writing": "shuǐ guǒ",
+                "spoken": "shuí guǒ",
+                "meaning": "buah"
+            },
+            {
+                "id": 3,
+                "hanzi": "很好",
+                "writing": "hěn hǎo",
+                "spoken": "hén hǎo",
+                "meaning": "sangat baik"
+            },
+            {
+                "id": 4,
+                "hanzi": "可以",
+                "writing": "kě yǐ",
+                "spoken": "ké yǐ",
+                "meaning": "boleh"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "rule": "不 (bù)",
+        "desc": "Perubahan nada pada 不.",
+        "writing": "bù shì",
+        "writingTone": "4 + 4",
+        "pronunciation": "bú shì",
+        "pronunciationTone": "2 + 4",
+        "ruleExplanation": "不 berubah menjadi nada 2 jika diikuti nada 4.",
+        "why": "Membuat pengucapan lebih lancar.",
+        "examples": [
+            {
+                "id": 1,
+                "hanzi": "不是",
+                "writing": "bù shì",
+                "spoken": "bú shì",
+                "meaning": "bukan"
+            },
+            {
+                "id": 2,
+                "hanzi": "不要",
+                "writing": "bù yào",
+                "spoken": "bú yào",
+                "meaning": "jangan"
+            },
+            {
+                "id": 3,
+                "hanzi": "不对",
+                "writing": "bù duì",
+                "spoken": "bú duì",
+                "meaning": "salah"
+            },
+            {
+                "id": 4,
+                "hanzi": "不会",
+                "writing": "bù huì",
+                "spoken": "bú huì",
+                "meaning": "tidak bisa"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "rule": "一 (yī)",
+        "desc": "Perubahan nada pada 一.",
+        "writing": "yī gè",
+        "writingTone": "1 + 4",
+        "pronunciation": "yí gè",
+        "pronunciationTone": "2 + 4",
+        "ruleExplanation":
+            "一 menjadi nada 2 sebelum nada 4, dan menjadi nada 4 sebelum nada 1, 2, atau 3.",
+        "why": "Membuat ritme bicara lebih alami.",
+        "examples": [
+            {
+                "id": 1,
+                "hanzi": "一个",
+                "writing": "yī gè",
+                "spoken": "yí gè",
+                "meaning": "satu buah"
+            },
+            {
+                "id": 2,
+                "hanzi": "一天",
+                "writing": "yī tiān",
+                "spoken": "yì tiān",
+                "meaning": "satu hari"
+            },
+            {
+                "id": 3,
+                "hanzi": "一年",
+                "writing": "yī nián",
+                "spoken": "yì nián",
+                "meaning": "satu tahun"
+            },
+            {
+                "id": 4,
+                "hanzi": "一百",
+                "writing": "yī bǎi",
+                "spoken": "yì bǎi",
+                "meaning": "seratus"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "rule": "Half Third Tone",
+        "desc": "Nada 3 tidak selalu naik kembali.",
+        "writing": "wǒ",
+        "writingTone": "3",
+        "pronunciation": "wò",
+        "pronunciationTone": "Half 3",
+        "ruleExplanation":
+            "Dalam percakapan sehari-hari, nada 3 sering hanya turun dan tetap rendah.",
+        "why": "Lebih cepat dan alami saat berbicara.",
+        "examples": [
+            {
+                "id": 1,
+                "hanzi": "我",
+                "writing": "wǒ",
+                "spoken": "wò",
+                "meaning": "saya"
+            },
+            {
+                "id": 2,
+                "hanzi": "好",
+                "writing": "hǎo",
+                "spoken": "hào",
+                "meaning": "baik"
+            }
+        ]
+    }
 ]
