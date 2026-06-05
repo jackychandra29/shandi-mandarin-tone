@@ -101,9 +101,8 @@ struct WaveformView: View {
             }
             .frame(height: 76)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
-        .frame(height: 158)
+        .padding(.horizontal, 24)
+        .padding(.vertical, 20)
         .background(Color(red: 0.94, green: 0.94, blue: 0.97))
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
