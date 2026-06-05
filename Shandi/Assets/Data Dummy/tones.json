@@ -4,7 +4,7 @@
     "tone": "Tone 1",
     "symbol": "ˉ",
     "example": "mā",
-    "desc": "Nada datar dan tinggi, seperti menyanyikan 'aaaa...'.",
+    "desc": "Tinggi datar, seperti 'aaaa...'.",
     "meaning": "ibu"
   },
   {
@@ -12,7 +12,7 @@
     "tone": "Tone 2",
     "symbol": "ˊ",
     "example": "má",
-    "desc": "Nada naik seperti sedang bertanya, 'hah?'.",
+    "desc": "Naik, seperti 'hah?'.",
     "meaning": "rami"
   },
   {
@@ -20,7 +20,7 @@
     "tone": "Tone 3",
     "symbol": "ˇ",
     "example": "mǎ",
-    "desc": "Nada turun lalu naik seperti saat berkata, 'hmm...?'.",
+    "desc": "Turun naik, seperti 'hmm...?'.",
     "meaning": "kuda"
   },
   {
@@ -28,7 +28,7 @@
     "tone": "Tone 4",
     "symbol": "ˋ",
     "example": "mà",
-    "desc": "Nada turun tegas seperti saat memanggil, 'hei!'.",
+    "desc": "Turun tegas, seperti 'hei!'.",
     "meaning": "memarahi"
   }
 ]

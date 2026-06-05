@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "letter": "a",
+    "desc": "Seperti 'a' pada kata 'apa'.",
+    "example": "爸 (bà)",
+    "read": "pa",
+    "meaning": "ayah"
+  },
+  {
+    "id": 2,
+    "letter": "o",
+    "desc": "Seperti 'o' pada kata 'obat'.",
+    "example": "我 (wǒ)",
+    "read": "wo",
+    "meaning": "saya"
+  },
+  {
+    "id": 3,
+    "letter": "e",
+    "desc": "Seperti 'e' pada kata 'emas'.",
+    "example": "饿 (è)",
+    "read": "e",
+    "meaning": "lapar"
+  },
+  {
+    "id": 4,
+    "letter": "i",
+    "desc": "Seperti 'i' pada kata 'ikan'.",
+    "example": "你 (nǐ)",
+    "read": "ni",
+    "meaning": "kamu"
+  },
+  {
+    "id": 5,
+    "letter": "u",
+    "desc": "Seperti 'u' pada kata 'ular'.",
+    "example": "不 (bù)",
+    "read": "pu",
+    "meaning": "tidak"
+  },
+  {
+    "id": 6,
+    "letter": "ü",
+    "desc": "Seperti 'yu' pada kata 'yuk'.",
+    "example": "女 (nǚ)",
+    "read": "nyu",
+    "meaning": "perempuan"
+  }
+]
