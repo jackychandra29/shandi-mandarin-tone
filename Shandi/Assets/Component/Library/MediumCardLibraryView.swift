@@ -30,63 +30,62 @@ struct MediumCardLibraryView: View {
 
     var body: some View {
         //Button(action: onPlayMainAudio) {
-        VStack(spacing: 8) {
+        VStack {
             HStack {
-                if speaker {
-                    Spacer()
-                    Button(action: onPlayMainAudio) {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .padding(.horizontal, 5)
-                    }.foregroundStyle(Color.primary)
-                } else {
-                    Spacer()
-                }
+                Spacer()
+//                if speaker {
+//                    Spacer()
+//                    Button(action: onPlayMainAudio) {
+//                        Image(systemName: "speaker.wave.2.fill")
+//                            .padding(.horizontal, 5)
+//                    }.foregroundStyle(Color.primary)
+//                } else {
+//                    Spacer()
+//                }
             }
 
             Text(data.tone)
                 .font(.headline)
                 .fontWeight(.semibold)
-                .foregroundColor(.secondary)
+                .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
-                .frame(minHeight: 40)
 
             // Example
             HStack {
-                Spacer()
                 Text(data.example)
-                    .font(.system(size: 46, weight: .bold))
-                    .foregroundColor(.primary)
-                Spacer()
+                    .font(.largeTitle).bold()
+                    .foregroundColor(Color.redBrand)
             }
 
             // Desc
             Text(data.desc)
-                .font(.footnote)
-                .foregroundColor(.secondary)
+                .font(.subheadline)
+                .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
-                .frame(minHeight: 40)
 
-            // Example
+            // Button
             Button(action: onPlayExampleAudio) {
                 HStack(spacing: 6) {
                     Image(systemName: "speaker.wave.2.fill")
-                        .font(.caption)
+                        .font(.subheadline)
                     Text(data.example)
                         .font(.subheadline)
                         .fontWeight(.medium)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
-                .foregroundColor(.primary)
+                .foregroundColor(Color.text)
 
-                .background(Color(UIColor.systemGray6))
+                .background(Color.pillExample)
                 .clipShape(Capsule())
             }
         }
         .padding()
         .background(Color.white)
         .cornerRadius(12)
-
+        .overlay(alignment: .topTrailing) {
+            Image(systemName: "speaker.wave.2.fill").padding().foregroundStyle(Color.text)
+        }
     }
 }
 
@@ -105,5 +104,5 @@ struct MediumCardLibraryView: View {
         onPlayExampleAudio: { print("Play ba audio") }
     )
     .padding()
-    .background(Color(UIColor.secondarySystemBackground))
+    .background(Color.screen)
 }
