@@ -118,7 +118,7 @@ struct BigCardLibraryView: View {
                             .foregroundStyle(Color.text)
                             .padding(5)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color.pillExample)
+                            .background(Color.pillexample)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                         }
                     }

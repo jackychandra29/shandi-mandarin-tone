@@ -76,7 +76,7 @@ struct MediumCardLibraryView: View {
                 .padding(.vertical, 8)
                 .foregroundColor(Color.text)
 
-                .background(Color.pillExample)
+                .background(Color.pillexample)
                 .clipShape(Capsule())
             }
         }
