@@ -18,18 +18,7 @@ struct LibraryItem: Identifiable, Decodable {
 }
 
 struct LibraryView: View {
-    @State private var selected = 2
-
-    let items = [
-        LibraryItem(
-            id: 1,
-            letter: "b",
-            desc: "Seperti 'p'",
-            example: "爸 (Bà)",
-            read: "pa",
-            meaning: "ayah"
-        )
-    ]
+    @State private var selected = 0
 
     let columns = [
         GridItem(.flexible()),
@@ -37,10 +26,11 @@ struct LibraryView: View {
     ]
 
     let consonants: [Consonant]
-    let tones: [Tone]
-    let tone_sandhi: [ToneSandhi]
     let special_rules: [Consonant]
     let vowels: [Consonant]
+    
+    let tones: [Tone]
+    let tone_sandhi: [ToneSandhi]
 
     init() {
         consonants =
@@ -48,6 +38,17 @@ struct LibraryView: View {
                 fileName: "consonants",
                 type: [Consonant].self
             ) ?? []
+        special_rules =
+        JSONLoader.load(
+            fileName: "special_rules",
+            type: [Consonant].self
+        ) ?? []
+        
+        vowels =
+        JSONLoader.load(
+            fileName: "vowel",
+            type: [Consonant].self
+        ) ?? []
 
         tones =
             JSONLoader.load(
@@ -60,25 +61,12 @@ struct LibraryView: View {
                 fileName: "tone_sandhi",
                 type: [ToneSandhi].self
             ) ?? []
-
-        special_rules =
-            JSONLoader.load(
-                fileName: "special_rules",
-                type: [Consonant].self
-            ) ?? []
-        
-        vowels =
-            JSONLoader.load(
-                fileName: "vowel",
-                type: [Consonant].self
-            ) ?? []
-
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Panduan").font(Font.largeTitle).bold().padding(
+                Text("Panduan").font(Styles.largeTitleShandi).padding(
                     .horizontal,
                     30
                 )
@@ -90,11 +78,12 @@ struct LibraryView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal, 16)
+                
 
                 switch selected {
                 case 0:
                     VStack(alignment: .leading) {
-                        Text("Konsonan").font(.title3).fontWeight(.semibold)
+                        Text("Konsonan").font(Styles.title3Shandi)
                         LazyVGrid(columns: columns) {
                             ForEach(consonants) { item in
                                 SmallCardLibraryView(
@@ -115,7 +104,7 @@ struct LibraryView: View {
                         }
 
                         Divider()
-                        Text("Vokal").font(.title3).fontWeight(.semibold)
+                        Text("Vokal").font(Styles.title3Shandi)
                         LazyVGrid(columns: columns) {
                             ForEach(vowels) { item in
                                 SmallCardLibraryView(
@@ -136,7 +125,7 @@ struct LibraryView: View {
                         }
                         
                         Divider()
-                        Text("Aturan khusus").font(.title3).fontWeight(.semibold)
+                        Text("Aturan khusus").font(Styles.title3Shandi)
                         LazyVGrid(columns: columns) {
                             ForEach(special_rules) { item in
                                 SmallCardLibraryView(
@@ -192,7 +181,7 @@ struct LibraryView: View {
                         }.padding()
                             .frame(maxWidth: .infinity)
                             .background(
-                                RoundedRectangle(cornerRadius: 20)
+                                RoundedRectangle(cornerRadius: Sizing.roundedSmall)
                                     .foregroundStyle(Color.white)
                             )
                             .padding(.horizontal, 30)

@@ -14,50 +14,41 @@ struct BigCardLibraryView: View {
     var onPlayMainAudio: () -> Void
     var onPlayExampleAudio: () -> Void
 
-    //    "id": 1,
-    //    "rule": "Tone 3 + Tone 3",
-    //    "desc": "Tone 3 pertama berubah menjadi Tone 2.",
-    //    "example": "你好",
-    //    "pinyin": "nǐ hǎo",
-    //    "read": "ní hǎo",
-    //    "meaning": "halo"
-
     var body: some View {
         VStack {
             // Title
             HStack {
                 Text(data.rule)
-                    .font(.largeTitle).bold()
+                    .font(Styles.largeTitleShandi)
                     .foregroundColor(Color.redBrand)
             }
 
             Text(data.desc)
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(Styles.title3Shandi)
                 .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
 
             HStack {
                 VStack {
-                    Text("PENULISAN").font(.caption)
+                    Text("PENULISAN").font(Styles.captionShandi)
                     Text(data.writing).font(Styles.headlineShandi)
-                    Text(data.writingTone).font(.caption)
+                    Text(data.writingTone).font(Styles.captionShandi)
                 }.foregroundStyle(Color.text)
                 .padding().frame(maxWidth: .infinity)
                     .background(
-                        RoundedRectangle(cornerRadius: 20).foregroundColor(
+                        RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
                             Color.screen
                         )
                     )
 
                 VStack {
-                    Text("PENGUCAPAN").font(.caption)
+                    Text("PENGUCAPAN").font(Styles.captionShandi)
                     Text(data.pronunciation).font(Styles.headlineShandi)
-                    Text(data.pronunciationTone).font(.caption)
+                    Text(data.pronunciationTone).font(Styles.captionShandi)
                 }.foregroundStyle(Color.text)
                 .padding().frame(maxWidth: .infinity)
                     .background(
-                        RoundedRectangle(cornerRadius: 20).foregroundColor(
+                        RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
                             Color.screen
                         )
                     )
@@ -65,11 +56,11 @@ struct BigCardLibraryView: View {
 
             VStack(alignment: .leading) {
                 Text("Aturan").font(Styles.headlineShandi)
-                Text(data.ruleExplanation).font(.caption)
+                Text(data.ruleExplanation).font(Styles.captionShandi)
             }.padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
-                    RoundedRectangle(cornerRadius: 20).foregroundColor(
+                    RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
                         Color.screen
                     )
                 )
@@ -78,11 +69,11 @@ struct BigCardLibraryView: View {
             
             VStack(alignment: .leading) {
                 Text("Kenapa berubah?").font(Styles.headlineShandi)
-                Text(data.why).font(.caption)
+                Text(data.why).font(Styles.captionShandi)
             }.padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
-                    RoundedRectangle(cornerRadius: 20).foregroundColor(
+                    RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
                         Color.screen
                     )
                 )
@@ -91,7 +82,7 @@ struct BigCardLibraryView: View {
 
             VStack(alignment: .leading, spacing: 12) {
                 Text("Contoh:")
-                    .font(.subheadline).fontWeight(.semibold)
+                    .font(Styles.subheadlineShandi)
                     .foregroundColor(Color.text)
 
                 LazyVGrid(
@@ -106,20 +97,20 @@ struct BigCardLibraryView: View {
                             onPlayExampleAudio()
                         }) {
                             HStack(spacing: 4) {
-                                Image(systemName: "speaker.wave.2.fill")
+                                Image(systemName: Icons.speaker)
 
                                 Text(example.hanzi)
                                     .font(Sizing.hanziSmall)
 
                                 Text(example.writing)
-                                    .font(.caption)
+                                    .font(Styles.captionShandi)
                             }
-                            .font(.subheadline)
+                            .font(Styles.subheadlineShandi)
                             .foregroundStyle(Color.text)
                             .padding(5)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color.pillExample)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .background(Color.pillexample)
+                            .clipShape(RoundedRectangle(cornerRadius: Sizing.roundedMedium))
                         }
                     }
                 }
@@ -129,7 +120,7 @@ struct BigCardLibraryView: View {
         .padding()
         .frame(maxWidth: .infinity)
         .background(Color.white)
-        .cornerRadius(12)
+        .cornerRadius(Sizing.roundedSmall)
     }
 }
 

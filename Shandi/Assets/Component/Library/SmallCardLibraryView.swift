@@ -8,13 +8,6 @@
 import Foundation
 import SwiftUI
 
-//struct SmallModel: Identifiable {
-//    let id: String
-//    let letter: String
-//    let desc: String
-//    let example: String
-//}
-
 struct SmallCardLibraryView: View {
     let data: Consonant
     var speaker: Bool
@@ -22,57 +15,45 @@ struct SmallCardLibraryView: View {
     var onPlayExampleAudio: () -> Void
 
     var body: some View {
-        //Button(action: onPlayMainAudio) {
         VStack {
             HStack {
                 Spacer()
-//                if speaker {
-//                    Spacer()
-//                    Button(action: onPlayMainAudio) {
-//                        Image(systemName: "speaker.wave.2.fill")
-//                            .padding(.horizontal, 5)
-//                    }.foregroundStyle(Color.primary)
-//                }
-//                else{
-//                    Spacer()
-//                }
             }
-
+            
             // Letter
             HStack(alignment: .center) {
                 Text(data.letter)
-                    .font(Font.largeTitle).bold()
+                    .font(Styles.largeTitleShandi)
                     .foregroundColor(Color.orange)
             }
 
             // Desc
             Text(data.desc)
-                .font(.caption)
-                .foregroundColor(.text)
+                .font(Styles.captionShandi)
+                .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
 
             // Example
             Button(action: onPlayExampleAudio) {
                 HStack(spacing: 6) {
                     Image(systemName: "speaker.wave.2.fill").foregroundStyle(Color.text)
-                        .font(.subheadline)
+                        .font(Styles.subheadlineShandi)
                     Text(data.example)
-                        .font(.subheadline)
-                        .fontWeight(.medium)
+                        .font(Styles.subheadlineShandi)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
-                .foregroundColor(.text)
+                .foregroundColor(Color.text)
 
-                .background(Color.pillExample)
+                .background(Color.pillexample)
                 .clipShape(Capsule())
             }
         }
         .padding()
         .background(Color.white)
-        .cornerRadius(20)
+        .cornerRadius(Sizing.roundedBig)
         .overlay(alignment: .topTrailing) {
-            Image(systemName: "speaker.wave.2.fill").padding().foregroundStyle(Color.text)
+            Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
         }
     }
 }
