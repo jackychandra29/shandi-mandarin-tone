@@ -145,7 +145,7 @@ struct LibraryView: View {
                                         onPlayExampleAudio: {
                                             print(
                                                 //"Memutar suara contoh untuk \(item.letter)"
-                                                TTSService.shared.speakMandarin(item.example)
+                                                TTSService.shared.speakMandarin(item.hanzi)
                                             )
                                         }
                                     )
