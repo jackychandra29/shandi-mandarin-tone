@@ -15,17 +15,15 @@ struct WordDisplay: View {
     var body: some View {
         VStack(alignment: .center, spacing: 4) {
             Text(pinyin)
-                .font(Font.system(.largeTitle, design: .rounded))
-                .fontWeight(.bold)
+                .font(Styles.largeTitleShandi)
                 .foregroundStyle(Color.orangeBrand)
 
             Text(hanzi)
-                .font(Font.system(size: 60, design: .rounded))
-                .fontWeight(.semibold)
+                .font(Font.system(size: 70, weight: .bold))
                 .foregroundStyle(Color.text)
 
             Text(meaning)
-                .font(Font.system(.subheadline, design: .rounded))
+                .font(Styles.bodyShandi)
                 .foregroundStyle(Color.text)
         }
     }

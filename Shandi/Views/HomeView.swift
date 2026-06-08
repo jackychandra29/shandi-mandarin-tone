@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @AppStorage("userName") private var userName = "User"
+
     var body: some View {
         NavigationStack {
             ZStack {
