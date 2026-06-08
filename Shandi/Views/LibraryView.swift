@@ -64,162 +64,166 @@ struct LibraryView: View {
     }
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Panduan").font(Styles.largeTitleShandi).padding(
-                    .horizontal,
-                    30
-                )
+        GeometryReader { geometry in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Panduan").font(Styles.largeTitleShandi).padding(
+                        .horizontal,
+                        30
+                    )
 
-                Picker("Mode", selection: $selected) {
-                    Text("Konsonan").tag(0)
-                    Text("Nada").tag(1)
-                    Text("Aturan").tag(2)
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal, 16)
-                
+                    Picker("Mode", selection: $selected) {
+                        Text("Konsonan").tag(0)
+                        Text("Nada").tag(1)
+                        Text("Aturan").tag(2)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal, 16)
+                    
 
-                switch selected {
-                case 0:
-                    VStack(alignment: .leading) {
-                        Text("Konsonan").font(Styles.title3Shandi)
-                        LazyVGrid(columns: columns) {
-                            ForEach(consonants) { item in
-                                SmallCardLibraryView(
-                                    data: item,
-                                    speaker: true,
-                                    onPlayMainAudio: {
-                                        print(
-                                            //"Memutar suara utama untuk \(item.letter)"
-                                            //TTSService.shared.speakMandarin(item.letter)
-                                        )
-                                    },
-                                    onPlayExampleAudio: {
-                                        print(
-                                            //"Memutar suara contoh untuk \(item.letter)"
-                                            TTSService.shared.speakMandarin(item.example)
-                                        )
-                                    }
-                                )
+                    switch selected {
+                    case 0:
+                        VStack(alignment: .leading) {
+                            Text("Konsonan").font(Styles.title3Shandi)
+                            LazyVGrid(columns: columns) {
+                                ForEach(consonants) { item in
+                                    SmallCardLibraryView(
+                                        data: item,
+                                        speaker: false,
+                                        onPlayMainAudio: {
+                                            print(
+                                                //"Memutar suara utama untuk \(item.letter)"
+                                                TTSService.shared.speakMandarin(item.tts)
+                                            )
+                                        },
+                                        onPlayExampleAudio: {
+                                            print(
+                                                //"Memutar suara contoh untuk \(item.letter)"
+                                                TTSService.shared.speakMandarin(item.hanzi)
+                                            )
+                                        }
+                                    )
+                                }
                             }
-                        }
 
-                        Divider()
-                        Text("Vokal").font(Styles.title3Shandi)
-                        LazyVGrid(columns: columns) {
-                            ForEach(vowels) { item in
-                                SmallCardLibraryView(
-                                    data: item,
-                                    speaker: true,
-                                    onPlayMainAudio: {
-                                        print(
-                                            //"Memutar suara utama untuk \(item.letter)"
-                                            //TTSService.shared.speakMandarin(item.letter)
-                                        )
-                                    },
-                                    onPlayExampleAudio: {
-                                        print(
-                                            //"Memutar suara contoh untuk \(item.letter)"
-                                            TTSService.shared.speakMandarin(item.read)
-                                        )
-                                    }
-                                )
+                            Divider()
+                            Text("Vokal").font(Styles.title3Shandi)
+                            LazyVGrid(columns: columns) {
+                                ForEach(vowels) { item in
+                                    SmallCardLibraryView(
+                                        data: item,
+                                        speaker: false,
+                                        onPlayMainAudio: {
+                                            print(
+                                                //"Memutar suara utama untuk \(item.letter)"
+                                                //TTSService.shared.speakMandarin(item.letter)
+                                            )
+                                        },
+                                        onPlayExampleAudio: {
+                                            print(
+                                                //"Memutar suara contoh untuk \(item.letter)"
+                                                TTSService.shared.speakMandarin(item.hanzi)
+                                            )
+                                        }
+                                    )
+                                }
                             }
-                        }
-                        
-                        Divider()
-                        Text("Aturan khusus").font(Styles.title3Shandi)
-                        LazyVGrid(columns: columns) {
-                            ForEach(special_rules) { item in
-                                SmallCardLibraryView(
-                                    data: item,
-                                    speaker: true,
-                                    onPlayMainAudio: {
-                                        print(
-                                            //"Memutar suara utama untuk \(item.letter)"
-                                            TTSService.shared.speakMandarin(item.letter)
-                                        )
-                                    },
-                                    onPlayExampleAudio: {
-                                        print(
-                                            //"Memutar suara contoh untuk \(item.letter)"
-                                            TTSService.shared.speakMandarin(item.example)
-                                        )
-                                    }
-                                )
-                            }
-                        }
-                    }.padding(.horizontal, 30)
-                        .background(Color.screen)
-
-                case 1:
-                    VStack {
-                        LazyVGrid(columns: columns) {
-                            ForEach(tones) { item in
-                                MediumCardLibraryView(
-                                    data: item,
-                                    speaker: true,
-                                    onPlayMainAudio: {
-                                        print(
-                                            "Memutar suara utama untuk \(item.example)"
-                                        )
-                                    },
-                                    onPlayExampleAudio: {
-                                        print(
-                                            //"Memutar suara contoh untuk \(item.example)"
-                                            TTSService.shared.speakMandarin(item.example)
-                                        )
-                                    }
-                                )
+                            
+                            Divider()
+                            Text("Aturan khusus").font(Styles.title3Shandi)
+                            LazyVGrid(columns: columns) {
+                                ForEach(special_rules) { item in
+                                    SmallCardLibraryView(
+                                        data: item,
+                                        speaker: true,
+                                        onPlayMainAudio: {
+                                            print(
+                                                //"Memutar suara utama untuk \(item.letter)"
+                                                TTSService.shared.speakMandarin(item.letter)
+                                            )
+                                        },
+                                        onPlayExampleAudio: {
+                                            print(
+                                                //"Memutar suara contoh untuk \(item.letter)"
+                                                TTSService.shared.speakMandarin(item.example)
+                                            )
+                                        }
+                                    )
+                                }
                             }
                         }
                         .padding(.horizontal, 30)
-                        .padding(.vertical, 15)
-                        
-                        HStack {
-                            Image("insight")
-                                .resizable()
-                                .frame(width: 71, height: 61)
-                            Text(
-                                "Saat berbicara normal, nada 3 sering hanya turun dan tetap rendah. Tidak harus naik lagi. Keduanya benar dan alami."
-                            ).font(.caption)
-                                .padding(.horizontal, 10)
-                        }.padding()
-                            .frame(maxWidth: .infinity)
-                            .background(
-                                RoundedRectangle(cornerRadius: Sizing.roundedSmall)
-                                    .foregroundStyle(Color.white)
-                            )
-                            .padding(.horizontal, 30)
-                    }
+                            .background(Color.screen)
 
-                case 2:
-                    ScrollView(.horizontal) {
-                        LazyHStack(spacing: 20) {
-                            ForEach(tone_sandhi) { item in
-                                BigCardLibraryView(
-                                    data: item,
-                                    speaker: false,
-                                    onPlayMainAudio: {},
-                                    onPlayExampleAudio: {}
-                                )
-                                .frame(width: 350)
+                    case 1:
+                        VStack {
+                            LazyVGrid(columns: columns) {
+                                ForEach(tones) { item in
+                                    MediumCardLibraryView(
+                                        data: item,
+                                        speaker: true,
+                                        onPlayMainAudio: {
+                                            print(
+                                                "Memutar suara utama untuk \(item.tts)"
+                                            )
+                                        },
+                                        onPlayExampleAudio: {
+                                            print(
+                                                //"Memutar suara contoh untuk \(item.example)"
+                                                TTSService.shared.speakMandarin(item.hanzi)
+                                            )
+                                        }
+                                    )
+                                }
                             }
+                            .padding(.horizontal, 30)
+                            .padding(.vertical, 15)
+                            
+                            HStack {
+                                Image("insight")
+                                    .resizable()
+                                    .frame(width: 71, height: 61)
+                                Text(
+                                    "Saat berbicara normal, nada 3 sering hanya turun dan tetap rendah. Tidak harus naik lagi. Keduanya benar dan alami."
+                                ).font(.caption)
+                                    .padding(.horizontal, 10)
+                            }.padding()
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    RoundedRectangle(cornerRadius: Sizing.roundedSmall)
+                                        .foregroundStyle(Color.white)
+                                )
+                                .padding(.horizontal, 30)
                         }
-                        .scrollTargetLayout()
-                        .padding(.horizontal)
+
+                    case 2:
+                        let cardWidth = geometry.size.width * 0.84
+
+                        ScrollView(.horizontal) {
+                            LazyHStack(spacing: 16) {
+                                ForEach(tone_sandhi) { item in
+                                    BigCardLibraryView(
+                                        data: item,
+                                        speaker: false
+                                    )
+                                    .frame(width: cardWidth)
+                                }
+                            }
+                            .frame(maxHeight: .infinity)
+                            .scrollTargetLayout()
+                            .padding(.horizontal, (geometry.size.width - cardWidth) / 2)
+                        }
+                        .frame(maxHeight: .infinity)
+                        .scrollTargetBehavior(.viewAligned)
+                        .scrollIndicators(.hidden)
+                    default:
+                        EmptyView()
                     }
-                    
-                    .scrollTargetBehavior(.paging)
-                    .scrollIndicators(.hidden)
-                    
-                default:
-                    EmptyView()
                 }
+                .frame(minHeight: geometry.size.height, alignment: .top)
             }
+            .background(Color.screen)
         }
-        .background(Color.screen)
     }
 }
 

@@ -18,7 +18,7 @@ final class TTSService {
     /// - Parameters:
     ///   - text: Teks Hanzi atau Pinyin yang ingin dibaca
     ///   - rate: Kecepatan bicara (default 0.4 agar pas untuk latihan/pembelajaran)
-    func speakMandarin(_ text: String, rate: Float = 0.4) {
+    func speakMandarin(_ text: String, rate: Float = 0.25) {
         if synthesizer.isSpeaking {
             synthesizer.stopSpeaking(at: .immediate)
         }
