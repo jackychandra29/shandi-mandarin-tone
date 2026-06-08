@@ -9,77 +9,81 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Ni Hao, User").font(Font.title2.bold())
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Halo, User").font(Font.title2.bold())
 
-            Divider()
+                Divider()
 
-            Text("Lorem Ipsum").font(.title.bold())
-            Text("Welcome to the Shandi App").font(.title2)
+                Text("Latihan hari ini").font(.title.bold())
+                Text("Selamat datang di aplikasi Shandi").font(.title2)
 
-            Button {
-            } label: {
-                HStack(spacing: 16) {
-                    Image(systemName: "waveform").font(Font.title.bold())
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Practice").font(.headline)
-                        Text("Practice single tone").font(
-                            Font.subheadline
-                        ).foregroundStyle(Color.secondary)
+                Button {
+                } label: {
+                    HStack(spacing: 16) {
+                        Image(systemName: "waveform").font(Font.title.bold())
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Latihan").font(.headline)
+                            Text("Latihan nada tunggal").font(
+                                Font.subheadline
+                            ).foregroundStyle(Color.secondary)
 
-                    }
-                    Spacer()
-                    Image(systemName: "chevron.right").foregroundStyle(
-                        Color.secondary
-                    )
-                }
-                .padding(.vertical, 56)
-                .padding(.horizontal, 16)
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 24).fill(Color.white)
-                )
-                .shadow(radius: 4)
-            }
-            .padding(.horizontal)
-
-            Button {
-            } label: {
-                HStack(spacing: 16) {
-                    Image(systemName: "waveform").font(Font.title.bold())
-                        .background(
-                            RoundedRectangle(cornerRadius: 10).fill(Color.white)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right").foregroundStyle(
+                            Color.secondary
                         )
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Tone Pair Practice").font(.headline)
-                            .foregroundStyle(Color.white)
-                        Text("Practice tone combinations").font(
-                            Font.subheadline
-                        ).foregroundStyle(Color.white)
-
                     }
-                    Spacer()
-                    Image(systemName: "chevron.right").foregroundStyle(
-                        Color.secondary
+                    .padding(.vertical, 56)
+                    .padding(.horizontal, 16)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 24).fill(Color.pitchtrack)
                     )
+                    .shadow(radius: 4)
                 }
-                .padding(.vertical, 56)
-                .padding(.horizontal, 16)
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 24).fill(
-                        Color(red: 1.0, green: 0.45, blue: 0.35, opacity: 0.8)
+                .padding(.horizontal)
+
+                NavigationLink {
+                    TonePairView()
+                } label: {
+                    HStack(spacing: 16) {
+                        Image(systemName: "waveform").font(Font.title.bold())
+                            .background(
+                                RoundedRectangle(cornerRadius: 10).fill(Color.screen)
+                            )
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Latihan Pasangan Nada").font(.headline)
+                                .foregroundStyle(Color.screen)
+                            Text("Latih kombinasi nada").font(
+                                Font.subheadline
+                            ).foregroundStyle(Color.screen)
+
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right").foregroundStyle(
+                            Color.screen
+                        )
+                    }
+                    .padding(.vertical, 56)
+                    .padding(.horizontal, 16)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 24).fill(
+                            Color.orangeBrand
+                        )
                     )
-                )
-                .shadow(radius: 4)
+                    .shadow(radius: 4)
+                }
+                .padding(.horizontal)
+                Spacer()
             }
-            .padding(.horizontal)
-            Spacer()
+            .padding(16)
         }
-        .padding(16)
     }
 }
 
 #Preview {
     HomeView()
+    
 }
