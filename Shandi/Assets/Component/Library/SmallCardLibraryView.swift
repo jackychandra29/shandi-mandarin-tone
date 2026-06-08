@@ -24,7 +24,7 @@ struct SmallCardLibraryView: View {
             HStack(alignment: .center) {
                 Text(data.letter)
                     .font(Styles.largeTitleShandi)
-                    .foregroundColor(Color.orange)
+                    .foregroundColor(Color.orangeBrand)
             }
 
             // Desc
