@@ -29,11 +29,11 @@ struct TonePairView: View {
 
             VStack(alignment: .leading, spacing: 10) {
                 Text("Mulai dari perubahan nada yang mana?")
-                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .font(Styles.largeTitleShandi)
                     .foregroundStyle(Color.text)
 
                 Text("Pilih perubahan nada yang ingin kamu latih hari ini.")
-                    .font(.system(size: 14, design: .rounded))
+                    .font(Styles.subheadlineShandi)
                     .foregroundStyle(Color.text)
             }
 
@@ -97,156 +97,29 @@ struct TonePairView: View {
         }
         .overlay {
             if session.showsExitPrompt {
-                exitPromptOverlay
+                ExitAlertOverlay(
+                    wordCount: session.words.count,
+                    onExit: {
+                        session.endSessionEarly()
+                        session.showsExitPrompt = false
+                    },
+                    onContinue: {
+                            session.showsExitPrompt = false
+                    }
+                )
             }
         }
     }
 
     private var sessionCompleteView: some View {
-        VStack(spacing: 22) {
-            Spacer()
-
-            VStack(spacing: 4) {
-                Text("Hebat, [User]!")
-                    .font(.system(size: 26, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.redBrand)
-
-                Text("Sesi selesai!")
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
-                    .foregroundStyle(Color.text)
+        SessionSummaryView(
+            wordCount: session.words.count,
+            tonePinyin: "mā",
+            toneLabel: "NADA 1",
+            onHomeTapped: {
+                dismiss()
             }
-
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .fill(Color.pitchtrack)
-                .frame(width: 170, height: 170)
-                .overlay(
-                    Text("ilustrasi\nmaskot naga")
-                        .font(.system(size: 12, design: .rounded))
-                        .multilineTextAlignment(.center)
-                        .foregroundStyle(Color.text)
-                )
-
-            VStack(alignment: .leading, spacing: 16) {
-                Text("Ringkasan Sesi")
-                    .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(Color.text)
-
-                HStack(spacing: 12) {
-                    summaryStat(value: "\(session.words.count)", label: "KATA")
-                    summaryStat(value: "mā", label: "NADA 1")
-                }
-
-                Text("10 kata selesai. Sedikit demi sedikit, nadamu makin stabil")
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.text)
-                    .padding(10)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            }
-            .padding(18)
-            .background(Color.yellowBrand)
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            .padding(.horizontal, 36)
-
-            Button(action: { dismiss() }) {
-                Text("Beranda")
-                    .font(.system(size: 14, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.screen)
-                    .padding(.horizontal, 22)
-                    .padding(.vertical, 12)
-                    .background(Color.redBrand)
-                    .clipShape(Capsule())
-            }
-
-            Spacer()
-        }
-    }
-
-//    private var header: some View {
-//        ZStack {
-//            VStack(spacing: 2) {
-//                Text(session.bodyTitle)
-//                    .font(.system(.headline, design: .rounded).weight(.semibold))
-//                    .foregroundStyle(Color.text)
-//
-//                Text(session.subtitle)
-//                    .font(.system(.caption, design: .rounded))
-//                    .foregroundStyle(Color.text)
-//            }
-//
-//            HStack {
-//                Spacer()
-//
-//                Button(action: { session.showsExitPrompt = true }) {
-//                    Image(systemName: "xmark")
-//                        .font(.system(size: 18, weight: .bold, design: .rounded))
-//                        .foregroundStyle(Color.screen)
-//                        .frame(width: 34, height: 34)
-//                        .background(Color.text)
-//                        .clipShape(Circle())
-//                }
-//            }
-//        }
-//        .padding(.horizontal, 22)
-//        .padding(.top, 24)
-//        .padding(.bottom, 18)
-//    }
-
-    private var exitPromptOverlay: some View {
-        ZStack {
-            Color.black.opacity(0.18)
-                .ignoresSafeArea()
-
-            VStack(spacing: 18) {
-                Text("Akhiri latihan?")
-                    .font(.system(size: 24, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.redBrand)
-
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(Color.yellowBrand.opacity(0.35))
-                    .frame(width: 130, height: 130)
-                    .overlay(
-                        Text("ilustrasi\nmaskot naga")
-                            .font(.system(size: 12, design: .rounded))
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(Color.text)
-                    )
-
-                Text("Hari ini kamu sudah latihan [N] kata\nProgresmu sudah tersimpan.")
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
-                    .foregroundStyle(Color.text)
-                    .multilineTextAlignment(.center)
-
-                HStack(spacing: 12) {
-                    Button(action: session.endSessionEarly) {
-                        Text("Akhiri sesi")
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                            .foregroundStyle(Color.text)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                            .background(Color.screen)
-                            .clipShape(Capsule())
-                    }
-
-                    Button(action: { session.showsExitPrompt = false }) {
-                        Text("Lanjut")
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                            .foregroundStyle(Color.text)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                            .background(Color.yellowBrand)
-                            .clipShape(Capsule())
-                    }
-                }
-            }
-            .padding(.horizontal, 26)
-            .padding(.vertical, 28)
-            .frame(maxWidth: 340)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .shadow(color: Color.text.opacity(0.08), radius: 20, y: 8)
-        }
+        )
     }
 
     @ViewBuilder
@@ -403,22 +276,6 @@ struct TonePairView: View {
             .background(Color.pitchtrack)
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
-    }
-
-    private func summaryStat(value: String, label: String) -> some View {
-        VStack(spacing: 8) {
-            Text(value)
-                .font(.system(size: 28, weight: .bold, design: .rounded))
-                .foregroundStyle(Color.redBrand)
-
-            Text(label)
-                .font(.system(size: 12, weight: .bold, design: .rounded))
-                .foregroundStyle(Color.text)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 16)
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 }
 
