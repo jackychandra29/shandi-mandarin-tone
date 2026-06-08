@@ -15,7 +15,7 @@ struct SmallCardLibraryView: View {
     var onPlayExampleAudio: () -> Void
 
     var body: some View {
-        Button (action: onPlayMainAudio) {
+//        Button (action: onPlayMainAudio) {
             VStack {
                 HStack {
                     Spacer()
@@ -33,7 +33,9 @@ struct SmallCardLibraryView: View {
                     .font(Styles.captionShandi)
                     .foregroundColor(Color.text)
                     .multilineTextAlignment(.center)
-                
+
+                Spacer()
+
                 // Example
                 Button(action: onPlayExampleAudio) {
                     HStack(spacing: 6) {
@@ -51,13 +53,14 @@ struct SmallCardLibraryView: View {
                 }
             }
             .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white)
             .cornerRadius(Sizing.roundedBig)
-            .overlay(alignment: .topTrailing) {
-                Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
-            }
+//            .overlay(alignment: .topTrailing) {
+//                Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
+//            }
         }
-    }
+//    }
 }
 
 #Preview {
@@ -68,7 +71,9 @@ struct SmallCardLibraryView: View {
             desc: "Seperti 'p'",
             example: "bā",
             read: "pa",
-            meaning: "ayah"
+            meaning: "ayah",
+            hanzi: "test",
+            tts: "test"
         ),
         speaker: true,
         onPlayMainAudio: { print("Play b audio") },
