@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @AppStorage("userName") private var userName = "User"
+
     var body: some View {
         ZStack {
 
@@ -19,7 +21,7 @@ struct HomeView: View {
             VStack(alignment: .leading, spacing: 16) {
                 Spacer()
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("Ni Hao, User").font(Styles.subheadlineShandi)
+                    Text("Ni Hao, \(userName)").font(Styles.subheadlineShandi)
                     Text("Yuk, Latih Nada Mandarinmu").font(
                         Styles.largeTitleShandi
                     )
