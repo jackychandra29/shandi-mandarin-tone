@@ -15,45 +15,47 @@ struct SmallCardLibraryView: View {
     var onPlayExampleAudio: () -> Void
 
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-            }
-            
-            // Letter
-            HStack(alignment: .center) {
-                Text(data.letter)
-                    .font(Styles.largeTitleShandi)
-                    .foregroundColor(Color.orange)
-            }
-
-            // Desc
-            Text(data.desc)
-                .font(Styles.captionShandi)
-                .foregroundColor(Color.text)
-                .multilineTextAlignment(.center)
-
-            // Example
-            Button(action: onPlayExampleAudio) {
-                HStack(spacing: 6) {
-                    Image(systemName: "speaker.wave.2.fill").foregroundStyle(Color.text)
-                        .font(Styles.subheadlineShandi)
-                    Text(data.example)
-                        .font(Styles.subheadlineShandi)
+        Button (action: onPlayMainAudio) {
+            VStack {
+                HStack {
+                    Spacer()
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .foregroundColor(Color.text)
-
-                .background(Color.pillexample)
-                .clipShape(Capsule())
+                
+                // Letter
+                HStack(alignment: .center) {
+                    Text(data.letter)
+                        .font(Styles.largeTitleShandi)
+                        .foregroundColor(Color.orange)
+                }
+                
+                // Desc
+                Text(data.desc)
+                    .font(Styles.captionShandi)
+                    .foregroundColor(Color.text)
+                    .multilineTextAlignment(.center)
+                
+                // Example
+                Button(action: onPlayExampleAudio) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "speaker.wave.2.fill").foregroundStyle(Color.text)
+                            .font(Styles.subheadlineShandi)
+                        Text(data.example)
+                            .font(Styles.subheadlineShandi)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .foregroundColor(Color.text)
+                    
+                    .background(Color.pillexample)
+                    .clipShape(Capsule())
+                }
             }
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(Sizing.roundedBig)
-        .overlay(alignment: .topTrailing) {
-            Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
+            .padding()
+            .background(Color.white)
+            .cornerRadius(Sizing.roundedBig)
+            .overlay(alignment: .topTrailing) {
+                Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
+            }
         }
     }
 }
