@@ -10,9 +10,33 @@
 		6972A0CA2FC54DEE000ACF95 /* Shandi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shandi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		508B73152FD6C63D00231919 /* Exceptions for "Shandi" folder in "Shandi" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Assets/Data Dummy/single_tone.json",
+			);
+			target = 6972A0C92FC54DEE000ACF95 /* Shandi */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		508B73162FD6C63D00231919 /* Exceptions for "Shandi" folder in "Compile Sources" phase from "Shandi" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 6972A0C62FC54DEE000ACF95 /* Sources */;
+			membershipExceptions = (
+				"Assets/Data Dummy/single_tone.json",
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6972A0CC2FC54DEE000ACF95 /* Shandi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				508B73152FD6C63D00231919 /* Exceptions for "Shandi" folder in "Shandi" target */,
+				508B73162FD6C63D00231919 /* Exceptions for "Shandi" folder in "Compile Sources" phase from "Shandi" target */,
+			);
 			path = Shandi;
 			sourceTree = "<group>";
 		};
@@ -253,7 +277,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S975R3TQ8N;
+				DEVELOPMENT_TEAM = X6B9KN8FQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -266,7 +290,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jq.Shandi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Dody.Shandi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -285,7 +309,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S975R3TQ8N;
+				DEVELOPMENT_TEAM = X6B9KN8FQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -298,7 +322,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jq.Shandi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Dody.Shandi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
