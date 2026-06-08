@@ -3,72 +3,80 @@
     "id": 1,
     "letter": "w + u",
     "desc": "'w' tidak dibaca. Langsung u.",
-    "example": "午安",
-    "pinyin": "wǔ ān",
+    "example": "wǔ ān",
     "read": "u an",
-    "meaning": "selamat siang"
+    "meaning": "selamat siang",
+    "hanzi": "午安",
+    "tts": "wu_an"
   },
   {
     "id": 2,
     "letter": "y + i",
     "desc": "'y' tidak dibaca. Langsung i.",
-    "example": "一",
-    "pinyin": "yī",
+    "example": "yī",
     "read": "i",
-    "meaning": "satu"
+    "meaning": "satu",
+    "hanzi": "一",
+    "tts": "yi"
   },
   {
     "id": 3,
     "letter": "si",
     "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
-    "example": "四",
-    "pinyin": "sì",
+    "example": "sì",
     "read": "se",
-    "meaning": "empat"
+    "meaning": "empat",
+    "hanzi": "四",
+    "tts": "si"
   },
   {
     "id": 4,
     "letter": "shi",
     "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
-    "example": "是",
-    "pinyin": "shì",
+    "example": "shì",
     "read": "she",
-    "meaning": "adalah"
+    "meaning": "adalah",
+    "hanzi": "是",
+    "tts": "shi"
   },
   {
     "id": 5,
     "letter": "chi",
     "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
-    "example": "吃",
-    "pinyin": "chī",
+    "example": "chī",
     "read": "che",
-    "meaning": "makan"
+    "meaning": "makan",
+    "hanzi": "吃",
+    "tts": "chi"
   },
   {
     "id": 6,
     "letter": "zhi",
     "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
-    "example": "知",
-    "pinyin": "zhī",
+    "example": "zhī",
     "read": "ce",
-    "meaning": "tahu"
+    "meaning": "tahu",
+    "hanzi": "知",
+    "tts": "zhi"
   },
   {
     "id": 7,
     "letter": "zi",
     "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
-    "example": "字",
-    "pinyin": "zì",
+    "example": "zì",
     "read": "ce",
-    "meaning": "huruf"
+    "meaning": "huruf",
+    "hanzi": "字",
+    "tts": "zi"
   },
   {
     "id": 8,
     "letter": "ci",
     "desc": "Huruf 'i' dibaca seperti 'e' pada kata 'dekat'.",
-    "example": "次",
-    "pinyin": "cì",
+    "example": "cì",
     "read": "che",
-    "meaning": "kali"
+    "meaning": "kali",
+    "hanzi": "次",
+    "tts": "ci"
   }
 ]
