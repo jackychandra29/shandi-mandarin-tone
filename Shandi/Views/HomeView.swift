@@ -9,90 +9,104 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ZStack {
+        NavigationStack {
+            ZStack {
+                Image("backgroundd")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
 
-            Image("backgroundd")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-
-            VStack(alignment: .leading, spacing: 16) {
-                Spacer()
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("Ni Hao, User").font(Styles.subheadlineShandi)
-                    Text("Yuk, Latih Nada Mandarinmu").font(
-                        Styles.largeTitleShandi
-                    )
-                }.foregroundStyle(Color.redBrand)
-                    .padding()
-
-                Spacer()
-
-                HStack {
+                VStack(alignment: .leading, spacing: 16) {
                     Spacer()
-                    Image("asan").resizable()
-                        .frame(width: 150, height: 200)
-                }.padding(.vertical, 5)
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("Ni Hao, User").font(Styles.subheadlineShandi)
+                        Text("Yuk, Latih Nada Mandarinmu").font(
+                            Styles.largeTitleShandi
+                        )
+                    }.foregroundStyle(Color.redBrand)
+                        .padding()
 
-                
-                //Button single tone
-                Button {
-                } label: {
+                    Spacer()
+
                     HStack {
-                        Image("singlePractice").resizable().frame(
-                            width: 65,
-                            height: 65
-                        )
-
-                        VStack(alignment: .leading) {
-                            Text("Nada Dasar").font(Font.title3).bold()
-                            Text("Dengar, ikuti, lalu ulangi setiap nada satu per satu."
-                            ).font(Styles.captionShandi).multilineTextAlignment(.leading)
-                        }.foregroundStyle(Color.white).padding(.horizontal, 8)
-                        
                         Spacer()
+                        Image("asan").resizable()
+                            .frame(width: 150, height: 200)
+                    }.padding(.vertical, 5)
 
-                        Image(systemName: "chevron.right").foregroundStyle(
-                            Color.white
-                        )
-                    }.padding(.vertical, 34)
-                    .padding(.horizontal, 15)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(
-                        RoundedRectangle(cornerRadius: 24).fill(Color.redBrand)
-                    )
+                    //Button single tone
+                    Button {
+                    } label: {
+                        HStack {
+                            Image("singlePractice").resizable().frame(
+                                width: 65,
+                                height: 65
+                            )
+
+                            VStack(alignment: .leading) {
+                                Text("Nada Dasar").font(Font.title3).bold()
+                                Text(
+                                    "Dengar, ikuti, lalu ulangi setiap nada satu per satu."
+                                ).font(Styles.captionShandi)
+                                    .multilineTextAlignment(.leading)
+                            }.foregroundStyle(Color.white).padding(
+                                .horizontal,
+                                8
+                            )
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right").foregroundStyle(
+                                Color.white
+                            )
+                        }.padding(.vertical, 34)
+                            .padding(.horizontal, 15)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(
+                                RoundedRectangle(cornerRadius: 24).fill(
+                                    Color.redBrand
+                                )
+                            )
+                    }
+
+                    //Button pair tone
+                    NavigationLink(destination: TonePairView()) {
+                        HStack {
+                            Image("pairPractice").resizable().frame(
+                                width: 65,
+                                height: 65
+                            )
+
+                            VStack(alignment: .leading) {
+                                Text("Gabungan Nada").font(Font.title3).bold()
+                                Text(
+                                    "Dengar, bandingkan, lalu ikuti pola gabungan nadanya."
+                                ).font(Styles.captionShandi)
+                                    .multilineTextAlignment(.leading)
+
+                            }.foregroundStyle(Color.white).padding(
+                                .horizontal,
+                                8
+                            )
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right").foregroundStyle(
+                                Color.white
+                            )
+                        }.padding(.vertical, 34)
+                            .padding(.horizontal, 15)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(
+                                RoundedRectangle(cornerRadius: 24).fill(
+                                    Color.orangeBrand
+                                )
+                            )
+                            .padding(.bottom, 80)
+                    }
                 }
-                
-                //Button pair tone
-                Button {
-                } label: {
-                    HStack {
-                        Image("pairPractice").resizable().frame(
-                            width: 65,
-                            height: 65
-                        )
-
-                        VStack(alignment: .leading) {
-                            Text("Gabungan Nada").font(Font.title3).bold()
-                            Text("Dengar, bandingkan, lalu ikuti pola gabungan nadanya."
-                            ).font(Styles.captionShandi).multilineTextAlignment(.leading)
-                            
-                        }.foregroundStyle(Color.white).padding(.horizontal, 8)
-                        
-                        Spacer()
-
-                        Image(systemName: "chevron.right").foregroundStyle(
-                            Color.white
-                        )
-                    }.padding(.vertical, 34)
-                    .padding(.horizontal, 15)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(
-                        RoundedRectangle(cornerRadius: 24).fill(Color.orangeBrand)
-                    )
-                }.padding(.bottom, 80)
+                .padding(30)
             }
-            .padding(30)
         }
     }
 }

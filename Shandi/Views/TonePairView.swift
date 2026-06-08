@@ -17,6 +17,9 @@ struct TonePairView: View {
         }
         .background(Color.screen)
         .navigationBarBackButtonHidden()
+        .onAppear {
+            session = TonePairPracticeSession(words: TonePairPracticeMockData.words)
+        }
     }
 
     private var introView: some View {
