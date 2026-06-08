@@ -10,8 +10,8 @@ import SwiftUI
 
 // For font size and radius corners
 enum Sizing {
-    static let hanziLarge = Font.system(size: 60)
-    static let hanziSmall = Font.system(size: 15)
+    static let hanziLarge = Font.system(size: 60, weight: .medium)
+    static let hanziSmall = Font.system(size: 15, weight: .medium)
     
     static let roundedSmall :CGFloat = 12
     static let roundedMedium :CGFloat = 16
