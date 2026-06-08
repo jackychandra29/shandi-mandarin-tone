@@ -178,9 +178,9 @@ struct LibraryView: View {
                         .padding(.vertical, 15)
                         
                         HStack {
-                            Image(systemName: "arrow.2.circlepath.circle")
+                            Image("insight")
                                 .resizable()
-                                .frame(width: 61, height: 61)
+                                .frame(width: 71, height: 61)
                             Text(
                                 "Saat berbicara normal, nada 3 sering hanya turun dan tetap rendah. Tidak harus naik lagi. Keduanya benar dan alami."
                             ).font(.caption)
@@ -211,7 +211,7 @@ struct LibraryView: View {
                         .padding(.horizontal)
                     }
                     
-                    .scrollTargetBehavior(.viewAligned)
+                    .scrollTargetBehavior(.paging)
                     .scrollIndicators(.hidden)
                     
                 default:
