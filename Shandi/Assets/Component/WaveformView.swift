@@ -1,40 +1,33 @@
-//
-//  WaveformView.swift
-//  Shandi
-//
-//  Created by Garry Agassi on 03/06/26.
-//
-
 import SwiftUI
 
 struct WaveformView: View {
     var values: [CGFloat] = [1, 4, 1]
     var comparisonValues: [CGFloat]? = nil
     var title = "Jejak nada"
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.system(size: 12))
                 .foregroundStyle(Color.text)
                 .fontDesign(.rounded)
-            
+
             GeometryReader { geo in
                 let leftPadding: CGFloat = 24
                 let chartWidth = geo.size.width - leftPadding
                 let labels = ["05", "04", "03", "02", "01"]
                 let maxValue: CGFloat = 5
                 let minValue: CGFloat = 1
-                
+
                 ZStack(alignment: .topLeading) {
                     ForEach(0..<5) { index in
                         let y = CGFloat(index) * geo.size.height / 4
-                        
+
                         Text(labels[index])
                             .font(.system(size: 8))
                             .foregroundStyle(Color.text)
                             .position(x: 6, y: y)
-                        
+
                         Rectangle()
                             .fill(Color.gridline)
                             .frame(width: chartWidth, height: 1)
@@ -43,7 +36,7 @@ struct WaveformView: View {
                                 y: y
                             )
                     }
-                    
+
                     waveformPath(
                         values: values,
                         leftPadding: leftPadding,
@@ -128,8 +121,6 @@ struct WaveformView: View {
 }
 
 #Preview {
-    WaveformView(
-        values: [1, 4, 1]
-    )
-    .padding()
+    WaveformView(values: [1, 4, 1])
+        .padding()
 }

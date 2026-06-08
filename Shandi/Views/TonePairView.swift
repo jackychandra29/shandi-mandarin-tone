@@ -86,7 +86,7 @@ struct TonePairView: View {
                         .padding(.horizontal, 28)
                         .padding(.bottom, 28)
                 }
-                
+
             }
         }
         .overlay {

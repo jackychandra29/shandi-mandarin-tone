@@ -1,19 +1,12 @@
-//
-//  PracticeView.swift
-//  Shandi
-//
-//  Created by Garry Agassi on 02/06/26.
-//
-
 import SwiftUI
 
 struct PracticeView: View {
     var body: some View {
-        BigCard{
-            VStack(){
-                HStack(){
+        BigCard {
+            VStack {
+                HStack {
                     Spacer()
-                    Button{} label: {
+                    Button {} label: {
                         Image(systemName: "speaker.wave.2.fill")
                             .foregroundStyle(Color.text)
                     }
