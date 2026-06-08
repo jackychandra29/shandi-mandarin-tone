@@ -9,40 +9,43 @@ import SwiftUI
 
 
 struct AnswerOption: View {
+    let title: String
+    var isSelected = false
+    let action: () -> Void
     
     var body: some View {
-        Button {
-            print("Tapped")
-        } label: {
-            Text("Tone 2 + Tone 3")
+        Button(action: action) {
+            Text(title)
                 .font(.system(size: 14))
                 .fontDesign(.rounded)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
         }
-        .buttonStyle(AnswerOptionButtonStyle())
+        .buttonStyle(AnswerOptionButtonStyle(isSelected: isSelected))
     }
 }
 
-struct AnswerOptionButtonStyle: ButtonStyle {
+private struct AnswerOptionButtonStyle: ButtonStyle {
+    let isSelected: Bool
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundStyle(
-                configuration.isPressed
-                ? Color.white
-                : Color.black.opacity(0.65)
+                configuration.isPressed || isSelected
+                ? Color.screen
+                : Color.text
             )
             .background(
-                configuration.isPressed
-                ? Color(red: 142 / 255, green: 142 / 255, blue: 147 / 255)
-                : Color(red: 0.94, green: 0.94, blue: 0.97)
+                configuration.isPressed || isSelected
+                ? Color.yellowBrand
+                : Color.screen
             )
             .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 }
 
 #Preview {
-    AnswerOption()
+    AnswerOption(title: "Nada 2 + Nada 3", isSelected: true) {}
         .padding(.horizontal, 20)
 }

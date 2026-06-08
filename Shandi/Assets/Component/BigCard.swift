@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BigCard<Content: View>: View {
-    let content: Content
+    private let content: Content
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
@@ -17,15 +17,15 @@ struct BigCard<Content: View>: View {
     var body: some View {
         VStack {
             content
+                .padding(.vertical,24)
+                .padding(.horizontal,12)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color(.systemBackground))
+                .fill(Color.pitchtrack)
         )
         .padding(28)
-//        .background(.red)
-//        .ignoresSafeArea()
     }
 }
 

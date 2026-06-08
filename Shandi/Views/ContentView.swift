@@ -13,17 +13,12 @@ struct ContentView: View {
             HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
-                    Text("Home")
+                    Text("Beranda")
                 }
-//            PracticeView()
-//                .tabItem {
-//                    Image(systemName: "mic.fill")
-//                    Text("Practice")
-//                }
             LibraryView()
                 .tabItem {
                     Image(systemName: "character.book.closed.fill")
-                    Text("Library")
+                    Text("Pustaka")
                 }
         }
     }

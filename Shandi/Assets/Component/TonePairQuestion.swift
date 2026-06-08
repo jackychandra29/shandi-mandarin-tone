@@ -8,36 +8,40 @@
 import SwiftUI
 
 struct TonePairQuestion: View {
+    let tonePair: String
+    let question: String
     
     var body: some View {
         VStack(alignment: .center, spacing: 12) {
-            Text("Tone 3 + Tone 3 ")
+            Text(tonePair)
                 .font(.system(size: 14))
-                .foregroundStyle(.black.opacity(0.65))
+                .foregroundStyle(Color.text)
                 .fontDesign(.rounded)
                 .fontWeight(.bold)
             
             Rectangle()
-                .fill(.black.opacity(0.5))
-                .frame(width: .infinity, height: 2)
+                .fill(Color.text.opacity(0.7))
+                .frame(maxWidth: .infinity)
+                .frame(height: 2)
             
-            Text("What does it sound like in speech?")
+            Text(question)
                 .fontDesign(.rounded)
                 .font(.system(size: 14))
                 .fontWeight(.regular)
+                .foregroundStyle(Color.text)
            
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 16)
-        .frame(height: 105)
-        .background(Color(red: 0.94, green: 0.94, blue: 0.97))
+        .frame(minHeight: 105)
+        .background(Color.screen)
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-        
-        
     }
 }
 
 #Preview {
-    TonePairQuestion()
-//    .padding()
+    TonePairQuestion(
+        tonePair: "Nada 3 + Nada 3",
+        question: "nadanya berubah jadi apa?"
+    )
 }

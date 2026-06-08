@@ -15,24 +15,14 @@ struct PracticeView: View {
                     Spacer()
                     Button{} label: {
                         Image(systemName: "speaker.wave.2.fill")
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color.text)
                     }
 
                 }
                 Spacer()
-                VStack(alignment: .center, spacing: 4){
-                    Text("bīng")
-                        .font(Font.system(.largeTitle, design: .rounded))
-                        .fontWeight(.bold)
-                    Text("冰")
-                        .font(Font.system(size: 60, design: .rounded))
-                        .fontWeight(.semibold)
-                    Text("Ice")
-                        .font(Font.system(.subheadline, design: .rounded))
-                    
-                }
+                WordDisplay(pinyin: "bīng", hanzi: "冰", meaning: "Es")
                 Spacer()
-                WaveformView(values: [4,1,4], )
+                WaveformView(values: [4, 1, 4])
                 Spacer()
                 Spacer()
                 Spacer()
