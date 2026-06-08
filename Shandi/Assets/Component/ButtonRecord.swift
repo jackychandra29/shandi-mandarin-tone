@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ButtonRecord: View {
+    var action: () -> Void = {}
+
     var body: some View {
-        Button{} label: {
+        Button(action: action) {
             Image(systemName: "mic.circle.fill")
-                .foregroundStyle(.black)
+                .foregroundStyle(Color.redBrand)
                 .font(.system(size: 60))
         }
- 
     }
 }
 
