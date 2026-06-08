@@ -7,12 +7,12 @@ struct PrimaryActionButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.system(size: 14, weight: .bold, design: .rounded))
+                .font(Styles.headlineShandi)
                 .foregroundStyle(Color.screen)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)
                 .background(Color.redBrand)
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         }
     }
 }
