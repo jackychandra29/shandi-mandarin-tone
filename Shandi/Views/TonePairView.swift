@@ -277,22 +277,6 @@ struct TonePairView: View {
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
     }
-
-    private func summaryStat(value: String, label: String) -> some View {
-        VStack(spacing: 8) {
-            Text(value)
-                .font(.system(size: 28, weight: .bold, design: .rounded))
-                .foregroundStyle(Color.redBrand)
-
-            Text(label)
-                .font(.system(size: 12, weight: .bold, design: .rounded))
-                .foregroundStyle(Color.text)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 16)
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-    }
 }
 
 #Preview {
