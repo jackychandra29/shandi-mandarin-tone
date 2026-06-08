@@ -91,12 +91,14 @@ struct LibraryView: View {
                                     speaker: true,
                                     onPlayMainAudio: {
                                         print(
-                                            "Memutar suara utama untuk \(item.letter)"
+                                            //"Memutar suara utama untuk \(item.letter)"
+                                            //TTSService.shared.speakMandarin(item.letter)
                                         )
                                     },
                                     onPlayExampleAudio: {
                                         print(
-                                            "Memutar suara contoh untuk \(item.letter)"
+                                            //"Memutar suara contoh untuk \(item.letter)"
+                                            TTSService.shared.speakMandarin(item.example)
                                         )
                                     }
                                 )
@@ -112,12 +114,14 @@ struct LibraryView: View {
                                     speaker: true,
                                     onPlayMainAudio: {
                                         print(
-                                            "Memutar suara utama untuk \(item.letter)"
+                                            //"Memutar suara utama untuk \(item.letter)"
+                                            //TTSService.shared.speakMandarin(item.letter)
                                         )
                                     },
                                     onPlayExampleAudio: {
                                         print(
-                                            "Memutar suara contoh untuk \(item.letter)"
+                                            //"Memutar suara contoh untuk \(item.letter)"
+                                            TTSService.shared.speakMandarin(item.read)
                                         )
                                     }
                                 )
@@ -133,12 +137,14 @@ struct LibraryView: View {
                                     speaker: true,
                                     onPlayMainAudio: {
                                         print(
-                                            "Memutar suara utama untuk \(item.letter)"
+                                            //"Memutar suara utama untuk \(item.letter)"
+                                            TTSService.shared.speakMandarin(item.letter)
                                         )
                                     },
                                     onPlayExampleAudio: {
                                         print(
-                                            "Memutar suara contoh untuk \(item.letter)"
+                                            //"Memutar suara contoh untuk \(item.letter)"
+                                            TTSService.shared.speakMandarin(item.example)
                                         )
                                     }
                                 )
@@ -161,7 +167,8 @@ struct LibraryView: View {
                                     },
                                     onPlayExampleAudio: {
                                         print(
-                                            "Memutar suara contoh untuk \(item.example)"
+                                            //"Memutar suara contoh untuk \(item.example)"
+                                            TTSService.shared.speakMandarin(item.example)
                                         )
                                     }
                                 )
