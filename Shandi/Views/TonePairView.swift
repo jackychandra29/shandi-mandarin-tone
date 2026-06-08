@@ -70,7 +70,13 @@ struct TonePairView: View {
 
     private var practiceView: some View {
         VStack(spacing: 0) {
-            header
+            PracticeHeader(
+                title: session.bodyTitle,
+                subtitle: session.subtitle,
+                onExitTap: {
+                    session.showsExitPrompt = true
+                }
+            )
 
             Rectangle()
                 .fill(Color.text.opacity(0.28))
@@ -157,35 +163,35 @@ struct TonePairView: View {
         }
     }
 
-    private var header: some View {
-        ZStack {
-            VStack(spacing: 2) {
-                Text(session.bodyTitle)
-                    .font(.system(.headline, design: .rounded).weight(.semibold))
-                    .foregroundStyle(Color.text)
-
-                Text(session.subtitle)
-                    .font(.system(.caption, design: .rounded))
-                    .foregroundStyle(Color.text)
-            }
-
-            HStack {
-                Spacer()
-
-                Button(action: { session.showsExitPrompt = true }) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
-                        .foregroundStyle(Color.screen)
-                        .frame(width: 34, height: 34)
-                        .background(Color.text)
-                        .clipShape(Circle())
-                }
-            }
-        }
-        .padding(.horizontal, 22)
-        .padding(.top, 24)
-        .padding(.bottom, 18)
-    }
+//    private var header: some View {
+//        ZStack {
+//            VStack(spacing: 2) {
+//                Text(session.bodyTitle)
+//                    .font(.system(.headline, design: .rounded).weight(.semibold))
+//                    .foregroundStyle(Color.text)
+//
+//                Text(session.subtitle)
+//                    .font(.system(.caption, design: .rounded))
+//                    .foregroundStyle(Color.text)
+//            }
+//
+//            HStack {
+//                Spacer()
+//
+//                Button(action: { session.showsExitPrompt = true }) {
+//                    Image(systemName: "xmark")
+//                        .font(.system(size: 18, weight: .bold, design: .rounded))
+//                        .foregroundStyle(Color.screen)
+//                        .frame(width: 34, height: 34)
+//                        .background(Color.text)
+//                        .clipShape(Circle())
+//                }
+//            }
+//        }
+//        .padding(.horizontal, 22)
+//        .padding(.top, 24)
+//        .padding(.bottom, 18)
+//    }
 
     private var exitPromptOverlay: some View {
         ZStack {

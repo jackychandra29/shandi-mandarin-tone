@@ -79,7 +79,7 @@ struct WaveformView: View {
         }
         .padding(.horizontal, 24)
         .padding(.vertical, 20)
-        .background(Color.screen)
+        .background(Color.pitchtrack)
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 

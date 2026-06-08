@@ -10,11 +10,13 @@ struct BigCard<Content: View>: View {
     var body: some View {
         VStack {
             content
+                .padding(.vertical, 12)
+                .padding(.horizontal, 24)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.pitchtrack)
+                .fill(Color.white)
         )
         .padding(28)
     }
