@@ -12,4 +12,6 @@ struct Tone: Identifiable, Codable {
     let example: String
     let desc: String
     let meaning: String
+    let hanzi: String
+    let tts: String
 }

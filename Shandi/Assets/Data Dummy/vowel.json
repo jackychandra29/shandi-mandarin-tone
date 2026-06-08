@@ -5,7 +5,9 @@
     "desc": "Seperti 'a' pada kata 'apa'.",
     "example": "爸 (bà)",
     "read": "pa",
-    "meaning": "ayah"
+    "meaning": "ayah",
+    "hanzi": "爸",
+    "tts": "啊"
   },
   {
     "id": 2,
@@ -13,7 +15,9 @@
     "desc": "Seperti 'o' pada kata 'obat'.",
     "example": "我 (wǒ)",
     "read": "wo",
-    "meaning": "saya"
+    "meaning": "saya",
+    "hanzi": "我",
+    "tts": "哦"
   },
   {
     "id": 3,
@@ -21,7 +25,9 @@
     "desc": "Seperti 'e' pada kata 'emas'.",
     "example": "饿 (è)",
     "read": "e",
-    "meaning": "lapar"
+    "meaning": "lapar",
+    "hanzi": "饿",
+    "tts": "鹅"
   },
   {
     "id": 4,
@@ -29,7 +35,9 @@
     "desc": "Seperti 'i' pada kata 'ikan'.",
     "example": "你 (nǐ)",
     "read": "ni",
-    "meaning": "kamu"
+    "meaning": "kamu",
+    "hanzi": "你",
+    "tts": "衣"
   },
   {
     "id": 5,
@@ -37,7 +45,9 @@
     "desc": "Seperti 'u' pada kata 'ular'.",
     "example": "不 (bù)",
     "read": "pu",
-    "meaning": "tidak"
+    "meaning": "tidak",
+    "hanzi": "不",
+    "tts": "乌"
   },
   {
     "id": 6,
@@ -45,6 +55,8 @@
     "desc": "Seperti 'yu' pada kata 'yuk'.",
     "example": "女 (nǚ)",
     "read": "nyu",
-    "meaning": "perempuan"
+    "meaning": "perempuan",
+    "hanzi": "女",
+    "tts": "迂"
   }
 ]

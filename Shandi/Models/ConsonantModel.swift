@@ -12,4 +12,6 @@ struct Consonant: Identifiable, Codable {
     let example: String
     let read: String
     let meaning: String
+    let hanzi: String
+    let tts: String
 }

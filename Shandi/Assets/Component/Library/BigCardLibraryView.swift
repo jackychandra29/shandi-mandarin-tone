@@ -11,8 +11,6 @@ import SwiftUI
 struct BigCardLibraryView: View {
     let data: ToneSandhi
     var speaker: Bool
-    var onPlayMainAudio: () -> Void
-    var onPlayExampleAudio: () -> Void
 
     var body: some View {
         VStack {
@@ -37,7 +35,7 @@ struct BigCardLibraryView: View {
                 .padding().frame(maxWidth: .infinity)
                     .background(
                         RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                            Color.screen
+                            Color.pitchtrack
                         )
                     )
 
@@ -49,7 +47,7 @@ struct BigCardLibraryView: View {
                 .padding().frame(maxWidth: .infinity)
                     .background(
                         RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                            Color.screen
+                            Color.pitchtrack
                         )
                     )
             }.padding(.horizontal)
@@ -61,7 +59,7 @@ struct BigCardLibraryView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
                     RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                        Color.screen
+                        Color.pitchtrack
                     )
                 )
                 .padding(.horizontal)
@@ -74,7 +72,7 @@ struct BigCardLibraryView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
                     RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                        Color.screen
+                        Color.pitchtrack
                     )
                 )
                 .padding(.horizontal)
@@ -94,8 +92,7 @@ struct BigCardLibraryView: View {
                 ) {
                     ForEach(data.examples) { example in
                         Button(action: {
-                            onPlayExampleAudio()
-                        }) {
+                            TTSService.shared.speakMandarin(example.hanzi)                        }) {
                             HStack(spacing: 4) {
                                 Image(systemName: Icons.speaker)
 
@@ -117,8 +114,7 @@ struct BigCardLibraryView: View {
             }
             .padding(.horizontal)
         }
-        .padding()
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.white)
         .cornerRadius(Sizing.roundedSmall)
     }
@@ -168,12 +164,6 @@ struct BigCardLibraryView: View {
             ]
         ),
         speaker: false,
-        onPlayMainAudio: {
-            print("Play main audio")
-        },
-        onPlayExampleAudio: {
-            print("Play example audio")
-        }
     )
     .padding()
     .background(Color.screen)

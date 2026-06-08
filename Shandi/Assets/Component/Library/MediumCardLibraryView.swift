@@ -38,6 +38,8 @@ struct MediumCardLibraryView: View {
                 .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
 
+            Spacer()
+
             // Button
             Button(action: onPlayExampleAudio) {
                 HStack(spacing: 6) {
@@ -55,11 +57,12 @@ struct MediumCardLibraryView: View {
             }
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(Sizing.roundedSmall)
-        .overlay(alignment: .topTrailing) {
-            Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
-        }
+//        .overlay(alignment: .topTrailing) {
+//            Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
+//        }
     }
 }
 
@@ -71,7 +74,9 @@ struct MediumCardLibraryView: View {
             symbol: "ˉ",
             example: "mā",
             desc: "Nada datar dan tinggi",
-            meaning: "ibu"
+            meaning: "ibu",
+            hanzi: "test",
+            tts: "test lagi"
         ),
         speaker: true,
         onPlayMainAudio: { print("Play b audio") },

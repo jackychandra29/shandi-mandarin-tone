@@ -5,7 +5,9 @@
     "symbol": "ˉ",
     "example": "mā",
     "desc": "Tinggi datar, seperti 'aaaa...'.",
-    "meaning": "ibu"
+    "meaning": "ibu",
+    "hanzi": "妈",
+    "tts": "妈"
   },
   {
     "id": 2,
@@ -13,7 +15,9 @@
     "symbol": "ˊ",
     "example": "má",
     "desc": "Naik, seperti 'hah?'.",
-    "meaning": "rami"
+    "meaning": "rami",
+    "hanzi": "麻",
+    "tts": "麻"
   },
   {
     "id": 3,
@@ -21,7 +25,9 @@
     "symbol": "ˇ",
     "example": "mǎ",
     "desc": "Turun naik, seperti 'hmm...?'.",
-    "meaning": "kuda"
+    "meaning": "kuda",
+    "hanzi": "马",
+    "tts": "马"
   },
   {
     "id": 4,
@@ -29,6 +35,8 @@
     "symbol": "ˋ",
     "example": "mà",
     "desc": "Turun tegas, seperti 'hei!'.",
-    "meaning": "memarahi"
+    "meaning": "memarahi",
+    "hanzi": "骂",
+    "tts": "骂"
   }
 ]
