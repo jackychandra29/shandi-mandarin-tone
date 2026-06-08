@@ -15,7 +15,7 @@ struct WaveformView: View {
             GeometryReader { geo in
                 let leftPadding: CGFloat = 24
                 let chartWidth = geo.size.width - leftPadding
-                let labels = ["05", "04", "03", "02", "01"]
+                let labels = ["5", "4", "3", "2", "1"]
                 let maxValue: CGFloat = 5
                 let minValue: CGFloat = 1
 
