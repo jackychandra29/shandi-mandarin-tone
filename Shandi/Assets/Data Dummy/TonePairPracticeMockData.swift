@@ -1,6 +1,17 @@
 import CoreGraphics
 
 enum TonePairPracticeMockData {
+    static let categories: [TonePairPracticeCategory] = [
+        TonePairPracticeCategory(
+            id: "nada3",
+            title: "Perubahan Nada 3",
+            subtitle: "Latih saat Nada 3 bertemu dan nada pertama ikut berubah",
+            summaryPinyin: "ní hǎo",
+            summaryLabel: "NADA 2 + 3",
+            words: words
+        )
+    ]
+
     static let words: [TonePairPracticeWord] = [
         TonePairPracticeWord(
             pinyin: "nǐ hǎo",

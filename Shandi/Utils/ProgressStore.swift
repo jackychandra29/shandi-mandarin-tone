@@ -32,8 +32,9 @@ struct ProgressStore {
     }
 
     private func fetch(_ category: String) -> PracticeProgress? {
+        let targetCategory = category
         let descriptor = FetchDescriptor<PracticeProgress>(
-            predicate: #Predicate { $0.category == category }
+            predicate: #Predicate { $0.category == targetCategory }
         )
         return try? context.fetch(descriptor).first
     }

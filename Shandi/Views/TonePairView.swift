@@ -4,7 +4,25 @@ import SwiftUI
 struct TonePairView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
-    @State private var session = TonePairPracticeSession(words: TonePairPracticeMockData.words)
+    @Query(sort: \PracticeProgress.category) private var progressRecords: [PracticeProgress]
+
+    private let categories: [TonePairPracticeCategory]
+    @State private var session: TonePairPracticeSession
+
+    init(categories: [TonePairPracticeCategory]? = nil) {
+        let loadedCategories = categories
+            ?? JSONLoader.load(
+                fileName: "tone_pair_practice",
+                type: [TonePairPracticeCategory].self
+            )
+            ?? TonePairPracticeMockData.categories
+        let safeCategories = loadedCategories.isEmpty
+            ? TonePairPracticeMockData.categories
+            : loadedCategories
+
+        self.categories = safeCategories
+        _session = State(initialValue: TonePairPracticeSession(category: safeCategories[0]))
+    }
 
     var body: some View {
         Group {
@@ -19,14 +37,7 @@ struct TonePairView: View {
         }
         .background(Color.screen)
         .navigationBarBackButtonHidden()
-        .onAppear {
-            session = TonePairPracticeSession(words: TonePairPracticeMockData.words)
-
-            let store = ProgressStore(context: modelContext)
-            session.onAnswerCorrect = { category, wordKey in
-                store.recordSuccess(category: category, wordKey: wordKey)
-            }
-        }
+        .onAppear(perform: attachProgressTracking)
     }
 
     private var introView: some View {
@@ -48,29 +59,15 @@ struct TonePairView: View {
             }
 
             LazyVGrid(
-                columns: [GridItem(.flexible()), GridItem(.flexible())],
-                spacing: 20
+                columns: [
+                    GridItem(.flexible(), spacing: 24),
+                    GridItem(.flexible(), spacing: 24)
+                ],
+                spacing: 24
             ) {
-                introCard(
-                    title: "Perubahan Nada 3",
-                    subtitle: "Latih saat dua Nada 3 bertemu dan nada pertama ikut berubah",
-                    progress: "10/100 latihan kata"
-                )
-                introCard(
-                    title: "Perubahan \"Yī\"",
-                    subtitle: "Latih perubahan nada \"yī\" sesuai nada setelahnya",
-                    progress: "10/100 latihan kata"
-                )
-                introCard(
-                    title: "Perubahan \"Bù\"",
-                    subtitle: "Latih perubahan nada \"bù\" sesuai nada setelahnya",
-                    progress: "10/100 latihan kata"
-                )
-                introCard(
-                    title: "Nada Tetap",
-                    subtitle: "Latih kata yang nadanya tetap sama saat diucapkan",
-                    progress: "10/100 latihan kata"
-                )
+                ForEach(categories) { category in
+                    introCard(for: category)
+                }
             }
 
             Spacer()
@@ -124,8 +121,8 @@ struct TonePairView: View {
     private var sessionCompleteView: some View {
         SessionSummaryView(
             wordCount: session.words.count,
-            tonePinyin: "mā",
-            toneLabel: "NADA 1",
+            tonePinyin: session.summaryPinyin,
+            toneLabel: session.summaryLabel,
             onHomeTapped: {
                 dismiss()
             }
@@ -257,35 +254,108 @@ struct TonePairView: View {
         session.currentWord
     }
 
-    private func introCard(title: String, subtitle: String, progress: String) -> some View {
-        Button(action: session.advance) {
-            VStack(spacing: 12) {
-                Spacer()
+    private func introCard(for category: TonePairPracticeCategory) -> some View {
+        let completedCount = progressCount(for: category)
+        let total = category.words.count
+        let cardAspectRatio: CGFloat = 160.0 / 200.0
 
-                Text(title)
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
+        return Button(action: {
+            startPractice(for: category)
+        }) {
+            VStack(spacing: 8) {
+                Spacer(minLength: 0)
+
+                Text(cardTitle(for: category))
+                    .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(Color.orangeBrand)
                     .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.78)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
 
-                Text(subtitle)
-                    .font(.system(size: 11, design: .rounded))
+                Text(category.subtitle)
+                    .font(.system(size: 10.5, design: .rounded))
                     .foregroundStyle(Color.text)
                     .multilineTextAlignment(.center)
+                    .lineLimit(4)
+                    .minimumScaleFactor(0.9)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .top)
 
-                ProgressView(value: 0.1)
-                    .tint(Color.yellowBrand)
+                progressBar(value: progressFraction(for: category))
+                    .frame(height: 8)
+                    .padding(.top, 4)
 
-                Text(progress)
-                    .font(.system(size: 10, design: .rounded))
+                Text("\(completedCount)/\(total) latihan kata")
+                    .font(.system(size: 11, design: .rounded))
                     .foregroundStyle(Color.text)
 
-                Spacer()
+                Spacer(minLength: 0)
             }
-            .padding(18)
-            .frame(maxWidth: .infinity, minHeight: 180)
-            .background(Color.pitchtrack)
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .padding(.horizontal, 26)
+            .padding(.vertical, 16)
+            .frame(maxWidth: .infinity)
+            .aspectRatio(cardAspectRatio, contentMode: .fit)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: Sizing.roundedBig, style: .continuous))
         }
+        .buttonStyle(.plain)
+    }
+
+    private func cardTitle(for category: TonePairPracticeCategory) -> String {
+        switch category.id {
+        case "nada3":
+            "Perubahan\nNada 3"
+        case "yi":
+            "Perubahan\n\"Yī\""
+        case "bu":
+            "Perubahan\n\"Bù\""
+        case "tetap":
+            "Nada\nTetap"
+        default:
+            category.title
+        }
+    }
+
+    private func progressBar(value: Double) -> some View {
+        GeometryReader { proxy in
+            ZStack(alignment: .leading) {
+                Capsule()
+                    .fill(Color.text.opacity(0.10))
+
+                Capsule()
+                    .fill(Color.yellowBrand)
+                    .frame(width: proxy.size.width * min(max(value, 0), 1))
+            }
+        }
+    }
+
+    private func startPractice(for category: TonePairPracticeCategory) {
+        session = TonePairPracticeSession(category: category)
+        attachProgressTracking()
+        session.advance()
+    }
+
+    private func attachProgressTracking() {
+        let store = ProgressStore(context: modelContext)
+        let total = session.words.count
+        session.onAnswerCorrect = { category, wordKey in
+            let progress = store.recordSuccess(category: category, wordKey: wordKey)
+            progress.total = total
+        }
+    }
+
+    private func progressCount(for category: TonePairPracticeCategory) -> Int {
+        progressRecords
+            .first { $0.category == category.progressCategory }?
+            .completedCount ?? 0
+    }
+
+    private func progressFraction(for category: TonePairPracticeCategory) -> Double {
+        progressRecords
+            .first { $0.category == category.progressCategory }?
+            .fraction ?? 0
     }
 }
 
@@ -293,4 +363,5 @@ struct TonePairView: View {
     NavigationStack {
         TonePairView()
     }
+    .modelContainer(for: PracticeProgress.self, inMemory: true)
 }
