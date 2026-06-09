@@ -20,7 +20,7 @@ struct ContentView: View {
                     Image(systemName: "character.book.closed.fill")
                     Text("Pustaka")
                 }
-        }
+        }.tint(Color.orangeBrand)
     }
 }
 

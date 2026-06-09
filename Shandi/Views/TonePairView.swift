@@ -20,6 +20,8 @@ struct TonePairView: View {
         .background(Color.screen)
         .navigationBarBackButtonHidden()
         .onAppear {
+            session = TonePairPracticeSession(words: TonePairPracticeMockData.words)
+
             let store = ProgressStore(context: modelContext)
             session.onAnswerCorrect = { category, wordKey in
                 store.recordSuccess(category: category, wordKey: wordKey)
