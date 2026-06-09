@@ -4,24 +4,29 @@ import SwiftUI
 struct TonePairView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \PracticeProgress.category) private var progressRecords: [PracticeProgress]
+    @Query(sort: \PracticeProgress.category) private var progressRecords:
+        [PracticeProgress]
 
     private let categories: [TonePairPracticeCategory]
     @State private var session: TonePairPracticeSession
 
     init(categories: [TonePairPracticeCategory]? = nil) {
-        let loadedCategories = categories
+        let loadedCategories =
+            categories
             ?? JSONLoader.load(
                 fileName: "tone_pair_practice",
                 type: [TonePairPracticeCategory].self
             )
             ?? TonePairPracticeMockData.categories
-        let safeCategories = loadedCategories.isEmpty
+        let safeCategories =
+            loadedCategories.isEmpty
             ? TonePairPracticeMockData.categories
             : loadedCategories
 
         self.categories = safeCategories
-        _session = State(initialValue: TonePairPracticeSession(category: safeCategories[0]))
+        _session = State(
+            initialValue: TonePairPracticeSession(category: safeCategories[0])
+        )
     }
 
     var body: some View {
@@ -37,7 +42,11 @@ struct TonePairView: View {
         }
         .background(Color.screen)
         .navigationBarBackButtonHidden()
-        .onAppear(perform: attachProgressTracking)
+        .onAppear {
+            session = TonePairPracticeSession(
+                words: TonePairPracticeMockData.words
+            )
+        }
     }
 
     private var introView: some View {
@@ -61,7 +70,7 @@ struct TonePairView: View {
             LazyVGrid(
                 columns: [
                     GridItem(.flexible(), spacing: 24),
-                    GridItem(.flexible(), spacing: 24)
+                    GridItem(.flexible(), spacing: 24),
                 ],
                 spacing: 24
             ) {
@@ -95,9 +104,12 @@ struct TonePairView: View {
                 }
 
                 if let actionTitle = session.primaryActionTitle {
-                    PrimaryActionButton(title: actionTitle, action: session.advance)
-                        .padding(.horizontal, 28)
-                        .padding(.bottom, 28)
+                    PrimaryActionButton(
+                        title: actionTitle,
+                        action: session.advance
+                    )
+                    .padding(.horizontal, 28)
+                    .padding(.bottom, 28)
                 }
 
             }
@@ -111,7 +123,7 @@ struct TonePairView: View {
                         session.showsExitPrompt = false
                     },
                     onContinue: {
-                            session.showsExitPrompt = false
+                        session.showsExitPrompt = false
                     }
                 )
             }
@@ -135,7 +147,8 @@ struct TonePairView: View {
             HStack {
                 Spacer()
 
-                Button {} label: {
+                Button {
+                } label: {
                     Image(systemName: Icons.speaker)
                         .font(.system(size: 26))
                         .foregroundStyle(Color.text)
@@ -163,7 +176,11 @@ struct TonePairView: View {
 
     private var guideContent: some View {
         VStack(spacing: 28) {
-            WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
+            WordDisplay(
+                pinyin: word.pinyin,
+                hanzi: word.hanzi,
+                meaning: word.meaning
+            )
             WaveformView(values: word.guidePitch)
             Spacer(minLength: 20)
             ButtonRecord(action: session.advance)
@@ -173,8 +190,15 @@ struct TonePairView: View {
 
     private var guidedRecordingContent: some View {
         VStack(spacing: 18) {
-            WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
-            WaveformView(values: word.guidePitch, comparisonValues: session.userPitch)
+            WordDisplay(
+                pinyin: word.pinyin,
+                hanzi: word.hanzi,
+                meaning: word.meaning
+            )
+            WaveformView(
+                values: word.guidePitch,
+                comparisonValues: session.userPitch
+            )
 
             Text("Lebih stabil ! Nadanya naik turun")
                 .font(.system(size: 14, weight: .bold, design: .rounded))
@@ -198,7 +222,11 @@ struct TonePairView: View {
 
     private var questionContent: some View {
         VStack(spacing: 0) {
-            WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
+            WordDisplay(
+                pinyin: word.pinyin,
+                hanzi: word.hanzi,
+                meaning: word.meaning
+            )
             Spacer(minLength: 28)
 
             TonePairQuestion(tonePair: word.tonePair, question: word.question)
@@ -222,13 +250,19 @@ struct TonePairView: View {
 
     private var memoryContent: some View {
         VStack(spacing: 32) {
-            WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
+            WordDisplay(
+                pinyin: word.pinyin,
+                hanzi: word.hanzi,
+                meaning: word.meaning
+            )
             WaveformView(values: [])
 
-            Text("Sekarang giliranmu tanpa dipandu\nIngat nadanya lalu ucapkan!")
-                .font(.system(size: 14, design: .rounded))
-                .foregroundStyle(Color.text)
-                .multilineTextAlignment(.center)
+            Text(
+                "Sekarang giliranmu tanpa dipandu\nIngat nadanya lalu ucapkan!"
+            )
+            .font(.system(size: 14, design: .rounded))
+            .foregroundStyle(Color.text)
+            .multilineTextAlignment(.center)
 
             ButtonRecord(action: session.advance)
         }
@@ -237,7 +271,11 @@ struct TonePairView: View {
 
     private var wordCompleteContent: some View {
         VStack(spacing: 26) {
-            WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
+            WordDisplay(
+                pinyin: word.pinyin,
+                hanzi: word.hanzi,
+                meaning: word.meaning
+            )
             WaveformView(values: session.userPitch)
 
             Text("Hebat!\nKamu ingat nadanya")
@@ -254,7 +292,8 @@ struct TonePairView: View {
         session.currentWord
     }
 
-    private func introCard(for category: TonePairPracticeCategory) -> some View {
+    private func introCard(for category: TonePairPracticeCategory) -> some View
+    {
         let completedCount = progressCount(for: category)
         let total = category.words.count
         let cardAspectRatio: CGFloat = 160.0 / 200.0
@@ -272,7 +311,11 @@ struct TonePairView: View {
                     .lineLimit(2)
                     .minimumScaleFactor(0.78)
                     .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
+                    .frame(
+                        maxWidth: .infinity,
+                        minHeight: 50,
+                        alignment: .center
+                    )
 
                 Text(category.subtitle)
                     .font(.system(size: 10.5, design: .rounded))
@@ -298,7 +341,12 @@ struct TonePairView: View {
             .frame(maxWidth: .infinity)
             .aspectRatio(cardAspectRatio, contentMode: .fit)
             .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: Sizing.roundedBig, style: .continuous))
+            .clipShape(
+                RoundedRectangle(
+                    cornerRadius: Sizing.roundedBig,
+                    style: .continuous
+                )
+            )
         }
         .buttonStyle(.plain)
     }
@@ -341,7 +389,10 @@ struct TonePairView: View {
         let store = ProgressStore(context: modelContext)
         let total = session.words.count
         session.onAnswerCorrect = { category, wordKey in
-            let progress = store.recordSuccess(category: category, wordKey: wordKey)
+            let progress = store.recordSuccess(
+                category: category,
+                wordKey: wordKey
+            )
             progress.total = total
         }
     }
@@ -352,7 +403,9 @@ struct TonePairView: View {
             .completedCount ?? 0
     }
 
-    private func progressFraction(for category: TonePairPracticeCategory) -> Double {
+    private func progressFraction(for category: TonePairPracticeCategory)
+        -> Double
+    {
         progressRecords
             .first { $0.category == category.progressCategory }?
             .fraction ?? 0

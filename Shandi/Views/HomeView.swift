@@ -37,8 +37,7 @@ struct HomeView: View {
                     }.padding(.vertical, 5)
 
                     //Button single tone
-                    Button {
-                    } label: {
+                    NavigationLink(destination: SingleToneView()) {
                         HStack {
                             Image("singlePractice").resizable().frame(
                                 width: 65,
@@ -51,6 +50,7 @@ struct HomeView: View {
                                     "Dengar, ikuti, lalu ulangi setiap nada satu per satu."
                                 ).font(Styles.captionShandi)
                                     .multilineTextAlignment(.leading)
+
                             }.foregroundStyle(Color.white).padding(
                                 .horizontal,
                                 8
@@ -70,6 +70,39 @@ struct HomeView: View {
                                 )
                             )
                     }
+//                    Button {
+//                    } label: {
+//                        HStack {
+//                            Image("singlePractice").resizable().frame(
+//                                width: 65,
+//                                height: 65
+//                            )
+//
+//                            VStack(alignment: .leading) {
+//                                Text("Nada Dasar").font(Font.title3).bold()
+//                                Text(
+//                                    "Dengar, ikuti, lalu ulangi setiap nada satu per satu."
+//                                ).font(Styles.captionShandi)
+//                                    .multilineTextAlignment(.leading)
+//                            }.foregroundStyle(Color.white).padding(
+//                                .horizontal,
+//                                8
+//                            )
+//
+//                            Spacer()
+//
+//                            Image(systemName: "chevron.right").foregroundStyle(
+//                                Color.white
+//                            )
+//                        }.padding(.vertical, 34)
+//                            .padding(.horizontal, 15)
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 24).fill(
+//                                    Color.redBrand
+//                                )
+//                            )
+//                    }
 
                     //Button pair tone
                     NavigationLink(destination: TonePairView()) {
