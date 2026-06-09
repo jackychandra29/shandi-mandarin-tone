@@ -1,7 +1,9 @@
+import SwiftData
 import SwiftUI
 
 struct TonePairView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     @State private var session = TonePairPracticeSession(words: TonePairPracticeMockData.words)
 
     var body: some View {
@@ -17,6 +19,12 @@ struct TonePairView: View {
         }
         .background(Color.screen)
         .navigationBarBackButtonHidden()
+        .onAppear {
+            let store = ProgressStore(context: modelContext)
+            session.onAnswerCorrect = { category, wordKey in
+                store.recordSuccess(category: category, wordKey: wordKey)
+            }
+        }
     }
 
     private var introView: some View {

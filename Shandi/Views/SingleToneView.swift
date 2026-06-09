@@ -1,8 +1,10 @@
+import SwiftData
 import SwiftUI
 
 struct SingleToneView: View {
     @StateObject private var viewModel = SingleToneViewModel()
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) private var modelContext
     
     let tones = [
         (id: 1, title: "Nada 1", pinyin: "mā", desc: "stabil dari awal sampai akhir", progress: 10.0),
@@ -34,7 +36,12 @@ struct SingleToneView: View {
         }
         .background(Color.screen.ignoresSafeArea())
         .navigationBarBackButtonHidden()
-        
+        .onAppear {
+            let store = ProgressStore(context: modelContext)
+            viewModel.onWordSuccess = { category, wordKey in
+                store.recordSuccess(category: category, wordKey: wordKey)
+            }
+        }
         .overlay {
             if viewModel.showsExitPrompt {
                 ExitAlertOverlay(

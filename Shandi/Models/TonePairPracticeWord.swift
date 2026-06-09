@@ -11,4 +11,8 @@ struct TonePairPracticeWord: Identifiable {
     let answerOptions: [String]
     let correctAnswer: String
     let guidePitch: [CGFloat]
+
+    var wordKey: String {
+        "\(hanzi)-\(pinyin)"
+    }
 }

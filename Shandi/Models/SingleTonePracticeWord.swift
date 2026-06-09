@@ -14,6 +14,10 @@ struct SingleTonePracticeWord: Identifiable, Codable, Equatable {
     let meaning: String
     let tone: Int
     
+    var wordKey: String {
+        "\(hanzi)-\(pinyin)"
+    }
+
     enum CodingKeys: String, CodingKey {
         case hanzi, pinyin, meaning, tone
     }

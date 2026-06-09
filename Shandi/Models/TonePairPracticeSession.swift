@@ -10,9 +10,13 @@ final class TonePairPracticeSession {
     var userPitch: [CGFloat] = []
 
     let words: [TonePairPracticeWord]
+    let category: String
 
-    init(words: [TonePairPracticeWord]) {
+    var onAnswerCorrect: ((_ category: String, _ wordKey: String) -> Void)?
+
+    init(words: [TonePairPracticeWord], category: String = PracticeCategory.tonePair("nada3")) {
         self.words = words
+        self.category = category
     }
 
     var currentWord: TonePairPracticeWord {
@@ -41,6 +45,10 @@ final class TonePairPracticeSession {
     func selectAnswer(_ answer: String) {
         selectedAnswer = answer
         step = .answerFeedback
+
+        if answer == currentWord.correctAnswer {
+            onAnswerCorrect?(category, currentWord.wordKey)
+        }
     }
 
     func isAnswerHighlighted(_ option: String) -> Bool {
