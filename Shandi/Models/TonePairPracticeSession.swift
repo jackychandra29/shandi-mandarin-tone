@@ -10,9 +10,35 @@ final class TonePairPracticeSession {
     var userPitch: [CGFloat] = []
 
     let words: [TonePairPracticeWord]
+    let category: String
+    let title: String
+    let summaryPinyin: String
+    let summaryLabel: String
 
-    init(words: [TonePairPracticeWord]) {
+    var onAnswerCorrect: ((_ category: String, _ wordKey: String) -> Void)?
+
+    init(
+        words: [TonePairPracticeWord],
+        category: String = PracticeCategory.tonePair("nada3"),
+        title: String = "Perubahan Nada 3",
+        summaryPinyin: String = "ní hǎo",
+        summaryLabel: String = "NADA 2 + 3"
+    ) {
         self.words = words
+        self.category = category
+        self.title = title
+        self.summaryPinyin = summaryPinyin
+        self.summaryLabel = summaryLabel
+    }
+
+    convenience init(category: TonePairPracticeCategory) {
+        self.init(
+            words: category.words,
+            category: category.progressCategory,
+            title: category.title,
+            summaryPinyin: category.summaryPinyin,
+            summaryLabel: category.summaryLabel
+        )
     }
 
     var currentWord: TonePairPracticeWord {
@@ -20,7 +46,7 @@ final class TonePairPracticeSession {
     }
 
     var bodyTitle: String {
-        "Perubahan Nada 3"
+        title
     }
 
     var subtitle: String {
@@ -39,8 +65,14 @@ final class TonePairPracticeSession {
     }
 
     func selectAnswer(_ answer: String) {
+        guard step == .question else { return }
+
         selectedAnswer = answer
         step = .answerFeedback
+
+        if answer == currentWord.correctAnswer {
+            onAnswerCorrect?(category, currentWord.wordKey)
+        }
     }
 
     func isAnswerHighlighted(_ option: String) -> Bool {

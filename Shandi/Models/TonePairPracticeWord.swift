@@ -1,7 +1,7 @@
 import CoreGraphics
 import Foundation
 
-struct TonePairPracticeWord: Identifiable {
+struct TonePairPracticeWord: Identifiable, Codable {
     let id = UUID()
     let pinyin: String
     let hanzi: String
@@ -11,4 +11,12 @@ struct TonePairPracticeWord: Identifiable {
     let answerOptions: [String]
     let correctAnswer: String
     let guidePitch: [CGFloat]
+
+    var wordKey: String {
+        "\(hanzi)-\(pinyin)"
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case pinyin, hanzi, meaning, tonePair, question, answerOptions, correctAnswer, guidePitch
+    }
 }

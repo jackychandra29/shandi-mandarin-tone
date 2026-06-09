@@ -17,8 +17,7 @@ struct SingleToneCard<BottomContent: View>: View {
     @ViewBuilder let bottomContent: BottomContent
     
     var body: some View {
-        VStack(spacing: 0) {
-            // 1. ICON SPEAKER
+        VStack(spacing: 8) {
             if showSpeaker {
                 HStack {
                     Spacer()
@@ -28,45 +27,41 @@ struct SingleToneCard<BottomContent: View>: View {
                 }
                 .padding(.top, 16)
                 .padding(.trailing, 16)
-                
-                Spacer(minLength: 4)
             } else {
-                Spacer(minLength: 24)
+                Spacer(minLength: 0)
             }
-            
-            // 2. JUDUL
+
             Text(title)
-                .font(Styles.title3Shandi)
-                .foregroundColor(Color.text)
-            
-            Spacer(minLength: 2)
-            
-            // 3. PINYIN
-            Text(pinyin)
-                .font(Styles.largeTitleShandi)
-                .foregroundColor(Color.redBrand)
-                .padding(.bottom, 2)
-            
-            //(minLength: 2)
-            
-            // 4. DESKRIPSI
-            Text(description)
-                .font(Styles.subheadlineShandi)
-                .foregroundColor(.black.opacity(0.8))
+                .font(.system(size: 22, weight: .bold, design: .rounded))
+                .foregroundColor(Color.orangeBrand)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 12)
-                .minimumScaleFactor(0.8)
-            
-            Spacer(minLength: 16)
-            
-            // 5. BOTTOM CONTENT
+                .lineLimit(2)
+                .minimumScaleFactor(0.82)
+                .frame(maxWidth: .infinity, minHeight: 28, alignment: .center)
+
+            Text(pinyin)
+                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .foregroundColor(Color.redBrand)
+                .frame(maxWidth: .infinity, minHeight: 44, alignment: .center)
+
+            Text(description)
+                .font(.system(size: 11, design: .rounded))
+                .foregroundColor(Color.text)
+                .multilineTextAlignment(.center)
+                .lineLimit(3)
+                .minimumScaleFactor(0.9)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, minHeight: 42, alignment: .top)
+
+            Spacer(minLength: 0)
+
             bottomContent
-                .padding(.bottom, showSpeaker ? 20 : 24)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, 26)
+        .padding(.vertical, 16)
+        .frame(maxWidth: .infinity)
         .background(Color.white)
-        .cornerRadius(20)
+        .clipShape(RoundedRectangle(cornerRadius: Sizing.roundedBig, style: .continuous))
         .aspectRatio(ratio, contentMode: .fit)
     }
 }
-

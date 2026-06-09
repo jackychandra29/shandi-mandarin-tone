@@ -1,0 +1,238 @@
+[
+  {
+    "id": "nada3",
+    "title": "Perubahan Nada 3",
+    "subtitle": "Latih saat Nada 3 bertemu dan nada pertama ikut berubah",
+    "summaryPinyin": "ní hǎo",
+    "summaryLabel": "NADA 2 + 3",
+    "words": [
+      {
+        "pinyin": "nǐ hǎo",
+        "hanzi": "你好",
+        "meaning": "Halo",
+        "tonePair": "Nada 3 + Nada 3",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 4 + Nada 3", "Nada 1 + Nada 3"],
+        "correctAnswer": "Nada 2 + Nada 3",
+        "guidePitch": [2, 3, 3.5, 2, 2.2, 3, 4]
+      },
+      {
+        "pinyin": "lǎo shǔ",
+        "hanzi": "老鼠",
+        "meaning": "Tikus",
+        "tonePair": "Nada 3 + Nada 3",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 4 + Nada 3", "Nada 1 + Nada 3"],
+        "correctAnswer": "Nada 2 + Nada 3",
+        "guidePitch": [1.5, 3, 3.4, 2.1, 2.4, 3.1, 4]
+      },
+      {
+        "pinyin": "hěn hǎo",
+        "hanzi": "很好",
+        "meaning": "Sangat baik",
+        "tonePair": "Nada 3 + Nada 3",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 3 + Nada 2", "Nada 4 + Nada 4"],
+        "correctAnswer": "Nada 2 + Nada 3",
+        "guidePitch": [1.6, 3.1, 3.6, 2.0, 2.4, 3.2, 4]
+      },
+      {
+        "pinyin": "xiǎo gǒu",
+        "hanzi": "小狗",
+        "meaning": "Anjing kecil",
+        "tonePair": "Nada 3 + Nada 3",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 1 + Nada 3", "Nada 4 + Nada 3"],
+        "correctAnswer": "Nada 2 + Nada 3",
+        "guidePitch": [1.7, 3.0, 3.5, 2.0, 2.3, 3.2, 4]
+      },
+      {
+        "pinyin": "kě yǐ",
+        "hanzi": "可以",
+        "meaning": "Boleh / bisa",
+        "tonePair": "Nada 3 + Nada 3",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 4 + Nada 3", "Nada 2 + Nada 2"],
+        "correctAnswer": "Nada 2 + Nada 3",
+        "guidePitch": [1.8, 3.1, 3.6, 2.1, 2.5, 3.3, 4]
+      }
+    ]
+  },
+  {
+    "id": "yi",
+    "title": "Perubahan \"Yī\"",
+    "subtitle": "Latih perubahan nada \"yī\" sesuai nada setelahnya",
+    "summaryPinyin": "yí yàng",
+    "summaryLabel": "YĪ + NADA 4",
+    "words": [
+      {
+        "pinyin": "yí yàng",
+        "hanzi": "一样",
+        "meaning": "Sama",
+        "tonePair": "Yī + Nada 4",
+        "question": "\"yī\" berubah jadi apa?",
+        "answerOptions": ["yí + Nada 4", "yī + Nada 4", "yì + Nada 4", "Tetap sama"],
+        "correctAnswer": "yí + Nada 4",
+        "guidePitch": [2, 3, 4, 5, 4, 3, 1]
+      },
+      {
+        "pinyin": "yì tiān",
+        "hanzi": "一天",
+        "meaning": "Satu hari",
+        "tonePair": "Yī + Nada 1",
+        "question": "\"yī\" berubah jadi apa?",
+        "answerOptions": ["yì + Nada 1", "yī + Nada 1", "yí + Nada 1", "Tetap sama"],
+        "correctAnswer": "yì + Nada 1",
+        "guidePitch": [5, 4, 2, 1, 5, 5]
+      },
+      {
+        "pinyin": "yì qǐ",
+        "hanzi": "一起",
+        "meaning": "Bersama",
+        "tonePair": "Yī + Nada 3",
+        "question": "\"yī\" berubah jadi apa?",
+        "answerOptions": ["yì + Nada 3", "yī + Nada 3", "yí + Nada 3", "Nada 2 + Nada 3"],
+        "correctAnswer": "yì + Nada 3",
+        "guidePitch": [5, 4, 2, 1, 2, 1, 4]
+      },
+      {
+        "pinyin": "yì bēi",
+        "hanzi": "一杯",
+        "meaning": "Satu gelas",
+        "tonePair": "Yī + Nada 1",
+        "question": "\"yī\" berubah jadi apa?",
+        "answerOptions": ["yì + Nada 1", "yī + Nada 1", "yí + Nada 1", "Tetap sama"],
+        "correctAnswer": "yì + Nada 1",
+        "guidePitch": [5, 4, 2, 1, 5, 5]
+      },
+      {
+        "pinyin": "yí gè",
+        "hanzi": "一个",
+        "meaning": "Satu buah",
+        "tonePair": "Yī + Nada 4",
+        "question": "\"yī\" berubah jadi apa?",
+        "answerOptions": ["yí + Nada 4", "yì + Nada 4", "yī + Nada 4", "Tetap sama"],
+        "correctAnswer": "yí + Nada 4",
+        "guidePitch": [2, 3, 4, 5, 5, 3, 1]
+      }
+    ]
+  },
+  {
+    "id": "bu",
+    "title": "Perubahan \"Bù\"",
+    "subtitle": "Latih \"bù\" yang berubah saat bertemu Nada 4",
+    "summaryPinyin": "bú shì",
+    "summaryLabel": "BÙ + NADA 4",
+    "words": [
+      {
+        "pinyin": "bú shì",
+        "hanzi": "不是",
+        "meaning": "Bukan",
+        "tonePair": "Bù + Nada 4",
+        "question": "\"bù\" berubah jadi apa?",
+        "answerOptions": ["bú + Nada 4", "bù + Nada 4", "bū + Nada 4", "Tetap sama"],
+        "correctAnswer": "bú + Nada 4",
+        "guidePitch": [2, 3, 4, 5, 4, 2, 1]
+      },
+      {
+        "pinyin": "bú duì",
+        "hanzi": "不对",
+        "meaning": "Tidak benar",
+        "tonePair": "Bù + Nada 4",
+        "question": "\"bù\" berubah jadi apa?",
+        "answerOptions": ["bú + Nada 4", "bù + Nada 4", "bǔ + Nada 4", "Nada 4 + Nada 4"],
+        "correctAnswer": "bú + Nada 4",
+        "guidePitch": [2, 3, 4, 5, 4, 2, 1]
+      },
+      {
+        "pinyin": "bù hǎo",
+        "hanzi": "不好",
+        "meaning": "Tidak baik",
+        "tonePair": "Bù + Nada 3",
+        "question": "\"bù\" berubah jadi apa?",
+        "answerOptions": ["Tetap bù", "bú + Nada 3", "bū + Nada 3", "Nada 2 + Nada 3"],
+        "correctAnswer": "Tetap bù",
+        "guidePitch": [5, 4, 2, 1, 2, 1, 4]
+      },
+      {
+        "pinyin": "bú qù",
+        "hanzi": "不去",
+        "meaning": "Tidak pergi",
+        "tonePair": "Bù + Nada 4",
+        "question": "\"bù\" berubah jadi apa?",
+        "answerOptions": ["bú + Nada 4", "bù + Nada 4", "bǔ + Nada 4", "Tetap sama"],
+        "correctAnswer": "bú + Nada 4",
+        "guidePitch": [2, 3, 4, 5, 5, 3, 1]
+      },
+      {
+        "pinyin": "bù máng",
+        "hanzi": "不忙",
+        "meaning": "Tidak sibuk",
+        "tonePair": "Bù + Nada 2",
+        "question": "\"bù\" berubah jadi apa?",
+        "answerOptions": ["Tetap bù", "bú + Nada 2", "bū + Nada 2", "Nada 2 + Nada 2"],
+        "correctAnswer": "Tetap bù",
+        "guidePitch": [5, 4, 2, 1, 2, 3, 5]
+      }
+    ]
+  },
+  {
+    "id": "tetap",
+    "title": "Nada Tetap",
+    "subtitle": "Latih kata yang nadanya tetap sama saat diucapkan",
+    "summaryPinyin": "mā ma",
+    "summaryLabel": "NADA TETAP",
+    "words": [
+      {
+        "pinyin": "mā ma",
+        "hanzi": "妈妈",
+        "meaning": "Ibu",
+        "tonePair": "Nada 1 + Netral",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Tetap sama", "Nada 2 + Nada 3", "Nada 4 + Nada 4", "Nada 3 + Nada 3"],
+        "correctAnswer": "Tetap sama",
+        "guidePitch": [5, 5, 5, 3]
+      },
+      {
+        "pinyin": "bā ba",
+        "hanzi": "爸爸",
+        "meaning": "Ayah",
+        "tonePair": "Nada 1 + Netral",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Tetap sama", "Nada 2 + Nada 4", "Nada 3 + Nada 2", "Nada 4 + Nada 1"],
+        "correctAnswer": "Tetap sama",
+        "guidePitch": [5, 5, 5, 3]
+      },
+      {
+        "pinyin": "kā fēi",
+        "hanzi": "咖啡",
+        "meaning": "Kopi",
+        "tonePair": "Nada 1 + Nada 1",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Tetap sama", "Nada 2 + Nada 1", "Nada 4 + Nada 1", "Nada 3 + Nada 3"],
+        "correctAnswer": "Tetap sama",
+        "guidePitch": [5, 5, 5, 5]
+      },
+      {
+        "pinyin": "gē ge",
+        "hanzi": "哥哥",
+        "meaning": "Kakak laki-laki",
+        "tonePair": "Nada 1 + Netral",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Tetap sama", "Nada 2 + Netral", "Nada 4 + Netral", "Nada 3 + Nada 3"],
+        "correctAnswer": "Tetap sama",
+        "guidePitch": [5, 5, 5, 3]
+      },
+      {
+        "pinyin": "xī guā",
+        "hanzi": "西瓜",
+        "meaning": "Semangka",
+        "tonePair": "Nada 1 + Nada 1",
+        "question": "nadanya berubah jadi apa?",
+        "answerOptions": ["Tetap sama", "Nada 2 + Nada 1", "Nada 4 + Nada 1", "Nada 3 + Nada 1"],
+        "correctAnswer": "Tetap sama",
+        "guidePitch": [5, 5, 5, 5]
+      }
+    ]
+  }
+]

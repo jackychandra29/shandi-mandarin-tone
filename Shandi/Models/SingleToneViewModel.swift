@@ -28,6 +28,8 @@ class SingleToneViewModel: ObservableObject {
     
     @Published var selectedTone: Int? = nil
 
+    var onWordSuccess: ((_ category: String, _ wordKey: String) -> Void)?
+
     func startPractice(for tone: Int) {
         self.selectedTone = tone
         self.loadWords(for: tone)
@@ -87,6 +89,11 @@ class SingleToneViewModel: ObservableObject {
         // TODO: Hubungkan dengan AudioSpeechManager.shared.start()
     }
     
+    private func reportSuccess() {
+        guard let tone = selectedTone, let word = currentWord else { return }
+        onWordSuccess?(PracticeCategory.singleTone(tone), word.wordKey)
+    }
+
     private func stopRecordingAndValidate() {
         currentState = .analyzing
         // TODO: Hubungkan dengan AudioSpeechManager.shared.stop()
@@ -95,6 +102,7 @@ class SingleToneViewModel: ObservableObject {
             if isCorrect {
                 self.currentState = .success
                 self.wordsCompleted += 1
+                self.reportSuccess()
             } else {
                 self.currentState = .failed
             }

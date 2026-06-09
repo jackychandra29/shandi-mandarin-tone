@@ -1,15 +1,23 @@
+import SwiftData
 import SwiftUI
 
 struct SingleToneView: View {
     @StateObject private var viewModel = SingleToneViewModel()
     @Environment(\.dismiss) var dismiss
-    
-    let tones = [
-        (id: 1, title: "Nada 1", pinyin: "mā", desc: "stabil dari awal sampai akhir", progress: 10.0),
-        (id: 2, title: "Nada 2", pinyin: "má", desc: "naik seperti nada bertanya", progress: 25.0),
-        (id: 3, title: "Nada 3", pinyin: "mǎ", desc: "melengkung turun lalu naik", progress: 40.0),
-        (id: 4, title: "Nada 4", pinyin: "mà", desc: "turun tegas\ndan jelas", progress: 55.0)
-    ]
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \PracticeProgress.category) private var progressRecords: [PracticeProgress]
+    @State private var availableTones: [Int] = []
+    @State private var toneWordCounts: [Int: Int] = [:]
+
+    struct ToneInfo {
+        let id: Int; let title: String; let pinyin: String; let desc: String
+        static let all: [Int: ToneInfo] = [
+            1: ToneInfo(id: 1, title: "Nada 1", pinyin: "mā", desc: "stabil dari awal sampai akhir"),
+            2: ToneInfo(id: 2, title: "Nada 2", pinyin: "má", desc: "naik seperti nada bertanya"),
+            3: ToneInfo(id: 3, title: "Nada 3", pinyin: "mǎ", desc: "melengkung turun lalu naik"),
+            4: ToneInfo(id: 4, title: "Nada 4", pinyin: "mà", desc: "turun tegas dan jelas"),
+        ]
+    }
     
     let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -34,7 +42,26 @@ struct SingleToneView: View {
         }
         .background(Color.screen.ignoresSafeArea())
         .navigationBarBackButtonHidden()
-        
+        .onAppear {
+            let store = ProgressStore(context: modelContext)
+            let allWords = JSONLoader.load(fileName: "single_tone", type: [SingleTonePracticeWord].self) ?? []
+            toneWordCounts = Dictionary(grouping: allWords, by: { $0.tone }).mapValues(\.count)
+            viewModel.onWordSuccess = { category, wordKey in
+                let progress = store.recordSuccess(category: category, wordKey: wordKey)
+                if let tone = Int(category.replacingOccurrences(of: "single_tone_", with: "")),
+                   let count = toneWordCounts[tone] {
+                    progress.total = count
+                }
+            }
+            
+            availableTones = Set(allWords.map(\.tone)).sorted()
+            for (tone, count) in toneWordCounts {
+                let cat = PracticeCategory.singleTone(tone)
+                if let existing = progressRecords.first(where: { $0.category == cat }) {
+                    existing.total = count
+                }
+            }
+        }
         .overlay {
             if viewModel.showsExitPrompt {
                 ExitAlertOverlay(
@@ -77,42 +104,24 @@ struct SingleToneView: View {
                 }
                 
                 // 3. Grid Cards
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(tones, id: \.id) { tone in
-                        Button(action: {
-                            viewModel.startPractice(for: tone.id)
-                        }) {
-                            SingleToneCard(
-                                title: tone.title,
-                                pinyin: tone.pinyin,
-                                description: tone.desc,
-                                ratio: 160.0 / 200.0,
-                                showSpeaker: false
-                            ) {
-                                // Bottom Content: Progress Bar
-                                VStack(spacing: 10) {
-                                    GeometryReader { geoProgress in
-                                        ZStack(alignment: .leading) {
-                                            // Background Track
-                                            Capsule()
-                                                .fill(Color.screen)
-                                            // Progress Indicator
-                                            Capsule()
-                                                .fill(Color.yellowBrand)
-                                                .frame(width: geoProgress.size.width * (tone.progress / 100.0))
-                                        }
-                                    }
-                                    .frame(height: 8)
-                                    .padding(.horizontal, 24)
-                                    
-                                    // Teks Progress
-                                    Text("\(Int(tone.progress))/100 latihan kata")
-                                        .font(.system(size: 11))
-                                        .foregroundColor(Color(red: 0.35, green: 0.2, blue: 0.05))
+                LazyVGrid(columns: columns, spacing: 24) {
+                    ForEach(availableTones, id: \.self) { toneId in
+                        if let info = ToneInfo.all[toneId] {
+                            Button(action: {
+                                viewModel.startPractice(for: toneId)
+                            }) {
+                                SingleToneCard(
+                                    title: info.title,
+                                    pinyin: info.pinyin,
+                                    description: info.desc,
+                                    ratio: 160.0 / 200.0,
+                                    showSpeaker: false
+                                ) {
+                                    progressContent(for: toneId)
                                 }
                             }
+                            .buttonStyle(PlainButtonStyle())
                         }
-                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(.top, 10)
@@ -120,6 +129,45 @@ struct SingleToneView: View {
             .padding(.horizontal, 30)
             .padding(.bottom, 100)
         }
+    }
+
+    private func progressContent(for tone: Int) -> some View {
+        let completedCount = progressCount(for: tone)
+        let total = toneWordCounts[tone] ?? PracticeCategory.bankSize
+
+        return VStack(spacing: 8) {
+            progressBar(value: progressFraction(for: tone))
+                .frame(height: 8)
+
+            Text("\(completedCount)/\(total) latihan kata")
+                .font(.system(size: 11, design: .rounded))
+                .foregroundStyle(Color.text)
+        }
+    }
+
+    private func progressBar(value: Double) -> some View {
+        GeometryReader { proxy in
+            ZStack(alignment: .leading) {
+                Capsule()
+                    .fill(Color.text.opacity(0.10))
+
+                Capsule()
+                    .fill(Color.yellowBrand)
+                    .frame(width: proxy.size.width * min(max(value, 0), 1))
+            }
+        }
+    }
+
+    private func progressCount(for tone: Int) -> Int {
+        progressRecords
+            .first { $0.category == PracticeCategory.singleTone(tone) }?
+            .completedCount ?? 0
+    }
+
+    private func progressFraction(for tone: Int) -> Double {
+        progressRecords
+            .first { $0.category == PracticeCategory.singleTone(tone) }?
+            .fraction ?? 0
     }
     
         // MARK: - 2. Practice View
@@ -297,4 +345,5 @@ struct SingleToneView: View {
     NavigationStack {
         SingleToneView()
     }
+    .modelContainer(for: PracticeProgress.self, inMemory: true)
 }

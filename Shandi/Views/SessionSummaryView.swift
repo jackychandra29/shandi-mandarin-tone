@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SessionSummaryView: View {
+    @AppStorage("userName") private var userName = "User"
+
     let wordCount: Int
     let tonePinyin: String
     let toneLabel: String
@@ -11,7 +13,7 @@ struct SessionSummaryView: View {
             Spacer()
 
             VStack(spacing: 4) {
-                Text("Hebat [User],\nsesi selesai!")
+                Text("Hebat \(userName),\nsesi selesai!")
                     .font(Styles.largeTitleShandi)
                     .multilineTextAlignment(.center)
                     .foregroundStyle(Color.redBrand)
