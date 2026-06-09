@@ -12,9 +12,23 @@
         "meaning": "Halo",
         "tonePair": "Nada 3 + Nada 3",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 4 + Nada 3", "Nada 1 + Nada 3"],
+        "answerOptions": [
+          "Nada 2 + Nada 3",
+          "Nada 3 + Nada 3",
+          "Nada 4 + Nada 3",
+          "Nada 1 + Nada 3"
+        ],
         "correctAnswer": "Nada 2 + Nada 3",
-        "guidePitch": [2, 3, 3.5, 2, 2.2, 3, 4]
+        "guidePitch": [
+          2,
+          3,
+          3.5,
+          2,
+          2.2,
+          3,
+          4
+        ],
+        "id": 1
       },
       {
         "pinyin": "lǎo shǔ",
@@ -22,9 +36,23 @@
         "meaning": "Tikus",
         "tonePair": "Nada 3 + Nada 3",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 4 + Nada 3", "Nada 1 + Nada 3"],
+        "answerOptions": [
+          "Nada 2 + Nada 3",
+          "Nada 3 + Nada 3",
+          "Nada 4 + Nada 3",
+          "Nada 1 + Nada 3"
+        ],
         "correctAnswer": "Nada 2 + Nada 3",
-        "guidePitch": [1.5, 3, 3.4, 2.1, 2.4, 3.1, 4]
+        "guidePitch": [
+          1.5,
+          3,
+          3.4,
+          2.1,
+          2.4,
+          3.1,
+          4
+        ],
+        "id": 2
       },
       {
         "pinyin": "hěn hǎo",
@@ -32,9 +60,23 @@
         "meaning": "Sangat baik",
         "tonePair": "Nada 3 + Nada 3",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 3 + Nada 2", "Nada 4 + Nada 4"],
+        "answerOptions": [
+          "Nada 2 + Nada 3",
+          "Nada 3 + Nada 3",
+          "Nada 3 + Nada 2",
+          "Nada 4 + Nada 4"
+        ],
         "correctAnswer": "Nada 2 + Nada 3",
-        "guidePitch": [1.6, 3.1, 3.6, 2.0, 2.4, 3.2, 4]
+        "guidePitch": [
+          1.6,
+          3.1,
+          3.6,
+          2.0,
+          2.4,
+          3.2,
+          4
+        ],
+        "id": 3
       },
       {
         "pinyin": "xiǎo gǒu",
@@ -42,9 +84,23 @@
         "meaning": "Anjing kecil",
         "tonePair": "Nada 3 + Nada 3",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 1 + Nada 3", "Nada 4 + Nada 3"],
+        "answerOptions": [
+          "Nada 2 + Nada 3",
+          "Nada 3 + Nada 3",
+          "Nada 1 + Nada 3",
+          "Nada 4 + Nada 3"
+        ],
         "correctAnswer": "Nada 2 + Nada 3",
-        "guidePitch": [1.7, 3.0, 3.5, 2.0, 2.3, 3.2, 4]
+        "guidePitch": [
+          1.7,
+          3.0,
+          3.5,
+          2.0,
+          2.3,
+          3.2,
+          4
+        ],
+        "id": 4
       },
       {
         "pinyin": "kě yǐ",
@@ -52,9 +108,23 @@
         "meaning": "Boleh / bisa",
         "tonePair": "Nada 3 + Nada 3",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Nada 2 + Nada 3", "Nada 3 + Nada 3", "Nada 4 + Nada 3", "Nada 2 + Nada 2"],
+        "answerOptions": [
+          "Nada 2 + Nada 3",
+          "Nada 3 + Nada 3",
+          "Nada 4 + Nada 3",
+          "Nada 2 + Nada 2"
+        ],
         "correctAnswer": "Nada 2 + Nada 3",
-        "guidePitch": [1.8, 3.1, 3.6, 2.1, 2.5, 3.3, 4]
+        "guidePitch": [
+          1.8,
+          3.1,
+          3.6,
+          2.1,
+          2.5,
+          3.3,
+          4
+        ],
+        "id": 5
       }
     ]
   },
@@ -71,9 +141,23 @@
         "meaning": "Sama",
         "tonePair": "Yī + Nada 4",
         "question": "\"yī\" berubah jadi apa?",
-        "answerOptions": ["yí + Nada 4", "yī + Nada 4", "yì + Nada 4", "Tetap sama"],
+        "answerOptions": [
+          "yí + Nada 4",
+          "yī + Nada 4",
+          "yì + Nada 4",
+          "Tetap sama"
+        ],
         "correctAnswer": "yí + Nada 4",
-        "guidePitch": [2, 3, 4, 5, 4, 3, 1]
+        "guidePitch": [
+          2,
+          3,
+          4,
+          5,
+          4,
+          3,
+          1
+        ],
+        "id": 6
       },
       {
         "pinyin": "yì tiān",
@@ -81,9 +165,22 @@
         "meaning": "Satu hari",
         "tonePair": "Yī + Nada 1",
         "question": "\"yī\" berubah jadi apa?",
-        "answerOptions": ["yì + Nada 1", "yī + Nada 1", "yí + Nada 1", "Tetap sama"],
+        "answerOptions": [
+          "yì + Nada 1",
+          "yī + Nada 1",
+          "yí + Nada 1",
+          "Tetap sama"
+        ],
         "correctAnswer": "yì + Nada 1",
-        "guidePitch": [5, 4, 2, 1, 5, 5]
+        "guidePitch": [
+          5,
+          4,
+          2,
+          1,
+          5,
+          5
+        ],
+        "id": 7
       },
       {
         "pinyin": "yì qǐ",
@@ -91,9 +188,23 @@
         "meaning": "Bersama",
         "tonePair": "Yī + Nada 3",
         "question": "\"yī\" berubah jadi apa?",
-        "answerOptions": ["yì + Nada 3", "yī + Nada 3", "yí + Nada 3", "Nada 2 + Nada 3"],
+        "answerOptions": [
+          "yì + Nada 3",
+          "yī + Nada 3",
+          "yí + Nada 3",
+          "Nada 2 + Nada 3"
+        ],
         "correctAnswer": "yì + Nada 3",
-        "guidePitch": [5, 4, 2, 1, 2, 1, 4]
+        "guidePitch": [
+          5,
+          4,
+          2,
+          1,
+          2,
+          1,
+          4
+        ],
+        "id": 8
       },
       {
         "pinyin": "yì bēi",
@@ -101,9 +212,22 @@
         "meaning": "Satu gelas",
         "tonePair": "Yī + Nada 1",
         "question": "\"yī\" berubah jadi apa?",
-        "answerOptions": ["yì + Nada 1", "yī + Nada 1", "yí + Nada 1", "Tetap sama"],
+        "answerOptions": [
+          "yì + Nada 1",
+          "yī + Nada 1",
+          "yí + Nada 1",
+          "Tetap sama"
+        ],
         "correctAnswer": "yì + Nada 1",
-        "guidePitch": [5, 4, 2, 1, 5, 5]
+        "guidePitch": [
+          5,
+          4,
+          2,
+          1,
+          5,
+          5
+        ],
+        "id": 9
       },
       {
         "pinyin": "yí gè",
@@ -111,9 +235,23 @@
         "meaning": "Satu buah",
         "tonePair": "Yī + Nada 4",
         "question": "\"yī\" berubah jadi apa?",
-        "answerOptions": ["yí + Nada 4", "yì + Nada 4", "yī + Nada 4", "Tetap sama"],
+        "answerOptions": [
+          "yí + Nada 4",
+          "yì + Nada 4",
+          "yī + Nada 4",
+          "Tetap sama"
+        ],
         "correctAnswer": "yí + Nada 4",
-        "guidePitch": [2, 3, 4, 5, 5, 3, 1]
+        "guidePitch": [
+          2,
+          3,
+          4,
+          5,
+          5,
+          3,
+          1
+        ],
+        "id": 10
       }
     ]
   },
@@ -130,9 +268,23 @@
         "meaning": "Bukan",
         "tonePair": "Bù + Nada 4",
         "question": "\"bù\" berubah jadi apa?",
-        "answerOptions": ["bú + Nada 4", "bù + Nada 4", "bū + Nada 4", "Tetap sama"],
+        "answerOptions": [
+          "bú + Nada 4",
+          "bù + Nada 4",
+          "bū + Nada 4",
+          "Tetap sama"
+        ],
         "correctAnswer": "bú + Nada 4",
-        "guidePitch": [2, 3, 4, 5, 4, 2, 1]
+        "guidePitch": [
+          2,
+          3,
+          4,
+          5,
+          4,
+          2,
+          1
+        ],
+        "id": 11
       },
       {
         "pinyin": "bú duì",
@@ -140,9 +292,23 @@
         "meaning": "Tidak benar",
         "tonePair": "Bù + Nada 4",
         "question": "\"bù\" berubah jadi apa?",
-        "answerOptions": ["bú + Nada 4", "bù + Nada 4", "bǔ + Nada 4", "Nada 4 + Nada 4"],
+        "answerOptions": [
+          "bú + Nada 4",
+          "bù + Nada 4",
+          "bǔ + Nada 4",
+          "Nada 4 + Nada 4"
+        ],
         "correctAnswer": "bú + Nada 4",
-        "guidePitch": [2, 3, 4, 5, 4, 2, 1]
+        "guidePitch": [
+          2,
+          3,
+          4,
+          5,
+          4,
+          2,
+          1
+        ],
+        "id": 12
       },
       {
         "pinyin": "bù hǎo",
@@ -150,9 +316,23 @@
         "meaning": "Tidak baik",
         "tonePair": "Bù + Nada 3",
         "question": "\"bù\" berubah jadi apa?",
-        "answerOptions": ["Tetap bù", "bú + Nada 3", "bū + Nada 3", "Nada 2 + Nada 3"],
+        "answerOptions": [
+          "Tetap bù",
+          "bú + Nada 3",
+          "bū + Nada 3",
+          "Nada 2 + Nada 3"
+        ],
         "correctAnswer": "Tetap bù",
-        "guidePitch": [5, 4, 2, 1, 2, 1, 4]
+        "guidePitch": [
+          5,
+          4,
+          2,
+          1,
+          2,
+          1,
+          4
+        ],
+        "id": 13
       },
       {
         "pinyin": "bú qù",
@@ -160,9 +340,23 @@
         "meaning": "Tidak pergi",
         "tonePair": "Bù + Nada 4",
         "question": "\"bù\" berubah jadi apa?",
-        "answerOptions": ["bú + Nada 4", "bù + Nada 4", "bǔ + Nada 4", "Tetap sama"],
+        "answerOptions": [
+          "bú + Nada 4",
+          "bù + Nada 4",
+          "bǔ + Nada 4",
+          "Tetap sama"
+        ],
         "correctAnswer": "bú + Nada 4",
-        "guidePitch": [2, 3, 4, 5, 5, 3, 1]
+        "guidePitch": [
+          2,
+          3,
+          4,
+          5,
+          5,
+          3,
+          1
+        ],
+        "id": 14
       },
       {
         "pinyin": "bù máng",
@@ -170,9 +364,23 @@
         "meaning": "Tidak sibuk",
         "tonePair": "Bù + Nada 2",
         "question": "\"bù\" berubah jadi apa?",
-        "answerOptions": ["Tetap bù", "bú + Nada 2", "bū + Nada 2", "Nada 2 + Nada 2"],
+        "answerOptions": [
+          "Tetap bù",
+          "bú + Nada 2",
+          "bū + Nada 2",
+          "Nada 2 + Nada 2"
+        ],
         "correctAnswer": "Tetap bù",
-        "guidePitch": [5, 4, 2, 1, 2, 3, 5]
+        "guidePitch": [
+          5,
+          4,
+          2,
+          1,
+          2,
+          3,
+          5
+        ],
+        "id": 15
       }
     ]
   },
@@ -189,9 +397,20 @@
         "meaning": "Ibu",
         "tonePair": "Nada 1 + Netral",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Tetap sama", "Nada 2 + Nada 3", "Nada 4 + Nada 4", "Nada 3 + Nada 3"],
+        "answerOptions": [
+          "Tetap sama",
+          "Nada 2 + Nada 3",
+          "Nada 4 + Nada 4",
+          "Nada 3 + Nada 3"
+        ],
         "correctAnswer": "Tetap sama",
-        "guidePitch": [5, 5, 5, 3]
+        "guidePitch": [
+          5,
+          5,
+          5,
+          3
+        ],
+        "id": 16
       },
       {
         "pinyin": "bā ba",
@@ -199,9 +418,20 @@
         "meaning": "Ayah",
         "tonePair": "Nada 1 + Netral",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Tetap sama", "Nada 2 + Nada 4", "Nada 3 + Nada 2", "Nada 4 + Nada 1"],
+        "answerOptions": [
+          "Tetap sama",
+          "Nada 2 + Nada 4",
+          "Nada 3 + Nada 2",
+          "Nada 4 + Nada 1"
+        ],
         "correctAnswer": "Tetap sama",
-        "guidePitch": [5, 5, 5, 3]
+        "guidePitch": [
+          5,
+          5,
+          5,
+          3
+        ],
+        "id": 17
       },
       {
         "pinyin": "kā fēi",
@@ -209,9 +439,20 @@
         "meaning": "Kopi",
         "tonePair": "Nada 1 + Nada 1",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Tetap sama", "Nada 2 + Nada 1", "Nada 4 + Nada 1", "Nada 3 + Nada 3"],
+        "answerOptions": [
+          "Tetap sama",
+          "Nada 2 + Nada 1",
+          "Nada 4 + Nada 1",
+          "Nada 3 + Nada 3"
+        ],
         "correctAnswer": "Tetap sama",
-        "guidePitch": [5, 5, 5, 5]
+        "guidePitch": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "id": 18
       },
       {
         "pinyin": "gē ge",
@@ -219,9 +460,20 @@
         "meaning": "Kakak laki-laki",
         "tonePair": "Nada 1 + Netral",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Tetap sama", "Nada 2 + Netral", "Nada 4 + Netral", "Nada 3 + Nada 3"],
+        "answerOptions": [
+          "Tetap sama",
+          "Nada 2 + Netral",
+          "Nada 4 + Netral",
+          "Nada 3 + Nada 3"
+        ],
         "correctAnswer": "Tetap sama",
-        "guidePitch": [5, 5, 5, 3]
+        "guidePitch": [
+          5,
+          5,
+          5,
+          3
+        ],
+        "id": 19
       },
       {
         "pinyin": "xī guā",
@@ -229,9 +481,20 @@
         "meaning": "Semangka",
         "tonePair": "Nada 1 + Nada 1",
         "question": "nadanya berubah jadi apa?",
-        "answerOptions": ["Tetap sama", "Nada 2 + Nada 1", "Nada 4 + Nada 1", "Nada 3 + Nada 1"],
+        "answerOptions": [
+          "Tetap sama",
+          "Nada 2 + Nada 1",
+          "Nada 4 + Nada 1",
+          "Nada 3 + Nada 1"
+        ],
         "correctAnswer": "Tetap sama",
-        "guidePitch": [5, 5, 5, 5]
+        "guidePitch": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "id": 20
       }
     ]
   }

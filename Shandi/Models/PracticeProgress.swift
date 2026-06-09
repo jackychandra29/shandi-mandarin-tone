@@ -16,19 +16,19 @@ enum PracticeCategory {
 @Model
 final class PracticeProgress {
     @Attribute(.unique) var category: String
-    var completedWordKeys: [String]
+    var completedWordIDs: [Int]
     var total: Int
     var updatedAt: Date
 
     init(category: String, total: Int = PracticeCategory.bankSize) {
         self.category = category
-        self.completedWordKeys = []
+        self.completedWordIDs = []
         self.total = total
         self.updatedAt = Date()
     }
 
     var completedCount: Int {
-        completedWordKeys.count
+        completedWordIDs.count
     }
 
     var fraction: Double {

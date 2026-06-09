@@ -8,17 +8,9 @@
 import Foundation
 
 struct SingleTonePracticeWord: Identifiable, Codable, Equatable {
-    var id: UUID = UUID()
+    let id: Int
     let hanzi: String
     let pinyin: String
     let meaning: String
     let tone: Int
-    
-    var wordKey: String {
-        "\(hanzi)-\(pinyin)"
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case hanzi, pinyin, meaning, tone
-    }
 }

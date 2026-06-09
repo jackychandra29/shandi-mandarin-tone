@@ -1,206 +1,1402 @@
 [
-  { "hanzi": "冰", "pinyin": "bīng", "meaning": "Es", "tone": 1 },
-  { "hanzi": "猫", "pinyin": "māo", "meaning": "Kucing", "tone": 1 },
-  { "hanzi": "车", "pinyin": "chē", "meaning": "Mobil", "tone": 1 },
-  { "hanzi": "猪", "pinyin": "zhū", "meaning": "Babi", "tone": 1 },
-  { "hanzi": "三", "pinyin": "sān", "meaning": "Tiga", "tone": 1 },
-  { "hanzi": "茶", "pinyin": "chá", "meaning": "Teh", "tone": 2 },
-  { "hanzi": "门", "pinyin": "mén", "meaning": "Pintu", "tone": 2 },
-  { "hanzi": "牛", "pinyin": "niú", "meaning": "Sapi", "tone": 2 },
-  { "hanzi": "十", "pinyin": "shí", "meaning": "Sepuluh", "tone": 2 },
-  { "hanzi": "鱼", "pinyin": "yú", "meaning": "Ikan", "tone": 2 },
-  { "hanzi": "狗", "pinyin": "gǒu", "meaning": "Anjing", "tone": 3 },
-  { "hanzi": "水", "pinyin": "shuǐ", "meaning": "Air", "tone": 3 },
-  { "hanzi": "火", "pinyin": "huǒ", "meaning": "Api", "tone": 3 },
-  { "hanzi": "马", "pinyin": "mǎ", "meaning": "Kuda", "tone": 3 },
-  { "hanzi": "五", "pinyin": "wǔ", "meaning": "Lima", "tone": 3 },
-  { "hanzi": "树", "pinyin": "shù", "meaning": "Pohon", "tone": 4 },
-  { "hanzi": "肉", "pinyin": "ròu", "meaning": "Daging", "tone": 4 },
-  { "hanzi": "四", "pinyin": "sì", "meaning": "Empat", "tone": 4 },
-  { "hanzi": "面", "pinyin": "miàn", "meaning": "Mie", "tone": 4 },
-  { "hanzi": "兔", "pinyin": "tù", "meaning": "Kelinci", "tone": 4 },
-
-  { "hanzi": "一", "pinyin": "yī", "meaning": "Satu", "tone": 1 },
-  { "hanzi": "妈", "pinyin": "mā", "meaning": "Ibu", "tone": 1 },
-  { "hanzi": "花", "pinyin": "huā", "meaning": "Bunga", "tone": 1 },
-  { "hanzi": "天", "pinyin": "tiān", "meaning": "Langit", "tone": 1 },
-  { "hanzi": "书", "pinyin": "shū", "meaning": "Buku", "tone": 1 },
-  { "hanzi": "家", "pinyin": "jiā", "meaning": "Rumah", "tone": 1 },
-  { "hanzi": "心", "pinyin": "xīn", "meaning": "Hati", "tone": 1 },
-  { "hanzi": "山", "pinyin": "shān", "meaning": "Gunung", "tone": 1 },
-  { "hanzi": "风", "pinyin": "fēng", "meaning": "Angin", "tone": 1 },
-  { "hanzi": "星", "pinyin": "xīng", "meaning": "Bintang", "tone": 1 },
-  { "hanzi": "鸡", "pinyin": "jī", "meaning": "Ayam", "tone": 1 },
-  { "hanzi": "飞", "pinyin": "fēi", "meaning": "Terbang", "tone": 1 },
-  { "hanzi": "高", "pinyin": "gāo", "meaning": "Tinggi", "tone": 1 },
-  { "hanzi": "新", "pinyin": "xīn", "meaning": "Baru", "tone": 1 },
-  { "hanzi": "东", "pinyin": "dōng", "meaning": "Timur", "tone": 1 },
-  { "hanzi": "西", "pinyin": "xī", "meaning": "Barat", "tone": 1 },
-  { "hanzi": "中", "pinyin": "zhōng", "meaning": "Tengah", "tone": 1 },
-  { "hanzi": "今", "pinyin": "jīn", "meaning": "Hari ini", "tone": 1 },
-  { "hanzi": "多", "pinyin": "duō", "meaning": "Banyak", "tone": 1 },
-  { "hanzi": "开", "pinyin": "kāi", "meaning": "Buka", "tone": 1 },
-  { "hanzi": "吃", "pinyin": "chī", "meaning": "Makan", "tone": 1 },
-  { "hanzi": "喝", "pinyin": "hē", "meaning": "Minum", "tone": 1 },
-  { "hanzi": "衣", "pinyin": "yī", "meaning": "Pakaian", "tone": 1 },
-  { "hanzi": "哥", "pinyin": "gē", "meaning": "Kakak laki-laki", "tone": 1 },
-  { "hanzi": "妻", "pinyin": "qī", "meaning": "Istri", "tone": 1 },
-  { "hanzi": "师", "pinyin": "shī", "meaning": "Guru", "tone": 1 },
-  { "hanzi": "生", "pinyin": "shēng", "meaning": "Hidup", "tone": 1 },
-  { "hanzi": "工", "pinyin": "gōng", "meaning": "Kerja", "tone": 1 },
-  { "hanzi": "公", "pinyin": "gōng", "meaning": "Umum", "tone": 1 },
-  { "hanzi": "青", "pinyin": "qīng", "meaning": "Hijau muda", "tone": 1 },
-  { "hanzi": "窗", "pinyin": "chuāng", "meaning": "Jendela", "tone": 1 },
-  { "hanzi": "桌", "pinyin": "zhuō", "meaning": "Meja", "tone": 1 },
-  { "hanzi": "灯", "pinyin": "dēng", "meaning": "Lampu", "tone": 1 },
-  { "hanzi": "空", "pinyin": "kōng", "meaning": "Kosong", "tone": 1 },
-  { "hanzi": "轻", "pinyin": "qīng", "meaning": "Ringan", "tone": 1 },
-  { "hanzi": "低", "pinyin": "dī", "meaning": "Rendah", "tone": 1 },
-  { "hanzi": "春", "pinyin": "chūn", "meaning": "Musim semi", "tone": 1 },
-  { "hanzi": "秋", "pinyin": "qiū", "meaning": "Musim gugur", "tone": 1 },
-  { "hanzi": "冬", "pinyin": "dōng", "meaning": "Musim dingin", "tone": 1 },
-  { "hanzi": "烟", "pinyin": "yān", "meaning": "Asap", "tone": 1 },
-  { "hanzi": "知", "pinyin": "zhī", "meaning": "Tahu", "tone": 1 },
-  { "hanzi": "真", "pinyin": "zhēn", "meaning": "Benar", "tone": 1 },
-  { "hanzi": "身", "pinyin": "shēn", "meaning": "Tubuh", "tone": 1 },
-  { "hanzi": "声", "pinyin": "shēng", "meaning": "Suara", "tone": 1 },
-  { "hanzi": "安", "pinyin": "ān", "meaning": "Aman", "tone": 1 },
-  { "hanzi": "光", "pinyin": "guāng", "meaning": "Cahaya", "tone": 1 },
-  { "hanzi": "关", "pinyin": "guān", "meaning": "Tutup", "tone": 1 },
-  { "hanzi": "帮", "pinyin": "bāng", "meaning": "Bantu", "tone": 1 },
-  { "hanzi": "双", "pinyin": "shuāng", "meaning": "Sepasang", "tone": 1 },
-  { "hanzi": "方", "pinyin": "fāng", "meaning": "Arah", "tone": 1 },
-
-  { "hanzi": "人", "pinyin": "rén", "meaning": "Orang", "tone": 2 },
-  { "hanzi": "国", "pinyin": "guó", "meaning": "Negara", "tone": 2 },
-  { "hanzi": "学", "pinyin": "xué", "meaning": "Belajar", "tone": 2 },
-  { "hanzi": "来", "pinyin": "lái", "meaning": "Datang", "tone": 2 },
-  { "hanzi": "回", "pinyin": "huí", "meaning": "Kembali", "tone": 2 },
-  { "hanzi": "前", "pinyin": "qián", "meaning": "Depan", "tone": 2 },
-  { "hanzi": "年", "pinyin": "nián", "meaning": "Tahun", "tone": 2 },
-  { "hanzi": "明", "pinyin": "míng", "meaning": "Terang", "tone": 2 },
-  { "hanzi": "白", "pinyin": "bái", "meaning": "Putih", "tone": 2 },
-  { "hanzi": "红", "pinyin": "hóng", "meaning": "Merah", "tone": 2 },
-  { "hanzi": "黄", "pinyin": "huáng", "meaning": "Kuning", "tone": 2 },
-  { "hanzi": "蓝", "pinyin": "lán", "meaning": "Biru", "tone": 2 },
-  { "hanzi": "羊", "pinyin": "yáng", "meaning": "Domba", "tone": 2 },
-  { "hanzi": "熊", "pinyin": "xióng", "meaning": "Beruang", "tone": 2 },
-  { "hanzi": "龙", "pinyin": "lóng", "meaning": "Naga", "tone": 2 },
-  { "hanzi": "虫", "pinyin": "chóng", "meaning": "Serangga", "tone": 2 },
-  { "hanzi": "房", "pinyin": "fáng", "meaning": "Kamar", "tone": 2 },
-  { "hanzi": "床", "pinyin": "chuáng", "meaning": "Tempat tidur", "tone": 2 },
-  { "hanzi": "糖", "pinyin": "táng", "meaning": "Gula", "tone": 2 },
-  { "hanzi": "球", "pinyin": "qiú", "meaning": "Bola", "tone": 2 },
-  { "hanzi": "头", "pinyin": "tóu", "meaning": "Kepala", "tone": 2 },
-  { "hanzi": "牙", "pinyin": "yá", "meaning": "Gigi", "tone": 2 },
-  { "hanzi": "鼻", "pinyin": "bí", "meaning": "Hidung", "tone": 2 },
-  { "hanzi": "船", "pinyin": "chuán", "meaning": "Kapal", "tone": 2 },
-  { "hanzi": "田", "pinyin": "tián", "meaning": "Sawah", "tone": 2 },
-  { "hanzi": "林", "pinyin": "lín", "meaning": "Hutan", "tone": 2 },
-  { "hanzi": "云", "pinyin": "yún", "meaning": "Awan", "tone": 2 },
-  { "hanzi": "晴", "pinyin": "qíng", "meaning": "Cerah", "tone": 2 },
-  { "hanzi": "河", "pinyin": "hé", "meaning": "Sungai", "tone": 2 },
-  { "hanzi": "湖", "pinyin": "hú", "meaning": "Danau", "tone": 2 },
-  { "hanzi": "桥", "pinyin": "qiáo", "meaning": "Jembatan", "tone": 2 },
-  { "hanzi": "鞋", "pinyin": "xié", "meaning": "Sepatu", "tone": 2 },
-  { "hanzi": "钱", "pinyin": "qián", "meaning": "Uang", "tone": 2 },
-  { "hanzi": "旁", "pinyin": "páng", "meaning": "Samping", "tone": 2 },
-  { "hanzi": "忙", "pinyin": "máng", "meaning": "Sibuk", "tone": 2 },
-  { "hanzi": "难", "pinyin": "nán", "meaning": "Sulit", "tone": 2 },
-  { "hanzi": "甜", "pinyin": "tián", "meaning": "Manis", "tone": 2 },
-  { "hanzi": "强", "pinyin": "qiáng", "meaning": "Kuat", "tone": 2 },
-  { "hanzi": "还", "pinyin": "hái", "meaning": "Masih", "tone": 2 },
-  { "hanzi": "没", "pinyin": "méi", "meaning": "Tidak ada", "tone": 2 },
-  { "hanzi": "谁", "pinyin": "shéi", "meaning": "Siapa", "tone": 2 },
-  { "hanzi": "朋", "pinyin": "péng", "meaning": "Teman", "tone": 2 },
-  { "hanzi": "男", "pinyin": "nán", "meaning": "Laki-laki", "tone": 2 },
-  { "hanzi": "孩", "pinyin": "hái", "meaning": "Anak", "tone": 2 },
-  { "hanzi": "习", "pinyin": "xí", "meaning": "Latihan", "tone": 2 },
-  { "hanzi": "词", "pinyin": "cí", "meaning": "Kata", "tone": 2 },
-  { "hanzi": "皮", "pinyin": "pí", "meaning": "Kulit", "tone": 2 },
-  { "hanzi": "石", "pinyin": "shí", "meaning": "Batu", "tone": 2 },
-  { "hanzi": "竹", "pinyin": "zhú", "meaning": "Bambu", "tone": 2 },
-  { "hanzi": "读", "pinyin": "dú", "meaning": "Membaca", "tone": 2 },
-
-  { "hanzi": "我", "pinyin": "wǒ", "meaning": "Saya", "tone": 3 },
-  { "hanzi": "你", "pinyin": "nǐ", "meaning": "Kamu", "tone": 3 },
-  { "hanzi": "好", "pinyin": "hǎo", "meaning": "Baik", "tone": 3 },
-  { "hanzi": "很", "pinyin": "hěn", "meaning": "Sangat", "tone": 3 },
-  { "hanzi": "小", "pinyin": "xiǎo", "meaning": "Kecil", "tone": 3 },
-  { "hanzi": "老", "pinyin": "lǎo", "meaning": "Tua", "tone": 3 },
-  { "hanzi": "早", "pinyin": "zǎo", "meaning": "Pagi", "tone": 3 },
-  { "hanzi": "米", "pinyin": "mǐ", "meaning": "Beras", "tone": 3 },
-  { "hanzi": "纸", "pinyin": "zhǐ", "meaning": "Kertas", "tone": 3 },
-  { "hanzi": "笔", "pinyin": "bǐ", "meaning": "Pena", "tone": 3 },
-  { "hanzi": "手", "pinyin": "shǒu", "meaning": "Tangan", "tone": 3 },
-  { "hanzi": "口", "pinyin": "kǒu", "meaning": "Mulut", "tone": 3 },
-  { "hanzi": "耳", "pinyin": "ěr", "meaning": "Telinga", "tone": 3 },
-  { "hanzi": "眼", "pinyin": "yǎn", "meaning": "Mata", "tone": 3 },
-  { "hanzi": "脚", "pinyin": "jiǎo", "meaning": "Kaki", "tone": 3 },
-  { "hanzi": "鸟", "pinyin": "niǎo", "meaning": "Burung", "tone": 3 },
-  { "hanzi": "草", "pinyin": "cǎo", "meaning": "Rumput", "tone": 3 },
-  { "hanzi": "雨", "pinyin": "yǔ", "meaning": "Hujan", "tone": 3 },
-  { "hanzi": "土", "pinyin": "tǔ", "meaning": "Tanah", "tone": 3 },
-  { "hanzi": "果", "pinyin": "guǒ", "meaning": "Buah", "tone": 3 },
-  { "hanzi": "鼠", "pinyin": "shǔ", "meaning": "Tikus", "tone": 3 },
-  { "hanzi": "虎", "pinyin": "hǔ", "meaning": "Harimau", "tone": 3 },
-  { "hanzi": "蚁", "pinyin": "yǐ", "meaning": "Semut", "tone": 3 },
-  { "hanzi": "酒", "pinyin": "jiǔ", "meaning": "Alkohol", "tone": 3 },
-  { "hanzi": "奶", "pinyin": "nǎi", "meaning": "Susu", "tone": 3 },
-  { "hanzi": "脑", "pinyin": "nǎo", "meaning": "Otak", "tone": 3 },
-  { "hanzi": "脸", "pinyin": "liǎn", "meaning": "Wajah", "tone": 3 },
-  { "hanzi": "腿", "pinyin": "tuǐ", "meaning": "Paha", "tone": 3 },
-  { "hanzi": "伞", "pinyin": "sǎn", "meaning": "Payung", "tone": 3 },
-  { "hanzi": "走", "pinyin": "zǒu", "meaning": "Berjalan", "tone": 3 },
-  { "hanzi": "跑", "pinyin": "pǎo", "meaning": "Berlari", "tone": 3 },
-  { "hanzi": "想", "pinyin": "xiǎng", "meaning": "Berpikir", "tone": 3 },
-  { "hanzi": "买", "pinyin": "mǎi", "meaning": "Membeli", "tone": 3 },
-  { "hanzi": "找", "pinyin": "zhǎo", "meaning": "Mencari", "tone": 3 },
-  { "hanzi": "写", "pinyin": "xiě", "meaning": "Menulis", "tone": 3 },
-  { "hanzi": "洗", "pinyin": "xǐ", "meaning": "Mencuci", "tone": 3 },
-  { "hanzi": "选", "pinyin": "xuǎn", "meaning": "Memilih", "tone": 3 },
-  { "hanzi": "懂", "pinyin": "dǒng", "meaning": "Mengerti", "tone": 3 },
-  { "hanzi": "懒", "pinyin": "lǎn", "meaning": "Malas", "tone": 3 },
-  { "hanzi": "冷", "pinyin": "lěng", "meaning": "Dingin", "tone": 3 },
-  { "hanzi": "暖", "pinyin": "nuǎn", "meaning": "Hangat", "tone": 3 },
-  { "hanzi": "短", "pinyin": "duǎn", "meaning": "Pendek", "tone": 3 },
-  { "hanzi": "远", "pinyin": "yuǎn", "meaning": "Jauh", "tone": 3 },
-  { "hanzi": "少", "pinyin": "shǎo", "meaning": "Sedikit", "tone": 3 },
-  { "hanzi": "只", "pinyin": "zhǐ", "meaning": "Hanya", "tone": 3 },
-  { "hanzi": "几", "pinyin": "jǐ", "meaning": "Beberapa", "tone": 3 },
-  { "hanzi": "九", "pinyin": "jiǔ", "meaning": "Sembilan", "tone": 3 },
-  { "hanzi": "两", "pinyin": "liǎng", "meaning": "Dua", "tone": 3 },
-  { "hanzi": "百", "pinyin": "bǎi", "meaning": "Seratus", "tone": 3 },
-  { "hanzi": "里", "pinyin": "lǐ", "meaning": "Dalam", "tone": 3 },
-
-  { "hanzi": "大", "pinyin": "dà", "meaning": "Besar", "tone": 4 },
-  { "hanzi": "不", "pinyin": "bù", "meaning": "Tidak", "tone": 4 },
-  { "hanzi": "是", "pinyin": "shì", "meaning": "Adalah", "tone": 4 },
-  { "hanzi": "去", "pinyin": "qù", "meaning": "Pergi", "tone": 4 },
-  { "hanzi": "话", "pinyin": "huà", "meaning": "Ucapan", "tone": 4 },
-  { "hanzi": "电", "pinyin": "diàn", "meaning": "Listrik", "tone": 4 },
-  { "hanzi": "日", "pinyin": "rì", "meaning": "Matahari", "tone": 4 },
-  { "hanzi": "月", "pinyin": "yuè", "meaning": "Bulan", "tone": 4 },
-  { "hanzi": "爸", "pinyin": "bà", "meaning": "Ayah", "tone": 4 },
-  { "hanzi": "妹", "pinyin": "mèi", "meaning": "Adik perempuan", "tone": 4 },
-  { "hanzi": "弟", "pinyin": "dì", "meaning": "Adik laki-laki", "tone": 4 },
-  { "hanzi": "菜", "pinyin": "cài", "meaning": "Sayur", "tone": 4 },
-  { "hanzi": "饭", "pinyin": "fàn", "meaning": "Nasi", "tone": 4 },
-  { "hanzi": "蛋", "pinyin": "dàn", "meaning": "Telur", "tone": 4 },
-  { "hanzi": "店", "pinyin": "diàn", "meaning": "Toko", "tone": 4 },
-  { "hanzi": "站", "pinyin": "zhàn", "meaning": "Stasiun", "tone": 4 },
-  { "hanzi": "坐", "pinyin": "zuò", "meaning": "Duduk", "tone": 4 },
-  { "hanzi": "住", "pinyin": "zhù", "meaning": "Tinggal", "tone": 4 },
-  { "hanzi": "睡", "pinyin": "shuì", "meaning": "Tidur", "tone": 4 },
-  { "hanzi": "叫", "pinyin": "jiào", "meaning": "Memanggil", "tone": 4 },
-  { "hanzi": "笑", "pinyin": "xiào", "meaning": "Tertawa", "tone": 4 },
-  { "hanzi": "爱", "pinyin": "ài", "meaning": "Cinta", "tone": 4 },
-  { "hanzi": "要", "pinyin": "yào", "meaning": "Mau", "tone": 4 },
-  { "hanzi": "会", "pinyin": "huì", "meaning": "Bisa", "tone": 4 },
-  { "hanzi": "做", "pinyin": "zuò", "meaning": "Melakukan", "tone": 4 },
-  { "hanzi": "见", "pinyin": "jiàn", "meaning": "Melihat", "tone": 4 },
-  { "hanzi": "问", "pinyin": "wèn", "meaning": "Bertanya", "tone": 4 },
-  { "hanzi": "送", "pinyin": "sòng", "meaning": "Mengirim", "tone": 4 },
-  { "hanzi": "唱", "pinyin": "chàng", "meaning": "Bernyanyi", "tone": 4 },
-  { "hanzi": "跳", "pinyin": "tiào", "meaning": "Melompat", "tone": 4 }
+  {
+    "hanzi": "冰",
+    "pinyin": "bīng",
+    "meaning": "Es",
+    "tone": 1,
+    "id": 1
+  },
+  {
+    "hanzi": "猫",
+    "pinyin": "māo",
+    "meaning": "Kucing",
+    "tone": 1,
+    "id": 2
+  },
+  {
+    "hanzi": "车",
+    "pinyin": "chē",
+    "meaning": "Mobil",
+    "tone": 1,
+    "id": 3
+  },
+  {
+    "hanzi": "猪",
+    "pinyin": "zhū",
+    "meaning": "Babi",
+    "tone": 1,
+    "id": 4
+  },
+  {
+    "hanzi": "三",
+    "pinyin": "sān",
+    "meaning": "Tiga",
+    "tone": 1,
+    "id": 5
+  },
+  {
+    "hanzi": "茶",
+    "pinyin": "chá",
+    "meaning": "Teh",
+    "tone": 2,
+    "id": 6
+  },
+  {
+    "hanzi": "门",
+    "pinyin": "mén",
+    "meaning": "Pintu",
+    "tone": 2,
+    "id": 7
+  },
+  {
+    "hanzi": "牛",
+    "pinyin": "niú",
+    "meaning": "Sapi",
+    "tone": 2,
+    "id": 8
+  },
+  {
+    "hanzi": "十",
+    "pinyin": "shí",
+    "meaning": "Sepuluh",
+    "tone": 2,
+    "id": 9
+  },
+  {
+    "hanzi": "鱼",
+    "pinyin": "yú",
+    "meaning": "Ikan",
+    "tone": 2,
+    "id": 10
+  },
+  {
+    "hanzi": "狗",
+    "pinyin": "gǒu",
+    "meaning": "Anjing",
+    "tone": 3,
+    "id": 11
+  },
+  {
+    "hanzi": "水",
+    "pinyin": "shuǐ",
+    "meaning": "Air",
+    "tone": 3,
+    "id": 12
+  },
+  {
+    "hanzi": "火",
+    "pinyin": "huǒ",
+    "meaning": "Api",
+    "tone": 3,
+    "id": 13
+  },
+  {
+    "hanzi": "马",
+    "pinyin": "mǎ",
+    "meaning": "Kuda",
+    "tone": 3,
+    "id": 14
+  },
+  {
+    "hanzi": "五",
+    "pinyin": "wǔ",
+    "meaning": "Lima",
+    "tone": 3,
+    "id": 15
+  },
+  {
+    "hanzi": "树",
+    "pinyin": "shù",
+    "meaning": "Pohon",
+    "tone": 4,
+    "id": 16
+  },
+  {
+    "hanzi": "肉",
+    "pinyin": "ròu",
+    "meaning": "Daging",
+    "tone": 4,
+    "id": 17
+  },
+  {
+    "hanzi": "四",
+    "pinyin": "sì",
+    "meaning": "Empat",
+    "tone": 4,
+    "id": 18
+  },
+  {
+    "hanzi": "面",
+    "pinyin": "miàn",
+    "meaning": "Mie",
+    "tone": 4,
+    "id": 19
+  },
+  {
+    "hanzi": "兔",
+    "pinyin": "tù",
+    "meaning": "Kelinci",
+    "tone": 4,
+    "id": 20
+  },
+  {
+    "hanzi": "一",
+    "pinyin": "yī",
+    "meaning": "Satu",
+    "tone": 1,
+    "id": 21
+  },
+  {
+    "hanzi": "妈",
+    "pinyin": "mā",
+    "meaning": "Ibu",
+    "tone": 1,
+    "id": 22
+  },
+  {
+    "hanzi": "花",
+    "pinyin": "huā",
+    "meaning": "Bunga",
+    "tone": 1,
+    "id": 23
+  },
+  {
+    "hanzi": "天",
+    "pinyin": "tiān",
+    "meaning": "Langit",
+    "tone": 1,
+    "id": 24
+  },
+  {
+    "hanzi": "书",
+    "pinyin": "shū",
+    "meaning": "Buku",
+    "tone": 1,
+    "id": 25
+  },
+  {
+    "hanzi": "家",
+    "pinyin": "jiā",
+    "meaning": "Rumah",
+    "tone": 1,
+    "id": 26
+  },
+  {
+    "hanzi": "心",
+    "pinyin": "xīn",
+    "meaning": "Hati",
+    "tone": 1,
+    "id": 27
+  },
+  {
+    "hanzi": "山",
+    "pinyin": "shān",
+    "meaning": "Gunung",
+    "tone": 1,
+    "id": 28
+  },
+  {
+    "hanzi": "风",
+    "pinyin": "fēng",
+    "meaning": "Angin",
+    "tone": 1,
+    "id": 29
+  },
+  {
+    "hanzi": "星",
+    "pinyin": "xīng",
+    "meaning": "Bintang",
+    "tone": 1,
+    "id": 30
+  },
+  {
+    "hanzi": "鸡",
+    "pinyin": "jī",
+    "meaning": "Ayam",
+    "tone": 1,
+    "id": 31
+  },
+  {
+    "hanzi": "飞",
+    "pinyin": "fēi",
+    "meaning": "Terbang",
+    "tone": 1,
+    "id": 32
+  },
+  {
+    "hanzi": "高",
+    "pinyin": "gāo",
+    "meaning": "Tinggi",
+    "tone": 1,
+    "id": 33
+  },
+  {
+    "hanzi": "新",
+    "pinyin": "xīn",
+    "meaning": "Baru",
+    "tone": 1,
+    "id": 34
+  },
+  {
+    "hanzi": "东",
+    "pinyin": "dōng",
+    "meaning": "Timur",
+    "tone": 1,
+    "id": 35
+  },
+  {
+    "hanzi": "西",
+    "pinyin": "xī",
+    "meaning": "Barat",
+    "tone": 1,
+    "id": 36
+  },
+  {
+    "hanzi": "中",
+    "pinyin": "zhōng",
+    "meaning": "Tengah",
+    "tone": 1,
+    "id": 37
+  },
+  {
+    "hanzi": "今",
+    "pinyin": "jīn",
+    "meaning": "Hari ini",
+    "tone": 1,
+    "id": 38
+  },
+  {
+    "hanzi": "多",
+    "pinyin": "duō",
+    "meaning": "Banyak",
+    "tone": 1,
+    "id": 39
+  },
+  {
+    "hanzi": "开",
+    "pinyin": "kāi",
+    "meaning": "Buka",
+    "tone": 1,
+    "id": 40
+  },
+  {
+    "hanzi": "吃",
+    "pinyin": "chī",
+    "meaning": "Makan",
+    "tone": 1,
+    "id": 41
+  },
+  {
+    "hanzi": "喝",
+    "pinyin": "hē",
+    "meaning": "Minum",
+    "tone": 1,
+    "id": 42
+  },
+  {
+    "hanzi": "衣",
+    "pinyin": "yī",
+    "meaning": "Pakaian",
+    "tone": 1,
+    "id": 43
+  },
+  {
+    "hanzi": "哥",
+    "pinyin": "gē",
+    "meaning": "Kakak laki-laki",
+    "tone": 1,
+    "id": 44
+  },
+  {
+    "hanzi": "妻",
+    "pinyin": "qī",
+    "meaning": "Istri",
+    "tone": 1,
+    "id": 45
+  },
+  {
+    "hanzi": "师",
+    "pinyin": "shī",
+    "meaning": "Guru",
+    "tone": 1,
+    "id": 46
+  },
+  {
+    "hanzi": "生",
+    "pinyin": "shēng",
+    "meaning": "Hidup",
+    "tone": 1,
+    "id": 47
+  },
+  {
+    "hanzi": "工",
+    "pinyin": "gōng",
+    "meaning": "Kerja",
+    "tone": 1,
+    "id": 48
+  },
+  {
+    "hanzi": "公",
+    "pinyin": "gōng",
+    "meaning": "Umum",
+    "tone": 1,
+    "id": 49
+  },
+  {
+    "hanzi": "青",
+    "pinyin": "qīng",
+    "meaning": "Hijau muda",
+    "tone": 1,
+    "id": 50
+  },
+  {
+    "hanzi": "窗",
+    "pinyin": "chuāng",
+    "meaning": "Jendela",
+    "tone": 1,
+    "id": 51
+  },
+  {
+    "hanzi": "桌",
+    "pinyin": "zhuō",
+    "meaning": "Meja",
+    "tone": 1,
+    "id": 52
+  },
+  {
+    "hanzi": "灯",
+    "pinyin": "dēng",
+    "meaning": "Lampu",
+    "tone": 1,
+    "id": 53
+  },
+  {
+    "hanzi": "空",
+    "pinyin": "kōng",
+    "meaning": "Kosong",
+    "tone": 1,
+    "id": 54
+  },
+  {
+    "hanzi": "轻",
+    "pinyin": "qīng",
+    "meaning": "Ringan",
+    "tone": 1,
+    "id": 55
+  },
+  {
+    "hanzi": "低",
+    "pinyin": "dī",
+    "meaning": "Rendah",
+    "tone": 1,
+    "id": 56
+  },
+  {
+    "hanzi": "春",
+    "pinyin": "chūn",
+    "meaning": "Musim semi",
+    "tone": 1,
+    "id": 57
+  },
+  {
+    "hanzi": "秋",
+    "pinyin": "qiū",
+    "meaning": "Musim gugur",
+    "tone": 1,
+    "id": 58
+  },
+  {
+    "hanzi": "冬",
+    "pinyin": "dōng",
+    "meaning": "Musim dingin",
+    "tone": 1,
+    "id": 59
+  },
+  {
+    "hanzi": "烟",
+    "pinyin": "yān",
+    "meaning": "Asap",
+    "tone": 1,
+    "id": 60
+  },
+  {
+    "hanzi": "知",
+    "pinyin": "zhī",
+    "meaning": "Tahu",
+    "tone": 1,
+    "id": 61
+  },
+  {
+    "hanzi": "真",
+    "pinyin": "zhēn",
+    "meaning": "Benar",
+    "tone": 1,
+    "id": 62
+  },
+  {
+    "hanzi": "身",
+    "pinyin": "shēn",
+    "meaning": "Tubuh",
+    "tone": 1,
+    "id": 63
+  },
+  {
+    "hanzi": "声",
+    "pinyin": "shēng",
+    "meaning": "Suara",
+    "tone": 1,
+    "id": 64
+  },
+  {
+    "hanzi": "安",
+    "pinyin": "ān",
+    "meaning": "Aman",
+    "tone": 1,
+    "id": 65
+  },
+  {
+    "hanzi": "光",
+    "pinyin": "guāng",
+    "meaning": "Cahaya",
+    "tone": 1,
+    "id": 66
+  },
+  {
+    "hanzi": "关",
+    "pinyin": "guān",
+    "meaning": "Tutup",
+    "tone": 1,
+    "id": 67
+  },
+  {
+    "hanzi": "帮",
+    "pinyin": "bāng",
+    "meaning": "Bantu",
+    "tone": 1,
+    "id": 68
+  },
+  {
+    "hanzi": "双",
+    "pinyin": "shuāng",
+    "meaning": "Sepasang",
+    "tone": 1,
+    "id": 69
+  },
+  {
+    "hanzi": "方",
+    "pinyin": "fāng",
+    "meaning": "Arah",
+    "tone": 1,
+    "id": 70
+  },
+  {
+    "hanzi": "人",
+    "pinyin": "rén",
+    "meaning": "Orang",
+    "tone": 2,
+    "id": 71
+  },
+  {
+    "hanzi": "国",
+    "pinyin": "guó",
+    "meaning": "Negara",
+    "tone": 2,
+    "id": 72
+  },
+  {
+    "hanzi": "学",
+    "pinyin": "xué",
+    "meaning": "Belajar",
+    "tone": 2,
+    "id": 73
+  },
+  {
+    "hanzi": "来",
+    "pinyin": "lái",
+    "meaning": "Datang",
+    "tone": 2,
+    "id": 74
+  },
+  {
+    "hanzi": "回",
+    "pinyin": "huí",
+    "meaning": "Kembali",
+    "tone": 2,
+    "id": 75
+  },
+  {
+    "hanzi": "前",
+    "pinyin": "qián",
+    "meaning": "Depan",
+    "tone": 2,
+    "id": 76
+  },
+  {
+    "hanzi": "年",
+    "pinyin": "nián",
+    "meaning": "Tahun",
+    "tone": 2,
+    "id": 77
+  },
+  {
+    "hanzi": "明",
+    "pinyin": "míng",
+    "meaning": "Terang",
+    "tone": 2,
+    "id": 78
+  },
+  {
+    "hanzi": "白",
+    "pinyin": "bái",
+    "meaning": "Putih",
+    "tone": 2,
+    "id": 79
+  },
+  {
+    "hanzi": "红",
+    "pinyin": "hóng",
+    "meaning": "Merah",
+    "tone": 2,
+    "id": 80
+  },
+  {
+    "hanzi": "黄",
+    "pinyin": "huáng",
+    "meaning": "Kuning",
+    "tone": 2,
+    "id": 81
+  },
+  {
+    "hanzi": "蓝",
+    "pinyin": "lán",
+    "meaning": "Biru",
+    "tone": 2,
+    "id": 82
+  },
+  {
+    "hanzi": "羊",
+    "pinyin": "yáng",
+    "meaning": "Domba",
+    "tone": 2,
+    "id": 83
+  },
+  {
+    "hanzi": "熊",
+    "pinyin": "xióng",
+    "meaning": "Beruang",
+    "tone": 2,
+    "id": 84
+  },
+  {
+    "hanzi": "龙",
+    "pinyin": "lóng",
+    "meaning": "Naga",
+    "tone": 2,
+    "id": 85
+  },
+  {
+    "hanzi": "虫",
+    "pinyin": "chóng",
+    "meaning": "Serangga",
+    "tone": 2,
+    "id": 86
+  },
+  {
+    "hanzi": "房",
+    "pinyin": "fáng",
+    "meaning": "Kamar",
+    "tone": 2,
+    "id": 87
+  },
+  {
+    "hanzi": "床",
+    "pinyin": "chuáng",
+    "meaning": "Tempat tidur",
+    "tone": 2,
+    "id": 88
+  },
+  {
+    "hanzi": "糖",
+    "pinyin": "táng",
+    "meaning": "Gula",
+    "tone": 2,
+    "id": 89
+  },
+  {
+    "hanzi": "球",
+    "pinyin": "qiú",
+    "meaning": "Bola",
+    "tone": 2,
+    "id": 90
+  },
+  {
+    "hanzi": "头",
+    "pinyin": "tóu",
+    "meaning": "Kepala",
+    "tone": 2,
+    "id": 91
+  },
+  {
+    "hanzi": "牙",
+    "pinyin": "yá",
+    "meaning": "Gigi",
+    "tone": 2,
+    "id": 92
+  },
+  {
+    "hanzi": "鼻",
+    "pinyin": "bí",
+    "meaning": "Hidung",
+    "tone": 2,
+    "id": 93
+  },
+  {
+    "hanzi": "船",
+    "pinyin": "chuán",
+    "meaning": "Kapal",
+    "tone": 2,
+    "id": 94
+  },
+  {
+    "hanzi": "田",
+    "pinyin": "tián",
+    "meaning": "Sawah",
+    "tone": 2,
+    "id": 95
+  },
+  {
+    "hanzi": "林",
+    "pinyin": "lín",
+    "meaning": "Hutan",
+    "tone": 2,
+    "id": 96
+  },
+  {
+    "hanzi": "云",
+    "pinyin": "yún",
+    "meaning": "Awan",
+    "tone": 2,
+    "id": 97
+  },
+  {
+    "hanzi": "晴",
+    "pinyin": "qíng",
+    "meaning": "Cerah",
+    "tone": 2,
+    "id": 98
+  },
+  {
+    "hanzi": "河",
+    "pinyin": "hé",
+    "meaning": "Sungai",
+    "tone": 2,
+    "id": 99
+  },
+  {
+    "hanzi": "湖",
+    "pinyin": "hú",
+    "meaning": "Danau",
+    "tone": 2,
+    "id": 100
+  },
+  {
+    "hanzi": "桥",
+    "pinyin": "qiáo",
+    "meaning": "Jembatan",
+    "tone": 2,
+    "id": 101
+  },
+  {
+    "hanzi": "鞋",
+    "pinyin": "xié",
+    "meaning": "Sepatu",
+    "tone": 2,
+    "id": 102
+  },
+  {
+    "hanzi": "钱",
+    "pinyin": "qián",
+    "meaning": "Uang",
+    "tone": 2,
+    "id": 103
+  },
+  {
+    "hanzi": "旁",
+    "pinyin": "páng",
+    "meaning": "Samping",
+    "tone": 2,
+    "id": 104
+  },
+  {
+    "hanzi": "忙",
+    "pinyin": "máng",
+    "meaning": "Sibuk",
+    "tone": 2,
+    "id": 105
+  },
+  {
+    "hanzi": "难",
+    "pinyin": "nán",
+    "meaning": "Sulit",
+    "tone": 2,
+    "id": 106
+  },
+  {
+    "hanzi": "甜",
+    "pinyin": "tián",
+    "meaning": "Manis",
+    "tone": 2,
+    "id": 107
+  },
+  {
+    "hanzi": "强",
+    "pinyin": "qiáng",
+    "meaning": "Kuat",
+    "tone": 2,
+    "id": 108
+  },
+  {
+    "hanzi": "还",
+    "pinyin": "hái",
+    "meaning": "Masih",
+    "tone": 2,
+    "id": 109
+  },
+  {
+    "hanzi": "没",
+    "pinyin": "méi",
+    "meaning": "Tidak ada",
+    "tone": 2,
+    "id": 110
+  },
+  {
+    "hanzi": "谁",
+    "pinyin": "shéi",
+    "meaning": "Siapa",
+    "tone": 2,
+    "id": 111
+  },
+  {
+    "hanzi": "朋",
+    "pinyin": "péng",
+    "meaning": "Teman",
+    "tone": 2,
+    "id": 112
+  },
+  {
+    "hanzi": "男",
+    "pinyin": "nán",
+    "meaning": "Laki-laki",
+    "tone": 2,
+    "id": 113
+  },
+  {
+    "hanzi": "孩",
+    "pinyin": "hái",
+    "meaning": "Anak",
+    "tone": 2,
+    "id": 114
+  },
+  {
+    "hanzi": "习",
+    "pinyin": "xí",
+    "meaning": "Latihan",
+    "tone": 2,
+    "id": 115
+  },
+  {
+    "hanzi": "词",
+    "pinyin": "cí",
+    "meaning": "Kata",
+    "tone": 2,
+    "id": 116
+  },
+  {
+    "hanzi": "皮",
+    "pinyin": "pí",
+    "meaning": "Kulit",
+    "tone": 2,
+    "id": 117
+  },
+  {
+    "hanzi": "石",
+    "pinyin": "shí",
+    "meaning": "Batu",
+    "tone": 2,
+    "id": 118
+  },
+  {
+    "hanzi": "竹",
+    "pinyin": "zhú",
+    "meaning": "Bambu",
+    "tone": 2,
+    "id": 119
+  },
+  {
+    "hanzi": "读",
+    "pinyin": "dú",
+    "meaning": "Membaca",
+    "tone": 2,
+    "id": 120
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "meaning": "Saya",
+    "tone": 3,
+    "id": 121
+  },
+  {
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "meaning": "Kamu",
+    "tone": 3,
+    "id": 122
+  },
+  {
+    "hanzi": "好",
+    "pinyin": "hǎo",
+    "meaning": "Baik",
+    "tone": 3,
+    "id": 123
+  },
+  {
+    "hanzi": "很",
+    "pinyin": "hěn",
+    "meaning": "Sangat",
+    "tone": 3,
+    "id": 124
+  },
+  {
+    "hanzi": "小",
+    "pinyin": "xiǎo",
+    "meaning": "Kecil",
+    "tone": 3,
+    "id": 125
+  },
+  {
+    "hanzi": "老",
+    "pinyin": "lǎo",
+    "meaning": "Tua",
+    "tone": 3,
+    "id": 126
+  },
+  {
+    "hanzi": "早",
+    "pinyin": "zǎo",
+    "meaning": "Pagi",
+    "tone": 3,
+    "id": 127
+  },
+  {
+    "hanzi": "米",
+    "pinyin": "mǐ",
+    "meaning": "Beras",
+    "tone": 3,
+    "id": 128
+  },
+  {
+    "hanzi": "纸",
+    "pinyin": "zhǐ",
+    "meaning": "Kertas",
+    "tone": 3,
+    "id": 129
+  },
+  {
+    "hanzi": "笔",
+    "pinyin": "bǐ",
+    "meaning": "Pena",
+    "tone": 3,
+    "id": 130
+  },
+  {
+    "hanzi": "手",
+    "pinyin": "shǒu",
+    "meaning": "Tangan",
+    "tone": 3,
+    "id": 131
+  },
+  {
+    "hanzi": "口",
+    "pinyin": "kǒu",
+    "meaning": "Mulut",
+    "tone": 3,
+    "id": 132
+  },
+  {
+    "hanzi": "耳",
+    "pinyin": "ěr",
+    "meaning": "Telinga",
+    "tone": 3,
+    "id": 133
+  },
+  {
+    "hanzi": "眼",
+    "pinyin": "yǎn",
+    "meaning": "Mata",
+    "tone": 3,
+    "id": 134
+  },
+  {
+    "hanzi": "脚",
+    "pinyin": "jiǎo",
+    "meaning": "Kaki",
+    "tone": 3,
+    "id": 135
+  },
+  {
+    "hanzi": "鸟",
+    "pinyin": "niǎo",
+    "meaning": "Burung",
+    "tone": 3,
+    "id": 136
+  },
+  {
+    "hanzi": "草",
+    "pinyin": "cǎo",
+    "meaning": "Rumput",
+    "tone": 3,
+    "id": 137
+  },
+  {
+    "hanzi": "雨",
+    "pinyin": "yǔ",
+    "meaning": "Hujan",
+    "tone": 3,
+    "id": 138
+  },
+  {
+    "hanzi": "土",
+    "pinyin": "tǔ",
+    "meaning": "Tanah",
+    "tone": 3,
+    "id": 139
+  },
+  {
+    "hanzi": "果",
+    "pinyin": "guǒ",
+    "meaning": "Buah",
+    "tone": 3,
+    "id": 140
+  },
+  {
+    "hanzi": "鼠",
+    "pinyin": "shǔ",
+    "meaning": "Tikus",
+    "tone": 3,
+    "id": 141
+  },
+  {
+    "hanzi": "虎",
+    "pinyin": "hǔ",
+    "meaning": "Harimau",
+    "tone": 3,
+    "id": 142
+  },
+  {
+    "hanzi": "蚁",
+    "pinyin": "yǐ",
+    "meaning": "Semut",
+    "tone": 3,
+    "id": 143
+  },
+  {
+    "hanzi": "酒",
+    "pinyin": "jiǔ",
+    "meaning": "Alkohol",
+    "tone": 3,
+    "id": 144
+  },
+  {
+    "hanzi": "奶",
+    "pinyin": "nǎi",
+    "meaning": "Susu",
+    "tone": 3,
+    "id": 145
+  },
+  {
+    "hanzi": "脑",
+    "pinyin": "nǎo",
+    "meaning": "Otak",
+    "tone": 3,
+    "id": 146
+  },
+  {
+    "hanzi": "脸",
+    "pinyin": "liǎn",
+    "meaning": "Wajah",
+    "tone": 3,
+    "id": 147
+  },
+  {
+    "hanzi": "腿",
+    "pinyin": "tuǐ",
+    "meaning": "Paha",
+    "tone": 3,
+    "id": 148
+  },
+  {
+    "hanzi": "伞",
+    "pinyin": "sǎn",
+    "meaning": "Payung",
+    "tone": 3,
+    "id": 149
+  },
+  {
+    "hanzi": "走",
+    "pinyin": "zǒu",
+    "meaning": "Berjalan",
+    "tone": 3,
+    "id": 150
+  },
+  {
+    "hanzi": "跑",
+    "pinyin": "pǎo",
+    "meaning": "Berlari",
+    "tone": 3,
+    "id": 151
+  },
+  {
+    "hanzi": "想",
+    "pinyin": "xiǎng",
+    "meaning": "Berpikir",
+    "tone": 3,
+    "id": 152
+  },
+  {
+    "hanzi": "买",
+    "pinyin": "mǎi",
+    "meaning": "Membeli",
+    "tone": 3,
+    "id": 153
+  },
+  {
+    "hanzi": "找",
+    "pinyin": "zhǎo",
+    "meaning": "Mencari",
+    "tone": 3,
+    "id": 154
+  },
+  {
+    "hanzi": "写",
+    "pinyin": "xiě",
+    "meaning": "Menulis",
+    "tone": 3,
+    "id": 155
+  },
+  {
+    "hanzi": "洗",
+    "pinyin": "xǐ",
+    "meaning": "Mencuci",
+    "tone": 3,
+    "id": 156
+  },
+  {
+    "hanzi": "选",
+    "pinyin": "xuǎn",
+    "meaning": "Memilih",
+    "tone": 3,
+    "id": 157
+  },
+  {
+    "hanzi": "懂",
+    "pinyin": "dǒng",
+    "meaning": "Mengerti",
+    "tone": 3,
+    "id": 158
+  },
+  {
+    "hanzi": "懒",
+    "pinyin": "lǎn",
+    "meaning": "Malas",
+    "tone": 3,
+    "id": 159
+  },
+  {
+    "hanzi": "冷",
+    "pinyin": "lěng",
+    "meaning": "Dingin",
+    "tone": 3,
+    "id": 160
+  },
+  {
+    "hanzi": "暖",
+    "pinyin": "nuǎn",
+    "meaning": "Hangat",
+    "tone": 3,
+    "id": 161
+  },
+  {
+    "hanzi": "短",
+    "pinyin": "duǎn",
+    "meaning": "Pendek",
+    "tone": 3,
+    "id": 162
+  },
+  {
+    "hanzi": "远",
+    "pinyin": "yuǎn",
+    "meaning": "Jauh",
+    "tone": 3,
+    "id": 163
+  },
+  {
+    "hanzi": "少",
+    "pinyin": "shǎo",
+    "meaning": "Sedikit",
+    "tone": 3,
+    "id": 164
+  },
+  {
+    "hanzi": "只",
+    "pinyin": "zhǐ",
+    "meaning": "Hanya",
+    "tone": 3,
+    "id": 165
+  },
+  {
+    "hanzi": "几",
+    "pinyin": "jǐ",
+    "meaning": "Beberapa",
+    "tone": 3,
+    "id": 166
+  },
+  {
+    "hanzi": "九",
+    "pinyin": "jiǔ",
+    "meaning": "Sembilan",
+    "tone": 3,
+    "id": 167
+  },
+  {
+    "hanzi": "两",
+    "pinyin": "liǎng",
+    "meaning": "Dua",
+    "tone": 3,
+    "id": 168
+  },
+  {
+    "hanzi": "百",
+    "pinyin": "bǎi",
+    "meaning": "Seratus",
+    "tone": 3,
+    "id": 169
+  },
+  {
+    "hanzi": "里",
+    "pinyin": "lǐ",
+    "meaning": "Dalam",
+    "tone": 3,
+    "id": 170
+  },
+  {
+    "hanzi": "大",
+    "pinyin": "dà",
+    "meaning": "Besar",
+    "tone": 4,
+    "id": 171
+  },
+  {
+    "hanzi": "不",
+    "pinyin": "bù",
+    "meaning": "Tidak",
+    "tone": 4,
+    "id": 172
+  },
+  {
+    "hanzi": "是",
+    "pinyin": "shì",
+    "meaning": "Adalah",
+    "tone": 4,
+    "id": 173
+  },
+  {
+    "hanzi": "去",
+    "pinyin": "qù",
+    "meaning": "Pergi",
+    "tone": 4,
+    "id": 174
+  },
+  {
+    "hanzi": "话",
+    "pinyin": "huà",
+    "meaning": "Ucapan",
+    "tone": 4,
+    "id": 175
+  },
+  {
+    "hanzi": "电",
+    "pinyin": "diàn",
+    "meaning": "Listrik",
+    "tone": 4,
+    "id": 176
+  },
+  {
+    "hanzi": "日",
+    "pinyin": "rì",
+    "meaning": "Matahari",
+    "tone": 4,
+    "id": 177
+  },
+  {
+    "hanzi": "月",
+    "pinyin": "yuè",
+    "meaning": "Bulan",
+    "tone": 4,
+    "id": 178
+  },
+  {
+    "hanzi": "爸",
+    "pinyin": "bà",
+    "meaning": "Ayah",
+    "tone": 4,
+    "id": 179
+  },
+  {
+    "hanzi": "妹",
+    "pinyin": "mèi",
+    "meaning": "Adik perempuan",
+    "tone": 4,
+    "id": 180
+  },
+  {
+    "hanzi": "弟",
+    "pinyin": "dì",
+    "meaning": "Adik laki-laki",
+    "tone": 4,
+    "id": 181
+  },
+  {
+    "hanzi": "菜",
+    "pinyin": "cài",
+    "meaning": "Sayur",
+    "tone": 4,
+    "id": 182
+  },
+  {
+    "hanzi": "饭",
+    "pinyin": "fàn",
+    "meaning": "Nasi",
+    "tone": 4,
+    "id": 183
+  },
+  {
+    "hanzi": "蛋",
+    "pinyin": "dàn",
+    "meaning": "Telur",
+    "tone": 4,
+    "id": 184
+  },
+  {
+    "hanzi": "店",
+    "pinyin": "diàn",
+    "meaning": "Toko",
+    "tone": 4,
+    "id": 185
+  },
+  {
+    "hanzi": "站",
+    "pinyin": "zhàn",
+    "meaning": "Stasiun",
+    "tone": 4,
+    "id": 186
+  },
+  {
+    "hanzi": "坐",
+    "pinyin": "zuò",
+    "meaning": "Duduk",
+    "tone": 4,
+    "id": 187
+  },
+  {
+    "hanzi": "住",
+    "pinyin": "zhù",
+    "meaning": "Tinggal",
+    "tone": 4,
+    "id": 188
+  },
+  {
+    "hanzi": "睡",
+    "pinyin": "shuì",
+    "meaning": "Tidur",
+    "tone": 4,
+    "id": 189
+  },
+  {
+    "hanzi": "叫",
+    "pinyin": "jiào",
+    "meaning": "Memanggil",
+    "tone": 4,
+    "id": 190
+  },
+  {
+    "hanzi": "笑",
+    "pinyin": "xiào",
+    "meaning": "Tertawa",
+    "tone": 4,
+    "id": 191
+  },
+  {
+    "hanzi": "爱",
+    "pinyin": "ài",
+    "meaning": "Cinta",
+    "tone": 4,
+    "id": 192
+  },
+  {
+    "hanzi": "要",
+    "pinyin": "yào",
+    "meaning": "Mau",
+    "tone": 4,
+    "id": 193
+  },
+  {
+    "hanzi": "会",
+    "pinyin": "huì",
+    "meaning": "Bisa",
+    "tone": 4,
+    "id": 194
+  },
+  {
+    "hanzi": "做",
+    "pinyin": "zuò",
+    "meaning": "Melakukan",
+    "tone": 4,
+    "id": 195
+  },
+  {
+    "hanzi": "见",
+    "pinyin": "jiàn",
+    "meaning": "Melihat",
+    "tone": 4,
+    "id": 196
+  },
+  {
+    "hanzi": "问",
+    "pinyin": "wèn",
+    "meaning": "Bertanya",
+    "tone": 4,
+    "id": 197
+  },
+  {
+    "hanzi": "送",
+    "pinyin": "sòng",
+    "meaning": "Mengirim",
+    "tone": 4,
+    "id": 198
+  },
+  {
+    "hanzi": "唱",
+    "pinyin": "chàng",
+    "meaning": "Bernyanyi",
+    "tone": 4,
+    "id": 199
+  },
+  {
+    "hanzi": "跳",
+    "pinyin": "tiào",
+    "meaning": "Melompat",
+    "tone": 4,
+    "id": 200
+  }
 ]
