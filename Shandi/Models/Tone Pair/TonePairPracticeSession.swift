@@ -15,7 +15,7 @@ final class TonePairPracticeSession {
     let summaryPinyin: String
     let summaryLabel: String
 
-    var onAnswerCorrect: ((_ category: String, _ wordKey: String) -> Void)?
+    var onAnswerCorrect: ((_ category: String, _ wordID: Int) -> Void)?
 
     init(
         words: [TonePairPracticeWord],
@@ -71,7 +71,7 @@ final class TonePairPracticeSession {
         step = .answerFeedback
 
         if answer == currentWord.correctAnswer {
-            onAnswerCorrect?(category, currentWord.wordKey)
+            onAnswerCorrect?(category, currentWord.id)
         }
     }
 

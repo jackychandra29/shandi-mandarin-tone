@@ -15,11 +15,11 @@ struct ProgressStore {
     }
 
     @discardableResult
-    func recordSuccess(category: String, wordKey: String) -> PracticeProgress {
+    func recordSuccess(category: String, wordID: Int) -> PracticeProgress {
         let progress = self.progress(for: category)
 
-        if !progress.completedWordKeys.contains(wordKey) {
-            progress.completedWordKeys.append(wordKey)
+        if !progress.completedWordIDs.contains(wordID) {
+            progress.completedWordIDs.append(wordID)
             progress.updatedAt = Date()
             try? context.save()
         }

@@ -28,7 +28,7 @@ class SingleToneViewModel: ObservableObject {
     
     @Published var selectedTone: Int? = nil
 
-    var onWordSuccess: ((_ category: String, _ wordKey: String) -> Void)?
+    var onWordSuccess: ((_ category: String, _ wordID: Int) -> Void)?
 
     func startPractice(for tone: Int) {
         self.selectedTone = tone
@@ -91,7 +91,7 @@ class SingleToneViewModel: ObservableObject {
     
     private func reportSuccess() {
         guard let tone = selectedTone, let word = currentWord else { return }
-        onWordSuccess?(PracticeCategory.singleTone(tone), word.wordKey)
+        onWordSuccess?(PracticeCategory.singleTone(tone), word.id)
     }
 
     private func stopRecordingAndValidate() {

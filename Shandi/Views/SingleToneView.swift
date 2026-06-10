@@ -46,8 +46,8 @@ struct SingleToneView: View {
             let store = ProgressStore(context: modelContext)
             let allWords = JSONLoader.load(fileName: "single_tone", type: [SingleTonePracticeWord].self) ?? []
             toneWordCounts = Dictionary(grouping: allWords, by: { $0.tone }).mapValues(\.count)
-            viewModel.onWordSuccess = { category, wordKey in
-                let progress = store.recordSuccess(category: category, wordKey: wordKey)
+            viewModel.onWordSuccess = { category, wordID in
+                let progress = store.recordSuccess(category: category, wordID: wordID)
                 if let tone = Int(category.replacingOccurrences(of: "single_tone_", with: "")),
                    let count = toneWordCounts[tone] {
                     progress.total = count

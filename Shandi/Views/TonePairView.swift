@@ -388,10 +388,10 @@ struct TonePairView: View {
     private func attachProgressTracking() {
         let store = ProgressStore(context: modelContext)
         let total = session.words.count
-        session.onAnswerCorrect = { category, wordKey in
+        session.onAnswerCorrect = { category, wordID in
             let progress = store.recordSuccess(
                 category: category,
-                wordKey: wordKey
+                wordID: wordID
             )
             progress.total = total
         }
