@@ -12,13 +12,13 @@ struct ContentView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Beranda")
+                    Image(systemName: Icons.practice)
+                    Text("Latihan")
                 }
             LibraryView()
                 .tabItem {
-                    Image(systemName: "character.book.closed.fill")
-                    Text("Pustaka")
+                    Image(systemName: Icons.library)
+                    Text("Panduan")
                 }
         }.tint(Color.orangeBrand)
     }
