@@ -16,21 +16,15 @@ struct MediumCardLibraryView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-            }
-
             Text(data.tone)
                 .font(Styles.headlineShandi)
                 .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
 
             // Example
-            HStack {
                 Text(data.example)
                     .font(Styles.largeTitleShandi)
-                    .foregroundColor(Color.redBrand)
-            }
+                    .foregroundColor(Color.text)
 
             // Desc
             Text(data.desc)
@@ -52,17 +46,14 @@ struct MediumCardLibraryView: View {
                 .padding(.vertical, 8)
                 .foregroundColor(Color.text)
 
-                .background(Color.pillexample)
+                .background(Color.pillExample)
                 .clipShape(Capsule())
             }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
-        .cornerRadius(Sizing.roundedSmall)
-//        .overlay(alignment: .topTrailing) {
-//            Image(systemName: Icons.speaker).padding().foregroundStyle(Color.text)
-//        }
+        .cornerRadius(Sizing.roundedMedium)
     }
 }
 

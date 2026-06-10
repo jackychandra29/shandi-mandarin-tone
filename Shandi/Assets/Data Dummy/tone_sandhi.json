@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "rule": "Tone 3 + Tone 3",
+        "rule": "Perubahan Nada 3",
         "desc": "Kombinasi dua nada 3.",
         "writing": "nǐ hǎo",
         "writingTone": "3 + 3",
@@ -43,7 +43,7 @@
     },
     {
         "id": 2,
-        "rule": "不 (bù)",
+        "rule": "Perubahan 不 (bù)",
         "desc": "Perubahan nada pada 不.",
         "writing": "bù shì",
         "writingTone": "4 + 4",
@@ -84,7 +84,7 @@
     },
     {
         "id": 3,
-        "rule": "一 (yī)",
+        "rule": "Perubahan 一 (yī)",
         "desc": "Perubahan nada pada 一.",
         "writing": "yī gè",
         "writingTone": "1 + 4",
@@ -126,7 +126,7 @@
     },
     {
         "id": 4,
-        "rule": "Half Third Tone",
+        "rule": "Setengah Nada Tiga",
         "desc": "Nada 3 tidak selalu naik kembali.",
         "writing": "wǒ",
         "writingTone": "3",

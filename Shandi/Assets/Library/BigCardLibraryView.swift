@@ -13,13 +13,13 @@ struct BigCardLibraryView: View {
     var speaker: Bool
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             // Title
-            HStack {
-                Text(data.rule)
-                    .font(Styles.largeTitleShandi)
-                    .foregroundColor(Color.redBrand)
-            }
+
+            Text(data.rule)
+                .font(Styles.largeTitleShandi)
+                .foregroundColor(Color.text)
+                .multilineTextAlignment(.center)
 
             Text(data.desc)
                 .font(Styles.title3Shandi)
@@ -32,11 +32,12 @@ struct BigCardLibraryView: View {
                     Text(data.writing).font(Styles.headlineShandi)
                     Text(data.writingTone).font(Styles.captionShandi)
                 }.foregroundStyle(Color.text)
-                .padding().frame(maxWidth: .infinity)
+                    .padding().frame(maxWidth: .infinity)
                     .background(
-                        RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                            Color.pitchtrack
-                        )
+                        RoundedRectangle(cornerRadius: Sizing.roundedBig)
+                            .foregroundColor(
+                                Color.pitchTrack
+                            )
                     )
 
                 VStack {
@@ -44,11 +45,12 @@ struct BigCardLibraryView: View {
                     Text(data.pronunciation).font(Styles.headlineShandi)
                     Text(data.pronunciationTone).font(Styles.captionShandi)
                 }.foregroundStyle(Color.text)
-                .padding().frame(maxWidth: .infinity)
+                    .padding().frame(maxWidth: .infinity)
                     .background(
-                        RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                            Color.pitchtrack
-                        )
+                        RoundedRectangle(cornerRadius: Sizing.roundedBig)
+                            .foregroundColor(
+                                Color.pitchTrack
+                            )
                     )
             }.padding(.horizontal)
 
@@ -58,22 +60,24 @@ struct BigCardLibraryView: View {
             }.padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
-                    RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                        Color.pitchtrack
-                    )
+                    RoundedRectangle(cornerRadius: Sizing.roundedBig)
+                        .foregroundColor(
+                            Color.pitchTrack
+                        )
                 )
                 .padding(.horizontal)
                 .foregroundStyle(Color.text)
-            
+
             VStack(alignment: .leading) {
                 Text("Kenapa berubah?").font(Styles.headlineShandi)
                 Text(data.why).font(Styles.captionShandi)
             }.padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
-                    RoundedRectangle(cornerRadius: Sizing.roundedBig).foregroundColor(
-                        Color.pitchtrack
-                    )
+                    RoundedRectangle(cornerRadius: Sizing.roundedBig)
+                        .foregroundColor(
+                            Color.pitchTrack
+                        )
                 )
                 .padding(.horizontal)
                 .foregroundStyle(Color.text)
@@ -86,13 +90,14 @@ struct BigCardLibraryView: View {
                 LazyVGrid(
                     columns: [
                         GridItem(.flexible()),
-                        GridItem(.flexible())
+                        GridItem(.flexible()),
                     ],
                     spacing: 12
                 ) {
                     ForEach(data.examples) { example in
                         Button(action: {
-                            TTSService.shared.speakMandarin(example.hanzi)                        }) {
+                            TTSService.shared.speakMandarin(example.hanzi)
+                        }) {
                             HStack(spacing: 4) {
                                 Image(systemName: Icons.speaker)
 
@@ -106,17 +111,23 @@ struct BigCardLibraryView: View {
                             .foregroundStyle(Color.text)
                             .padding(5)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color.pillexample)
-                            .clipShape(RoundedRectangle(cornerRadius: Sizing.roundedMedium))
+                            .background(Color.pillExample)
+                            .clipShape(
+                                RoundedRectangle(
+                                    cornerRadius: Sizing.roundedSmall
+                                )
+                            )
                         }
                     }
                 }
             }
             .padding(.horizontal)
         }
+        .padding(.vertical, 30)
+        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.white)
-        .cornerRadius(Sizing.roundedSmall)
+        .cornerRadius(Sizing.roundedBig)
     }
 }
 
@@ -124,13 +135,14 @@ struct BigCardLibraryView: View {
     BigCardLibraryView(
         data: ToneSandhi(
             id: 1,
-            rule: "Tone 3 + Tone 3",
+            rule: "Perubahan Nada Tiga",
             desc: "Kombinasi dua nada 3.",
             writing: "nǐ hǎo",
             writingTone: "3 + 3",
             pronunciation: "ní hǎo",
             pronunciationTone: "2 + 3",
-            ruleExplanation: "Jika dua nada 3 bersebelahan, nada pertama berubah menjadi nada 2.",
+            ruleExplanation:
+                "Jika dua nada 3 bersebelahan, nada pertama berubah menjadi nada 2.",
             why: "Lebih mudah dan cepat diucapkan.",
             examples: [
                 ToneSandhiExample(
@@ -160,7 +172,7 @@ struct BigCardLibraryView: View {
                     writing: "hěn hǎo",
                     spoken: "hén hǎo",
                     meaning: "sangat baik"
-                )
+                ),
             ]
         ),
         speaker: false,
