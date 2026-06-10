@@ -14,6 +14,7 @@ enum TonePairPracticeMockData {
 
     static let words: [TonePairPracticeWord] = [
         TonePairPracticeWord(
+            id: 1,
             pinyin: "nǐ hǎo",
             hanzi: "你好",
             meaning: "Halo",
@@ -29,6 +30,7 @@ enum TonePairPracticeMockData {
             guidePitch: [2, 3, 3.5, 2, 2.2, 3, 4]
         ),
         TonePairPracticeWord(
+            id: 2,
             pinyin: "lǎo shǔ",
             hanzi: "老鼠",
             meaning: "Tikus",
