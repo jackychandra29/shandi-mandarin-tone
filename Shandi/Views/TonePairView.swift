@@ -4,8 +4,8 @@ import SwiftUI
 struct TonePairView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \PracticeProgress.category) private var progressRecords:
-        [PracticeProgress]
+    @Query(sort: \PracticeAnswer.category) private var progressAnswers:
+        [PracticeAnswer]
 
     private let categories: [TonePairPracticeCategory]
     @State private var session: TonePairPracticeSession
@@ -42,11 +42,6 @@ struct TonePairView: View {
         }
         .background(Color.screen)
         .navigationBarBackButtonHidden()
-        .onAppear {
-            session = TonePairPracticeSession(
-                words: TonePairPracticeMockData.words
-            )
-        }
     }
 
     private var introView: some View {
@@ -387,28 +382,27 @@ struct TonePairView: View {
 
     private func attachProgressTracking() {
         let store = ProgressStore(context: modelContext)
-        let total = session.words.count
         session.onAnswerCorrect = { category, wordID in
-            let progress = store.recordSuccess(
+            store.recordSuccess(
                 category: category,
-                wordID: wordID
+                questionID: wordID
             )
-            progress.total = total
         }
     }
 
     private func progressCount(for category: TonePairPracticeCategory) -> Int {
-        progressRecords
-            .first { $0.category == category.progressCategory }?
-            .completedCount ?? 0
+        let answeredIDs = progressAnswers.filter {
+            $0.category == category.progressCategory && $0.isAnswered
+        }.map(\.questionID)
+        return Set(answeredIDs).count
     }
 
     private func progressFraction(for category: TonePairPracticeCategory)
         -> Double
     {
-        progressRecords
-            .first { $0.category == category.progressCategory }?
-            .fraction ?? 0
+        let total = category.words.count
+        guard total > 0 else { return 0 }
+        return min(Double(progressCount(for: category)) / Double(total), 1)
     }
 }
 
@@ -416,5 +410,5 @@ struct TonePairView: View {
     NavigationStack {
         TonePairView()
     }
-    .modelContainer(for: PracticeProgress.self, inMemory: true)
+    .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
 }

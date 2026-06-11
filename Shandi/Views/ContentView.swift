@@ -5,6 +5,7 @@
 //  Created by Jacky Chandra on 26/05/26.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ContentView: View {
@@ -26,4 +27,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
 }

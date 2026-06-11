@@ -2,12 +2,21 @@ import AVFoundation
 import SwiftUI
 
 struct OnboardingView: View {
-    @State private var flow = OnboardingFlow()
+    @State private var flow: OnboardingFlow
 
+    private let existingName: String?
     let onComplete: (String) -> Void
 
     private let guidePitch: [CGFloat] = [2.4, 2.4, 2.4, 2.4]
     private let userPitch: [CGFloat] = [1.7, 2.1, 2.7, 3.4]
+
+    init(existingName: String? = nil, onComplete: @escaping (String) -> Void) {
+        let trimmedName = existingName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let initialStep: OnboardingFlow.Step = trimmedName.isEmpty ? .welcome : .practiceIntro
+        _flow = State(initialValue: OnboardingFlow(name: trimmedName, step: initialStep))
+        self.existingName = existingName
+        self.onComplete = onComplete
+    }
 
     var body: some View {
         Group {
@@ -41,6 +50,13 @@ struct OnboardingView: View {
             withAnimation(.easeOut(duration: 0.28)) {
                 flow.advance()
             }
+        }
+        .onChange(of: existingName) { _, newName in
+            guard flow.step == .welcome else { return }
+            let trimmedName = newName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            guard !trimmedName.isEmpty else { return }
+            flow.name = trimmedName
+            flow.step = .practiceIntro
         }
     }
 

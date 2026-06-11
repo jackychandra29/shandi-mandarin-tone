@@ -36,7 +36,7 @@ struct BigCardLibraryView: View {
                     .background(
                         RoundedRectangle(cornerRadius: Sizing.roundedBig)
                             .foregroundColor(
-                                Color.pitchTrack
+                                Color.pitchtrack
                             )
                     )
 
@@ -49,7 +49,7 @@ struct BigCardLibraryView: View {
                     .background(
                         RoundedRectangle(cornerRadius: Sizing.roundedBig)
                             .foregroundColor(
-                                Color.pitchTrack
+                                Color.pitchtrack
                             )
                     )
             }.padding(.horizontal)
@@ -62,7 +62,7 @@ struct BigCardLibraryView: View {
                 .background(
                     RoundedRectangle(cornerRadius: Sizing.roundedBig)
                         .foregroundColor(
-                            Color.pitchTrack
+                            Color.pitchtrack
                         )
                 )
                 .padding(.horizontal)
@@ -76,7 +76,7 @@ struct BigCardLibraryView: View {
                 .background(
                     RoundedRectangle(cornerRadius: Sizing.roundedBig)
                         .foregroundColor(
-                            Color.pitchTrack
+                            Color.pitchtrack
                         )
                 )
                 .padding(.horizontal)
@@ -111,7 +111,7 @@ struct BigCardLibraryView: View {
                             .foregroundStyle(Color.text)
                             .padding(5)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color.pillExample)
+                            .background(Color.pillexample)
                             .clipShape(
                                 RoundedRectangle(
                                     cornerRadius: Sizing.roundedSmall
