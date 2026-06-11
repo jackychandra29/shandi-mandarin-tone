@@ -1,7 +1,13 @@
+import SwiftData
 import SwiftUI
 
 struct SessionSummaryView: View {
-    @AppStorage("userName") private var userName = "User"
+    @Query(sort: \UserProfile.updatedAt, order: .reverse) private var userProfiles: [UserProfile]
+
+    private var userName: String {
+        let name = userProfiles.first?.name.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        return name.isEmpty ? "User" : name
+    }
 
     let wordCount: Int
     let tonePinyin: String
@@ -90,4 +96,5 @@ struct SessionSummaryView: View {
 
 #Preview {
     SessionSummaryView(wordCount: 10, tonePinyin: "mā", toneLabel: "NADA 1") {}
+        .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
 }

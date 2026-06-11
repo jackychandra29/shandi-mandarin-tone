@@ -5,7 +5,7 @@ struct SingleToneView: View {
     @StateObject private var viewModel = SingleToneViewModel()
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \PracticeProgress.category) private var progressRecords: [PracticeProgress]
+    @Query(sort: \PracticeAnswer.category) private var progressAnswers: [PracticeAnswer]
     @State private var availableTones: [Int] = []
     @State private var toneWordCounts: [Int: Int] = [:]
 
@@ -47,20 +47,10 @@ struct SingleToneView: View {
             let allWords = JSONLoader.load(fileName: "single_tone", type: [SingleTonePracticeWord].self) ?? []
             toneWordCounts = Dictionary(grouping: allWords, by: { $0.tone }).mapValues(\.count)
             viewModel.onWordSuccess = { category, wordID in
-                let progress = store.recordSuccess(category: category, wordID: wordID)
-                if let tone = Int(category.replacingOccurrences(of: "single_tone_", with: "")),
-                   let count = toneWordCounts[tone] {
-                    progress.total = count
-                }
+                store.recordSuccess(category: category, questionID: wordID)
             }
             
             availableTones = Set(allWords.map(\.tone)).sorted()
-            for (tone, count) in toneWordCounts {
-                let cat = PracticeCategory.singleTone(tone)
-                if let existing = progressRecords.first(where: { $0.category == cat }) {
-                    existing.total = count
-                }
-            }
         }
         .overlay {
             if viewModel.showsExitPrompt {
@@ -133,7 +123,7 @@ struct SingleToneView: View {
 
     private func progressContent(for tone: Int) -> some View {
         let completedCount = progressCount(for: tone)
-        let total = toneWordCounts[tone] ?? PracticeCategory.bankSize
+        let total = toneWordCounts[tone] ?? 0
 
         return VStack(spacing: 8) {
             progressBar(value: progressFraction(for: tone))
@@ -159,15 +149,17 @@ struct SingleToneView: View {
     }
 
     private func progressCount(for tone: Int) -> Int {
-        progressRecords
-            .first { $0.category == PracticeCategory.singleTone(tone) }?
-            .completedCount ?? 0
+        let category = PracticeCategory.singleTone(tone)
+        let answeredIDs = progressAnswers
+            .filter { $0.category == category && $0.isAnswered }
+            .map(\.questionID)
+        return Set(answeredIDs).count
     }
 
     private func progressFraction(for tone: Int) -> Double {
-        progressRecords
-            .first { $0.category == PracticeCategory.singleTone(tone) }?
-            .fraction ?? 0
+        let total = toneWordCounts[tone] ?? 0
+        guard total > 0 else { return 0 }
+        return min(Double(progressCount(for: tone)) / Double(total), 1)
     }
     
         // MARK: - 2. Practice View
@@ -345,5 +337,5 @@ struct SingleToneView: View {
     NavigationStack {
         SingleToneView()
     }
-    .modelContainer(for: PracticeProgress.self, inMemory: true)
+    .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
 }

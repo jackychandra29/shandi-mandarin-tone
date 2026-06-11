@@ -14,6 +14,6 @@ struct ShandiApp: App {
         WindowGroup {
             RootView()
         }
-        .modelContainer(for: PracticeProgress.self)
+        .modelContainer(for: [PracticeAnswer.self, UserProfile.self])
     }
 }
