@@ -22,6 +22,11 @@ final class OnboardingFlow {
     var name = ""
     var step: Step = .welcome
 
+    init(name: String = "", step: Step = .welcome) {
+        self.name = name
+        self.step = step
+    }
+
     var displayName: String {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedName.isEmpty ? "User" : trimmedName

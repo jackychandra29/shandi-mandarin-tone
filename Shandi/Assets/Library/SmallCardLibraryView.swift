@@ -49,7 +49,7 @@ struct SmallCardLibraryView: View {
                 .padding(8)
                 .foregroundColor(Color.text).frame(maxWidth: .infinity)
 
-                .background(Color.pillExample)
+                .background(Color.pillexample)
                 .clipShape(Capsule())
             }
         }

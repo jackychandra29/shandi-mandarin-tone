@@ -5,10 +5,16 @@
 //  Created by Jacky Chandra on 26/05/26.
 //
 
+import SwiftData
 import SwiftUI
 
 struct HomeView: View {
-    @AppStorage("userName") private var userName = "User"
+    @Query(sort: \UserProfile.updatedAt, order: .reverse) private var userProfiles: [UserProfile]
+
+    private var userName: String {
+        let name = userProfiles.first?.name.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        return name.isEmpty ? "User" : name
+    }
 
     var body: some View {
         NavigationStack {
@@ -148,4 +154,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
 }
