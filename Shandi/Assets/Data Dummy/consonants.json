@@ -1,212 +1,306 @@
 [
-  {
-    "id": 1,
-    "letter": "b",
-    "desc": "Dibaca 'p'.",
-    "example": "Bà",
-    "read": "pa",
-    "meaning": "ayah",
-    "hanzi": "爸",
-    "tts": "播"
-  },
-  {
-    "id": 2,
-    "letter": "p",
-    "desc": "Dibaca 'ph'.",
-    "example": "Pà",
-    "read": "pha",
-    "meaning": "takut",
-    "hanzi": "怕",
-    "tts": "坡"
-  },
-  {
-    "id": 3,
-    "letter": "m",
-    "desc": "Dibaca 'm'.",
-    "example": "Mā",
-    "read": "ma",
-    "meaning": "ibu",
-    "hanzi": "妈",
-    "tts": "摸"
-  },
-  {
-    "id": 4,
-    "letter": "f",
-    "desc": "Dibaca 'f'.",
-    "example": "Fàn",
-    "read": "fan",
-    "meaning": "nasi",
-    "hanzi": "饭",
-    "tts": "佛"
-  },
-  {
-    "id": 5,
-    "letter": "d",
-    "desc": "Dibaca 't'.",
-    "example": "Dà",
-    "read": "ta",
-    "meaning": "besar",
-    "hanzi": "大",
-    "tts": "得"
-  },
-  {
-    "id": 6,
-    "letter": "t",
-    "desc": "Dibaca 'th'.",
-    "example": "Tā",
-    "read": "tha",
-    "meaning": "dia",
-    "hanzi": "他",
-    "tts": "特"
-  },
-  {
-    "id": 7,
-    "letter": "n",
-    "desc": "Dibaca 'n'.",
-    "example": "Nǐ",
-    "read": "ni",
-    "meaning": "kamu",
-    "hanzi": "你",
-    "tts": "讷"
-  },
-  {
-    "id": 8,
-    "letter": "l",
-    "desc": "Dibaca 'l'.",
-    "example": "Lǎo",
-    "read": "lao",
-    "meaning": "tua",
-    "hanzi": "老",
-    "tts": "勒"
-  },
-  {
-    "id": 9,
-    "letter": "g",
-    "desc": "Dibaca 'k'.",
-    "example": "Gāo",
-    "read": "kao",
-    "meaning": "tinggi",
-    "hanzi": "高",
-    "tts": "哥"
-  },
-  {
-    "id": 10,
-    "letter": "k",
-    "desc": "Dibaca 'kh'.",
-    "example": "Kǒu",
-    "read": "khou",
-    "meaning": "mulut",
-    "hanzi": "口",
-    "tts": "科"
-  },
-  {
-    "id": 11,
-    "letter": "h",
-    "desc": "Dibaca 'h'.",
-    "example": "Hǎo",
-    "read": "hao",
-    "meaning": "baik",
-    "hanzi": "好",
-    "tts": "喝"
-  },
-  {
-    "id": 12,
-    "letter": "j",
-    "desc": "Dibaca 'c'.",
-    "example": "Jiā",
-    "read": "cia",
-    "meaning": "rumah",
-    "hanzi": "家",
-    "tts": "基"
-  },
-  {
-    "id": 13,
-    "letter": "q",
-    "desc": "Dibaca 'ch'.",
-    "example": "Qù",
-    "read": "chi",
-    "meaning": "pergi",
-    "hanzi": "去",
-    "tts": "欺"
-  },
-  {
-    "id": 14,
-    "letter": "x",
-    "desc": "Dibaca 's'.",
-    "example": "Xiǎo",
-    "read": "siao",
-    "meaning": "kecil",
-    "hanzi": "小",
-    "tts": "希"
-  },
-  {
-    "id": 15,
-    "letter": "zh",
-    "desc": "Dibaca 'c', lidah agak ke belakang.",
-    "example": "Zhè",
-    "read": "ce",
-    "meaning": "ini",
-    "hanzi": "这",
-    "tts": "知"
-  },
-  {
-    "id": 16,
-    "letter": "ch",
-    "desc": "Dibaca 'ch', lidah agak ke belakang.",
-    "example": "Chū",
-    "read": "chu",
-    "meaning": "keluar",
-    "hanzi": "出",
-    "tts": "吃"
-  },
-  {
-    "id": 17,
-    "letter": "sh",
-    "desc": "Dibaca 'sh', lidah agak ke belakang.",
-    "example": "Shù",
-    "read": "shu",
-    "meaning": "pohon",
-    "hanzi": "树",
-    "tts": "诗"
-  },
-  {
-    "id": 18,
-    "letter": "r",
-    "desc": "Dibaca 'r', lidah agak ke belakang.",
-    "example": "Rè",
-    "read": "re",
-    "meaning": "panas",
-    "hanzi": "热",
-    "tts": "日"
-  },
-  {
-    "id": 19,
-    "letter": "z",
-    "desc": "Dibaca 'c'.",
-    "example": "Zǎo",
-    "read": "cao",
-    "meaning": "pagi",
-    "hanzi": "早",
-    "tts": "资"
-  },
-  {
-    "id": 20,
-    "letter": "c",
-    "desc": "Dibaca 'ch'.",
-    "example": "Cǎo",
-    "read": "chao",
-    "meaning": "rumput",
-    "hanzi": "草",
-    "tts": "雌"
-  },
-  {
-    "id": 21,
-    "letter": "s",
-    "desc": "Dibaca 's'.",
-    "example": "Sān",
-    "read": "san",
-    "meaning": "tiga",
-    "hanzi": "三",
-    "tts": "思"
-  }
+    {
+        "id": 1,
+        "letter": "a",
+        "desc": "Dibaca seperti huruf 'a' pada kata 'Ada'.",
+        "example": "Ā",
+        "read": "a",
+        "meaning": "ah / oh",
+        "hanzi": "阿",
+        "tts": "阿"
+    },
+    {
+        "id": 2,
+        "letter": "b",
+        "desc": "Dibaca seperti huruf 'p' pada kata 'Papa'.",
+        "example": "Bā",
+        "read": "pa",
+        "meaning": "delapan",
+        "hanzi": "八",
+        "tts": "波"
+    },
+    {
+        "id": 3,
+        "letter": "c",
+        "desc":
+            "Dibaca seperti huruf 'c' pada kata 'Cuci' (tetapi sambil ditiup/ada angin keluar).",
+        "example": "Cì",
+        "read": "tsi",
+        "meaning": "kali / urutan",
+        "hanzi": "次",
+        "tts": "次"
+    },
+    {
+        "id": 4,
+        "letter": "d",
+        "desc": "Dibaca seperti huruf 't' pada kata 'Tahu'.",
+        "example": "De",
+        "read": "te",
+        "meaning": "milik (partikel)",
+        "hanzi": "的",
+        "tts": "的"
+    },
+    {
+        "id": 5,
+        "letter": "e",
+        "desc": "Dibaca seperti huruf 'e' pada kata 'Emas'.",
+        "example": "È",
+        "read": "e",
+        "meaning": "lapar",
+        "hanzi": "饿",
+        "tts": "饿"
+    },
+    {
+        "id": 6,
+        "letter": "f",
+        "desc": "Dibaca seperti huruf 'f' pada kata 'Foto'.",
+        "example": "Fó",
+        "read": "fo",
+        "meaning": "Buddha",
+        "hanzi": "佛",
+        "tts": "佛"
+    },
+    {
+        "id": 7,
+        "letter": "g",
+        "desc": "Dibaca seperti huruf 'k' pada kata 'Kaki'.",
+        "example": "Gē",
+        "read": "ke",
+        "meaning": "abang / kakak laki-laki",
+        "hanzi": "哥",
+        "tts": "哥"
+    },
+    {
+        "id": 8,
+        "letter": "h",
+        "desc":
+            "Dibaca seperti huruf 'h' pada kata 'Hantu'.",
+        "example": "Hē",
+        "read": "he",
+        "meaning": "minum",
+        "hanzi": "喝",
+        "tts": "喝"
+    },
+    {
+        "id": 9,
+        "letter": "i",
+        "desc": "Dibaca seperti huruf 'i' pada kata 'Ibu'.",
+        "example": "Yī",
+        "read": "i",
+        "meaning": "satu",
+        "hanzi": "一",
+        "tts": "一"
+    },
+    {
+        "id": 10,
+        "letter": "j",
+        "desc":
+            "Dibaca seperti huruf 'c' pada kata 'Cacing' (diucapkan dengan tipis dan bibir tersenyum).",
+        "example": "Jī",
+        "read": "ci",
+        "meaning": "ayam",
+        "hanzi": "鸡",
+        "tts": "鸡"
+    },
+    {
+        "id": 11,
+        "letter": "k",
+        "desc":
+            "Dibaca seperti huruf 'k' pada kata 'Kuku' (tetapi sambil ditiup/ada angin kuat keluar dari mulut).",
+        "example": "Kě",
+        "read": "khe",
+        "meaning": "bisa / haus",
+        "hanzi": "可",
+        "tts": "可"
+    },
+    {
+        "id": 12,
+        "letter": "l",
+        "desc": "Dibaca seperti huruf 'l' pada kata 'Lama'.",
+        "example": "Lè",
+        "read": "le",
+        "meaning": "gembira / senang",
+        "hanzi": "乐",
+        "tts": "乐"
+    },
+    {
+        "id": 13,
+        "letter": "m",
+        "desc": "Dibaca seperti huruf 'm' pada kata 'Mata'.",
+        "example": "Mō",
+        "read": "mo",
+        "meaning": "menyentuh / meraba",
+        "hanzi": "摸",
+        "tts": "摸"
+    },
+    {
+        "id": 14,
+        "letter": "n",
+        "desc": "Dibaca seperti huruf 'n' pada kata 'Nasi'.",
+        "example": "Ne",
+        "read": "ne",
+        "meaning": "saja (partikel tanya)",
+        "hanzi": "呢",
+        "tts": "呢"
+    },
+    {
+        "id": 15,
+        "letter": "o",
+        "desc":
+            "Dibaca seperti huruf 'o' pada kata 'Obat' (tetapi posisi bibir dibuat bulat penuh).",
+        "example": "Ò",
+        "read": "o",
+        "meaning": "oh (paham)",
+        "hanzi": "哦",
+        "tts": "哦"
+    },
+    {
+        "id": 16,
+        "letter": "p",
+        "desc":
+            "Dibaca seperti huruf 'p' pada kata 'Peta' (tetapi sambil ditiup/ada angin kuat keluar dari mulut).",
+        "example": "Pō",
+        "read": "pho",
+        "meaning": "lereng / miring",
+        "hanzi": "坡",
+        "tts": "坡"
+    },
+    {
+        "id": 17,
+        "letter": "q",
+        "desc":
+            "Dibaca seperti huruf 'c' pada kata 'Ciri' (tetapi sambil ditiup/ada angin kuat keluar dari mulut).",
+        "example": "Qī",
+        "read": "chi",
+        "meaning": "tujuh",
+        "hanzi": "七",
+        "tts": "七"
+    },
+    {
+        "id": 18,
+        "letter": "r",
+        "desc":
+            "Dibaca seperti huruf 'r' pada kata 'Retas'.",
+        "example": "Rì",
+        "read": "re",
+        "meaning": "matahari / hari",
+        "hanzi": "日",
+        "tts": "日"
+    },
+    {
+        "id": 19,
+        "letter": "s",
+        "desc": "Dibaca seperti huruf 's' pada kata 'Susu'.",
+        "example": "Sī",
+        "read": "se",
+        "meaning": "sutra",
+        "hanzi": "丝",
+        "tts": "丝"
+    },
+    {
+        "id": 20,
+        "letter": "t",
+        "desc":
+            "Dibaca seperti huruf 't' pada kata 'Toko' (tetapi sambil ditiup/ada angin kuat keluar dari mulut).",
+        "example": "Tè",
+        "read": "the",
+        "meaning": "khusus",
+        "hanzi": "特",
+        "tts": "特"
+    },
+    {
+        "id": 21,
+        "letter": "u",
+        "desc": "Dibaca seperti huruf 'u' pada kata 'Ular'.",
+        "example": "Wū",
+        "read": "wu",
+        "meaning": "gagak / hitam",
+        "hanzi": "乌",
+        "tts": "乌"
+    },
+    {
+        "id": 22,
+        "letter": "ü",
+        "desc": "Dibaca seperti 'yu' pada kata 'yuk'.",
+        "example": "女 (nǚ)",
+        "read": "nyu",
+        "meaning": "perempuan",
+        "hanzi": "女",
+        "tts": "迂"
+    },
+    {
+        "id": 23,
+        "letter": "w",
+        "desc": "Dibaca seperti huruf 'w' pada kata 'Wajah'.",
+        "example": "Wū",
+        "read": "wu",
+        "meaning": "rumah / ruangan",
+        "hanzi": "屋",
+        "tts": "屋"
+    },
+    {
+        "id": 24,
+        "letter": "x",
+        "desc":
+            "Dibaca seperti huruf 's' pada kata 'Siap' dengan posisi bibir tersenyum lebar.",
+        "example": "Xī",
+        "read": "si",
+        "meaning": "barat",
+        "hanzi": "西",
+        "tts": "西"
+    },
+    {
+        "id": 25,
+        "letter": "y",
+        "desc": "Dibaca seperti huruf 'y' pada kata 'Yakin'.",
+        "example": "Yī",
+        "read": "i",
+        "meaning": "pakaian",
+        "hanzi": "衣",
+        "tts": "衣"
+    },
+    {
+        "id": 26,
+        "letter": "z",
+        "desc":
+            "Dibaca seperti huruf 'z' pada kata 'Ziarah' (diucapkan dengan tipis tanpa ditiup angin).",
+        "example": "Zǐ",
+        "read": "tsi",
+        "meaning": "anak / benih",
+        "hanzi": "子",
+        "tts": "子"
+    },
+    {
+        "id": 27,
+        "letter": "zh",
+        "desc":
+            "Dibaca seperti huruf 'c' pada kata 'Cacing' dengan lidah ditekuk ke atas, tanpa ada angin kuat keluar.",
+        "example": "Zhū",
+        "read": "cu",
+        "meaning": "babi",
+        "hanzi": "猪",
+        "tts": "知"
+    },
+    {
+        "id": 28,
+        "letter": "ch",
+        "desc":
+            "Dibaca seperti huruf 'c' pada kata 'Cacing' dengan lidah ditekuk ke atas, sambil ditiup/ada angin kuat keluar.",
+        "example": "Chá",
+        "read": "cha",
+        "meaning": "teh",
+        "hanzi": "茶",
+        "tts": "吃"
+    },
+    {
+        "id": 29,
+        "letter": "sh",
+        "desc":
+            "Dibaca seperti gabungan huruf 'sy' pada kata 'Syarat' atau 'Syukur'.",
+        "example": "Shū",
+        "read": "su",
+        "meaning": "buku",
+        "hanzi": "书",
+        "tts": "狮"
+    }
 ]
