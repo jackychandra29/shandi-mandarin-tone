@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "tone": "Tone 1",
+    "tone": "Nada 1",
     "symbol": "ˉ",
     "example": "mā",
     "desc": "Tinggi datar, seperti 'aaaa...'.",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "tone": "Tone 2",
+    "tone": "Nada 2",
     "symbol": "ˊ",
     "example": "má",
     "desc": "Naik, seperti 'hah?'.",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "tone": "Tone 3",
+    "tone": "Nada 3",
     "symbol": "ˇ",
     "example": "mǎ",
     "desc": "Turun naik, seperti 'hmm...?'.",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "tone": "Tone 4",
+    "tone": "Nada 4",
     "symbol": "ˋ",
     "example": "mà",
     "desc": "Turun tegas, seperti 'hei!'.",

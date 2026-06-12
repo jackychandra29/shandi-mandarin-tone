@@ -83,49 +83,89 @@
         ]
     },
     {
-        "id": 3,
-        "rule": "Perubahan 一 (yī)",
-        "desc": "Perubahan nada pada 一.",
-        "writing": "yī gè",
-        "writingTone": "1 + 4",
-        "pronunciation": "yí gè",
-        "pronunciationTone": "2 + 4",
-        "ruleExplanation":
-            "一 menjadi nada 2 sebelum nada 4, dan menjadi nada 4 sebelum nada 1, 2, atau 3.",
-        "why": "Membuat ritme bicara lebih alami.",
-        "examples": [
-            {
-                "id": 1,
-                "hanzi": "一个",
-                "writing": "yī gè",
-                "spoken": "yí gè",
-                "meaning": "satu buah"
-            },
-            {
-                "id": 2,
-                "hanzi": "一天",
-                "writing": "yī tiān",
-                "spoken": "yì tiān",
-                "meaning": "satu hari"
-            },
-            {
-                "id": 3,
-                "hanzi": "一年",
-                "writing": "yī nián",
-                "spoken": "yì nián",
-                "meaning": "satu tahun"
-            },
-            {
-                "id": 4,
-                "hanzi": "一百",
-                "writing": "yī bǎi",
-                "spoken": "yì bǎi",
-                "meaning": "seratus"
-            }
-        ]
+      "id": 3,
+      "rule": "Perubahan 一 (yī)",
+      "desc": "Jika diikuti nada 4.",
+      "writing": "yī gè",
+      "writingTone": "1 + 4",
+      "pronunciation": "yí gè",
+      "pronunciationTone": "2 + 4",
+      "ruleExplanation": "一 berubah menjadi nada 2 jika diikuti suku kata bernada 4.",
+      "why": "Membuat pengucapan lebih lancar.",
+      "examples": [
+        {
+          "id": 1,
+          "hanzi": "一个",
+          "writing": "yī gè",
+          "spoken": "yí gè",
+          "meaning": "satu buah"
+        },
+        {
+          "id": 2,
+          "hanzi": "一样",
+          "writing": "yī yàng",
+          "spoken": "yí yàng",
+          "meaning": "sama"
+        },
+        {
+          "id": 3,
+          "hanzi": "一定",
+          "writing": "yī dìng",
+          "spoken": "yí dìng",
+          "meaning": "pasti"
+        },
+        {
+          "id": 4,
+          "hanzi": "一半",
+          "writing": "yī bàn",
+          "spoken": "yí bàn",
+          "meaning": "setengah"
+        }
+      ]
     },
     {
-        "id": 4,
+      "id": 4,
+      "rule": "Perubahan 一 (yī)",
+      "desc": "Jika diikuti nada 1, 2, atau 3.",
+      "writing": "yī tiān",
+      "writingTone": "1 + 1/2/3",
+      "pronunciation": "yì tiān",
+      "pronunciationTone": "4 + 1/2/3",
+      "ruleExplanation": "一 berubah menjadi nada 4 jika diikuti suku kata bernada 1, 2, atau 3.",
+      "why": "Membuat ritme bicara lebih alami.",
+      "examples": [
+        {
+          "id": 1,
+          "hanzi": "一天",
+          "writing": "yī tiān",
+          "spoken": "yì tiān",
+          "meaning": "satu hari"
+        },
+        {
+          "id": 2,
+          "hanzi": "一年",
+          "writing": "yī nián",
+          "spoken": "yì nián",
+          "meaning": "satu tahun"
+        },
+        {
+          "id": 3,
+          "hanzi": "一本",
+          "writing": "yī běn",
+          "spoken": "yì běn",
+          "meaning": "satu buku"
+        },
+        {
+          "id": 4,
+          "hanzi": "一张",
+          "writing": "yī zhāng",
+          "spoken": "yì zhāng",
+          "meaning": "satu lembar"
+        }
+      ]
+    },
+    {
+        "id": 5,
         "rule": "Setengah Nada Tiga",
         "desc": "Nada 3 tidak selalu naik kembali.",
         "writing": "wǒ",
