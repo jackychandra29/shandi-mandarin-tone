@@ -15,11 +15,14 @@ struct MediumCardLibraryView: View {
     var onPlayExampleAudio: () -> Void
 
     var body: some View {
-        VStack {
+        VStack (spacing: 10) {
+            Spacer()
+            
             Text(data.tone)
                 .font(Styles.headlineShandi)
                 .foregroundColor(Color.text)
                 .multilineTextAlignment(.center)
+//                .padding(.top, 10)
 
             // Example
                 Text(data.example)
@@ -54,6 +57,7 @@ struct MediumCardLibraryView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(Sizing.roundedMedium)
+        .padding(5)
     }
 }
 

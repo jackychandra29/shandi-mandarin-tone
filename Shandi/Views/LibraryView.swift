@@ -19,6 +19,7 @@ struct LibraryItem: Identifiable, Decodable {
 
 struct LibraryView: View {
     @State private var selected = 0
+    @State private var currentSandhiPage: Int? = nil
 
     let columns = [
         GridItem(.flexible()),
@@ -77,7 +78,7 @@ struct LibraryView: View {
                             switch selected {
                             case 0:
                                 VStack(alignment: .leading) {
-                                    Text("Konsonan").font(Styles.title3Shandi)
+//                                    Text("Konsonan").font(Styles.title3Shandi)
                                     LazyVGrid(columns: columns) {
                                         ForEach(consonants) { item in
                                             SmallCardLibraryView(
@@ -104,64 +105,9 @@ struct LibraryView: View {
                                             )
                                         }
                                     }
-
-                                    Divider()
-                                    Text("Vokal").font(Styles.title3Shandi)
-                                    LazyVGrid(columns: columns) {
-                                        ForEach(vowels) { item in
-                                            SmallCardLibraryView(
-                                                data: item,
-                                                speaker: false,
-                                                onPlayMainAudio: {
-                                                    print(  //"Memutar suara utama untuk \(item.letter)"
-                                                    //TTSService.shared.speakMandarin(item.letter)
-                                                    )
-                                                },
-                                                onPlayExampleAudio: {
-                                                    print(
-                                                        //"Memutar suara contoh untuk \(item.letter)"
-                                                        TTSService.shared
-                                                            .speakMandarin(
-                                                                item.hanzi
-                                                            )
-                                                    )
-                                                }
-                                            )
-                                        }
-                                    }
-
-                                    Divider()
-                                    Text("Aturan khusus").font(
-                                        Styles.title3Shandi
-                                    )
-                                    LazyVGrid(columns: columns) {
-                                        ForEach(special_rules) { item in
-                                            SmallCardLibraryView(
-                                                data: item,
-                                                speaker: true,
-                                                onPlayMainAudio: {
-                                                    print(
-                                                        //"Memutar suara utama untuk \(item.letter)"
-                                                        TTSService.shared
-                                                            .speakMandarin(
-                                                                item.letter
-                                                            )
-                                                    )
-                                                },
-                                                onPlayExampleAudio: {
-                                                    print(
-                                                        //"Memutar suara contoh untuk \(item.letter)"
-                                                        TTSService.shared
-                                                            .speakMandarin(
-                                                                item.hanzi
-                                                            )
-                                                    )
-                                                }
-                                            )
-                                        }
-                                    }
                                 }
                                 .padding(.horizontal, 30)
+                                .padding(.top, 5)
                                 .background(Color.screen)
 
                             case 1:
@@ -188,7 +134,7 @@ struct LibraryView: View {
                                             )
                                         }
                                     }
-                                    .padding(.horizontal, 30)
+                                    .padding(.horizontal, 25)
 
                                     HStack {
                                         Image("insight")
@@ -211,28 +157,49 @@ struct LibraryView: View {
                                 }
 
                             case 2:
-                                let cardWidth = geometry.size.width * 0.84
+                                let cardWidth = geometry.size.width * 0.85
+                                let dotsAreaHeight: CGFloat = 6
+                                let sectionHeaderHeight: CGFloat = 110
+                                let cardHeight = geometry.size.height - sectionHeaderHeight - dotsAreaHeight - 16
 
-                                ScrollView(.horizontal) {
-                                    LazyHStack(spacing: 16) {
+                                VStack(spacing: 0) {
+                                    ScrollView(.horizontal) {
+                                        LazyHStack(spacing: 16) {
+                                            ForEach(tone_sandhi) { item in
+                                                BigCardLibraryView(
+                                                    data: item,
+                                                    speaker: false
+                                                )
+                                                .frame(width: cardWidth, height: cardHeight)
+                                                .id(item.id)
+                                            }
+                                        }
+                                        .scrollTargetLayout()
+                                        .padding(
+                                            .horizontal,
+                                            (geometry.size.width - cardWidth) / 2
+                                        )
+                                    }
+                                    .scrollPosition(id: $currentSandhiPage)
+                                    .scrollTargetBehavior(.viewAligned)
+                                    .scrollIndicators(.hidden)
+
+                                    // Page dots
+                                    HStack(spacing: 7) {
                                         ForEach(tone_sandhi) { item in
-                                            BigCardLibraryView(
-                                                data: item,
-                                                speaker: false
-                                            )
-                                            .frame(width: cardWidth)
+                                            let isActive = (currentSandhiPage ?? tone_sandhi.first?.id) == item.id
+                                            Capsule()
+                                                .fill(isActive ? Color.orangeBrand : Color.text.opacity(0.2))
+                                                .frame(
+                                                    width: isActive ? 20 : 7,
+                                                    height: 7
+                                                )
+                                                .animation(.spring(response: 0.35, dampingFraction: 0.7), value: currentSandhiPage)
                                         }
                                     }
-                                    .frame(maxHeight: .infinity)
-                                    .scrollTargetLayout()
-                                    .padding(
-                                        .horizontal,
-                                        (geometry.size.width - cardWidth) / 2
-                                    )
+                                    .frame(height: dotsAreaHeight)
                                 }
-                                .frame(maxHeight: .infinity)
-                                .scrollTargetBehavior(.viewAligned)
-                                .scrollIndicators(.hidden)
+                                .padding(.top, 5)
                             default:
                                 EmptyView()
                             }
@@ -244,7 +211,7 @@ struct LibraryView: View {
                                 Picker("Mode", selection: $selected) {
                                     Text("Fonetik").tag(0)
                                     Text("Nada").tag(1)
-                                    Text("Aturan").tag(2)
+                                    Text("Perubahan Nada").tag(2)
                                 }
                                 .pickerStyle(.segmented)
                                 .padding(.horizontal, 16)
@@ -255,6 +222,7 @@ struct LibraryView: View {
                         
                     }
                     .frame(minHeight: geometry.size.height, alignment: .top)
+                    .frame(maxHeight: .infinity)
                 }
                 .clipped()
                 .background(Color.screen)
