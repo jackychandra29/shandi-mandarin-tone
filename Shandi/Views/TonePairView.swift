@@ -174,13 +174,14 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
-            WaveformView(values: word.guidePitch)
+            WaveformView(segments: [word.guidePitch])
             Spacer(minLength: 20)
             ButtonRecord(action: session.advance)
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var guidedRecordingContent: some View {
@@ -188,11 +189,12 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
             WaveformView(
-                values: word.guidePitch,
-                comparisonValues: session.userPitch
+                segments: [word.guidePitch],
+                userSegments: [session.userPitch]
             )
 
             Text("Lebih stabil ! Nadanya naik turun")
@@ -212,7 +214,7 @@ struct TonePairView: View {
             Spacer(minLength: 10)
             ButtonRecord()
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var questionContent: some View {
@@ -220,7 +222,8 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
             Spacer(minLength: 28)
 
@@ -240,7 +243,7 @@ struct TonePairView: View {
 
             Spacer(minLength: 0)
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var memoryContent: some View {
@@ -248,9 +251,10 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
-            WaveformView(values: [])
+            WaveformView(segments: [[]])
 
             Text(
                 "Sekarang giliranmu tanpa dipandu\nIngat nadanya lalu ucapkan!"
@@ -261,7 +265,7 @@ struct TonePairView: View {
 
             ButtonRecord(action: session.advance)
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var wordCompleteContent: some View {
@@ -269,9 +273,10 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
-            WaveformView(values: session.userPitch)
+            WaveformView(segments: [session.userPitch])
 
             Text("Hebat!\nKamu ingat nadanya")
                 .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -280,7 +285,7 @@ struct TonePairView: View {
 
             ButtonRecord()
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var word: TonePairPracticeWord {
