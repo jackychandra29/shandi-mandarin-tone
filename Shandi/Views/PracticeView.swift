@@ -15,7 +15,7 @@ struct PracticeView: View {
                 Spacer()
                 WordDisplay(pinyin: "bīng", hanzi: "冰", meaning: "Es")
                 Spacer()
-                WaveformView(values: [4, 1, 4])
+                //WaveformView(segments:: [4, 1, 4])
                 Spacer()
                 Spacer()
                 Spacer()

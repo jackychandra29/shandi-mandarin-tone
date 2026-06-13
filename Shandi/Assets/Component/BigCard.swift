@@ -11,7 +11,7 @@ struct BigCard<Content: View>: View {
         VStack {
             content
                 .padding(.vertical, 12)
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 20)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
