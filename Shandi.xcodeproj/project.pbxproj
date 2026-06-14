@@ -6,13 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5C0B0E837D9C08D1BA108A99 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0080AC8E85BB1BBE0C6F9920 /* Lottie */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6972A0CA2FC54DEE000ACF95 /* Shandi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shandi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6949A0E42FDBFBB3009EF317 /* Exceptions for "Shandi" folder in "Shandi" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6972A0C92FC54DEE000ACF95 /* Shandi */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6972A0CC2FC54DEE000ACF95 /* Shandi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6949A0E42FDBFBB3009EF317 /* Exceptions for "Shandi" folder in "Shandi" target */,
+			);
 			path = Shandi;
 			sourceTree = "<group>";
 		};
@@ -23,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C0B0E837D9C08D1BA108A99 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,7 @@
 			);
 			name = Shandi;
 			packageProductDependencies = (
+				0080AC8E85BB1BBE0C6F9920 /* Lottie */,
 			);
 			productName = Shandi;
 			productReference = 6972A0CA2FC54DEE000ACF95 /* Shandi.app */;
@@ -94,6 +113,9 @@
 			);
 			mainGroup = 6972A0C12FC54DEE000ACF95;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				410C6543B475FF189480B0B0 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6972A0CB2FC54DEE000ACF95 /* Products */;
 			projectDirPath = "";
@@ -254,9 +276,10 @@
 				CODE_SIGN_ENTITLEMENTS = Shandi/Shandi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G3Z7ZWN8B4;
+				DEVELOPMENT_TEAM = S975R3TQ8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shandi/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Shandi merekam suaramu untuk membandingkan nada Mandarin.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Shandi menggunakan pengenalan suara untuk menilai pengucapan nada Mandarinmu.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -270,7 +293,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jq.Shandi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jq.Shandiv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -290,9 +313,10 @@
 				CODE_SIGN_ENTITLEMENTS = Shandi/Shandi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G3Z7ZWN8B4;
+				DEVELOPMENT_TEAM = S975R3TQ8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shandi/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Shandi merekam suaramu untuk membandingkan nada Mandarin.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Shandi menggunakan pengenalan suara untuk menilai pengucapan nada Mandarinmu.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -306,7 +330,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jq.Shandi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jq.Shandiv2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -340,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		410C6543B475FF189480B0B0 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0080AC8E85BB1BBE0C6F9920 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 410C6543B475FF189480B0B0 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6972A0C22FC54DEE000ACF95 /* Project object */;
 }
