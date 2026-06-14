@@ -7,10 +7,12 @@ struct TonePairView: View {
     @Query(sort: \PracticeAnswer.category) private var progressAnswers:
         [PracticeAnswer]
 
+    private let practiceBottomActionHeight: CGFloat = 72
+
     private let categories: [TonePairPracticeCategory]
     @State private var session: TonePairPracticeSession
 
-    init(categories: [TonePairPracticeCategory]? = nil) {
+    init(categories: [TonePairPracticeCategory]? = nil, previewStep: TonePairPracticeStep? = nil) {
         let loadedCategories =
             categories
             ?? JSONLoader.load(
@@ -24,9 +26,11 @@ struct TonePairView: View {
             : loadedCategories
 
         self.categories = safeCategories
-        _session = State(
-            initialValue: TonePairPracticeSession(category: safeCategories[0])
-        )
+        let initialSession = TonePairPracticeSession(category: safeCategories[0])
+        if let previewStep {
+            initialSession.step = previewStep
+        }
+        _session = State(initialValue: initialSession)
     }
 
     var body: some View {
@@ -42,6 +46,7 @@ struct TonePairView: View {
         }
         .background(Color.screen)
         .navigationBarBackButtonHidden()
+        .toolbar(.hidden, for: .navigationBar)
     }
 
     private var introView: some View {
@@ -90,25 +95,26 @@ struct TonePairView: View {
             )
 
             Rectangle()
-                .fill(Color.text.opacity(0.28))
+                .fill(Color.text.opacity(0.35))
                 .frame(height: 1)
 
-            VStack(spacing: 0) {
-                BigCard {
-                    cardContent
-                }
+            GeometryReader { proxy in
+                let cardHeight = max(proxy.size.height - practiceBottomActionHeight, 0)
 
-                if let actionTitle = session.primaryActionTitle {
-                    PrimaryActionButton(
-                        title: actionTitle,
-                        action: session.advance
-                    )
-                    .padding(.horizontal, 28)
-                    .padding(.bottom, 28)
-                }
+                VStack(spacing: 0) {
+                    BigCard {
+                        cardContent
+                    }
+                    .frame(height: cardHeight, alignment: .top)
+                    .clipped()
 
+                    bottomActionArea
+                        .frame(height: practiceBottomActionHeight, alignment: .top)
+                }
+                .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .overlay {
             if session.showsExitPrompt {
                 ExitAlertOverlay(
@@ -137,50 +143,84 @@ struct TonePairView: View {
     }
 
     @ViewBuilder
-    private var cardContent: some View {
-        VStack {
-            HStack {
-                Spacer()
+    private var bottomActionArea: some View {
+        let hasAction = session.primaryActionTitle != nil
 
-                Button {
-                } label: {
-                    Image(systemName: Icons.speaker)
-                        .font(.system(size: 26))
-                        .foregroundStyle(Color.text)
+        PrimaryActionButton(
+            title: session.primaryActionTitle ?? "Selanjutnya",
+            verticalPadding: 10,
+            action: {
+                if hasAction {
+                    session.advance()
                 }
             }
+        )
+        .padding(.horizontal, 28)
+        .padding(.top, 8)
+        .padding(.bottom, 12)
+        .opacity(hasAction ? 1 : 0)
+        .allowsHitTesting(hasAction)
+        .accessibilityHidden(!hasAction)
+    }
 
-            Spacer(minLength: 12)
+    @ViewBuilder
+    private var cardContent: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Image("TonePairIcon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
 
-            switch session.step {
-            case .guide:
-                guideContent
-            case .guidedRecording:
-                guidedRecordingContent
-            case .question, .answerFeedback:
-                questionContent
-            case .memory:
-                memoryContent
-            case .wordComplete:
-                wordCompleteContent
-            default:
-                EmptyView()
+                Spacer()
+
+                SpeakerButton {
+                    TTSService.shared.speakMandarin(word.hanzi)
+                }
             }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+
+            Group {
+                switch session.step {
+                case .guide:
+                    guideContent
+                case .guidedRecording:
+                    guidedRecordingContent
+                case .question, .answerFeedback:
+                    questionContent
+                case .memory:
+                    memoryContent
+                case .wordComplete:
+                    wordCompleteContent
+                default:
+                    EmptyView()
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 
     private var guideContent: some View {
-        VStack(spacing: 28) {
+        VStack(spacing: 0) {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
-            WaveformView(values: word.guidePitch)
-            Spacer(minLength: 20)
+            .padding(.top, 18)
+
+            WaveformView(segments: [word.guidePitch])
+                .padding(.top, 28)
+                .padding(.horizontal, 28)
+
+            Spacer()
+
             ButtonRecord(action: session.advance)
+                .padding(.bottom, 22)
         }
-        .padding(.horizontal, 28)
     }
 
     private var guidedRecordingContent: some View {
@@ -188,12 +228,14 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
             WaveformView(
-                values: word.guidePitch,
-                comparisonValues: session.userPitch
+                segments: [word.guidePitch],
+                userSegments: [session.userPitch]
             )
+            .padding(.horizontal, 28)
 
             Text("Lebih stabil ! Nadanya naik turun")
                 .font(.system(size: 14, weight: .bold, design: .rounded))
@@ -212,7 +254,7 @@ struct TonePairView: View {
             Spacer(minLength: 10)
             ButtonRecord()
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var questionContent: some View {
@@ -220,27 +262,42 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
-            Spacer(minLength: 28)
 
-            TonePairQuestion(tonePair: word.tonePair, question: word.question)
-            Spacer(minLength: 28)
+            Rectangle()
+                .fill(Color.text.opacity(0.35))
+                .frame(height: 1)
+                .padding(.top, 26)
 
-            VStack(spacing: 12) {
-                ForEach(word.answerOptions, id: \.self) { option in
-                    AnswerOption(
-                        title: option,
-                        isSelected: session.isAnswerHighlighted(option)
-                    ) {
-                        session.selectAnswer(option)
+            VStack(alignment: .leading, spacing: 24) {
+                Text(questionPrompt)
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .foregroundStyle(Color.text)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                VStack(spacing: 18) {
+                    ForEach(word.answerOptions, id: \.self) { option in
+                        AnswerOption(
+                            title: option,
+                            isSelected: session.isAnswerHighlighted(option)
+                        ) {
+                            session.selectAnswer(option)
+                        }
                     }
                 }
             }
-
-            Spacer(minLength: 0)
+            .padding(.horizontal, 32)
+            .padding(.top, 24)
         }
-        .padding(.horizontal, 28)
+    }
+
+    private var questionPrompt: String {
+        let tones = word.tonePair.components(separatedBy: " + ")
+        guard tones.count == 2 else { return word.question }
+        return "Jika \(tones[0]) bertemu \(tones[1]), gabungan nadanya berubah menjadi apa?"
     }
 
     private var memoryContent: some View {
@@ -248,9 +305,11 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
-            WaveformView(values: [])
+            WaveformView(segments: [[]])
+                .padding(.horizontal, 28)
 
             Text(
                 "Sekarang giliranmu tanpa dipandu\nIngat nadanya lalu ucapkan!"
@@ -261,7 +320,7 @@ struct TonePairView: View {
 
             ButtonRecord(action: session.advance)
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var wordCompleteContent: some View {
@@ -269,9 +328,12 @@ struct TonePairView: View {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
-                meaning: word.meaning
+                meaning: word.meaning,
+                pinyinColor: .orangeBrand
             )
-            WaveformView(values: session.userPitch)
+
+            WaveformView(segments: [session.userPitch])
+                .padding(.horizontal, 28)
 
             Text("Hebat!\nKamu ingat nadanya")
                 .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -280,15 +342,14 @@ struct TonePairView: View {
 
             ButtonRecord()
         }
-        .padding(.horizontal, 28)
+        //.padding(.horizontal, 28)
     }
 
     private var word: TonePairPracticeWord {
         session.currentWord
     }
 
-    private func introCard(for category: TonePairPracticeCategory) -> some View
-    {
+    private func introCard(for category: TonePairPracticeCategory) -> some View {
         let completedCount = progressCount(for: category)
         let total = category.words.count
         let cardAspectRatio: CGFloat = 160.0 / 200.0
@@ -296,52 +357,65 @@ struct TonePairView: View {
         return Button(action: {
             startPractice(for: category)
         }) {
-            VStack(spacing: 8) {
-                Spacer(minLength: 0)
-
-                Text(cardTitle(for: category))
-                    .font(.system(size: 22, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.orangeBrand)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.78)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(
-                        maxWidth: .infinity,
-                        minHeight: 50,
-                        alignment: .center
-                    )
-
-                Text(category.subtitle)
-                    .font(.system(size: 10.5, design: .rounded))
-                    .foregroundStyle(Color.text)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(4)
-                    .minimumScaleFactor(0.9)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .top)
-
-                progressBar(value: progressFraction(for: category))
-                    .frame(height: 8)
-                    .padding(.top, 4)
-
-                Text("\(completedCount)/\(total) latihan kata")
-                    .font(.system(size: 11, design: .rounded))
-                    .foregroundStyle(Color.text)
-
-                Spacer(minLength: 0)
-            }
-            .padding(.horizontal, 26)
-            .padding(.vertical, 16)
-            .frame(maxWidth: .infinity)
-            .aspectRatio(cardAspectRatio, contentMode: .fit)
-            .background(Color.white)
-            .clipShape(
+            ZStack {
                 RoundedRectangle(
                     cornerRadius: Sizing.roundedBig,
                     style: .continuous
                 )
-            )
+                .fill(Color.whiteShadow)
+                .offset(y: 4)
+
+                VStack(spacing: 8) {
+                    Spacer(minLength: 0)
+
+                    Text(cardTitle(for: category))
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundStyle(Color.orangeBrand)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.78)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(
+                            maxWidth: .infinity,
+                            minHeight: 50,
+                            alignment: .center
+                        )
+
+                    Text(category.subtitle)
+                        .font(.system(size: 10.5, design: .rounded))
+                        .foregroundStyle(Color.text)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(4)
+                        .minimumScaleFactor(0.9)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(
+                            maxWidth: .infinity,
+                            minHeight: 50,
+                            alignment: .top
+                        )
+
+                    progressBar(value: progressFraction(for: category))
+                        .frame(height: 8)
+                        .padding(.top, 4)
+
+                    Text("\(completedCount)/\(total) latihan kata")
+                        .font(.system(size: 11, design: .rounded))
+                        .foregroundStyle(Color.text)
+
+                    Spacer(minLength: 0)
+                }
+                .padding(.horizontal, 26)
+                .padding(.vertical, 16)
+                .frame(maxWidth: .infinity)
+                .aspectRatio(cardAspectRatio, contentMode: .fit)
+                .background(
+                    RoundedRectangle(
+                        cornerRadius: Sizing.roundedBig,
+                        style: .continuous
+                    )
+                    .fill(Color.white)
+                )
+            }
         }
         .buttonStyle(.plain)
     }
@@ -368,8 +442,12 @@ struct TonePairView: View {
                     .fill(Color.text.opacity(0.10))
 
                 Capsule()
-                    .fill(Color.yellowBrand)
+                    .fill(Color.orangeBrand)
                     .frame(width: proxy.size.width * min(max(value, 0), 1))
+            }
+            .overlay {
+                Capsule()
+                    .stroke(Color.orangeBrand, lineWidth: 1)
             }
         }
     }
@@ -406,9 +484,37 @@ struct TonePairView: View {
     }
 }
 
-#Preview {
+#Preview("Intro") {
     NavigationStack {
         TonePairView()
+    }
+    .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
+}
+
+#Preview("Guide") {
+    NavigationStack {
+        TonePairView(previewStep: .guide)
+    }
+    .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
+}
+
+#Preview("Question") {
+    NavigationStack {
+        TonePairView(previewStep: .question)
+    }
+    .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
+}
+
+#Preview("Answer Feedback") {
+    NavigationStack {
+        TonePairView(previewStep: .answerFeedback)
+    }
+    .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
+}
+
+#Preview("Memory") {
+    NavigationStack {
+        TonePairView(previewStep: .memory)
     }
     .modelContainer(for: [PracticeAnswer.self, UserProfile.self], inMemory: true)
 }

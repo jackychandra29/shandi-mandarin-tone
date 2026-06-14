@@ -42,6 +42,7 @@ struct SingleToneView: View {
         }
         .background(Color.screen.ignoresSafeArea())
         .navigationBarBackButtonHidden()
+        .toolbar(.hidden, for: .navigationBar)
         .onAppear {
             let store = ProgressStore(context: modelContext)
             let allWords = JSONLoader.load(fileName: "single_tone", type: [SingleTonePracticeWord].self) ?? []
@@ -52,6 +53,7 @@ struct SingleToneView: View {
             
             availableTones = Set(allWords.map(\.tone)).sorted()
         }
+        
         .overlay {
             if viewModel.showsExitPrompt {
                 ExitAlertOverlay(
@@ -68,7 +70,7 @@ struct SingleToneView: View {
             }
         }
     }
-    
+
     // MARK: - 1. Intro View (Memakai SingleToneCard milikmu)
     private var introView: some View {
         ScrollView(showsIndicators: false) {
@@ -174,25 +176,18 @@ struct SingleToneView: View {
                         }
                     }
                 )
-                
+
                 Rectangle()
-                    .fill(Color.text.opacity(0.28))
+                    .fill(Color.text.opacity(0.35))
                     .frame(height: 1)
-                
-                VStack(spacing: 0) {
-                    BigCard {
-                        cardContent
-                    }
-                    
-                    if viewModel.currentState == .success {
-                        PrimaryActionButton(title: "Selanjutnya", action: viewModel.nextWord)
-                            .padding(.horizontal, 28)
-                            .padding(.bottom, 28)
-                    } else {
-                        Spacer().frame(height: 70)
-                    }
+
+                BigCard {
+                    cardContent
                 }
+
+                bottomActionArea
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .overlay {
                 if viewModel.showsExitPrompt {
                     ExitAlertOverlay(
@@ -213,6 +208,16 @@ struct SingleToneView: View {
                 }
             }
         }
+
+        @ViewBuilder
+        private var bottomActionArea: some View {
+            if viewModel.currentState == .success {
+                PrimaryActionButton(title: "Selanjutnya", action: viewModel.nextWord)
+                    .padding(.horizontal, 28)
+                    .padding(.top, 12)
+                    .padding(.bottom, 28)
+            }
+        }
         
         // MARK: - Sub-komponen Card Content
         @ViewBuilder
@@ -220,12 +225,14 @@ struct SingleToneView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Button {} label: {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 26))
-                            .foregroundStyle(Color.text)
+
+                    SpeakerButton {
+                        if let word = viewModel.currentWord {
+                            TTSService.shared.speakMandarin(word.hanzi)
+                        }
                     }
                 }
+                .padding(.horizontal,12)
                 
                 Spacer(minLength: 12)
                 
@@ -253,13 +260,18 @@ struct SingleToneView: View {
         // 1. Tampilan saat Awal / Sedang Merekam
         private func idleContent(word: SingleTonePracticeWord) -> some View {
             VStack(spacing: 28) {
-                WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
+                WordDisplay(
+                    pinyin: word.pinyin,
+                    hanzi: word.hanzi,
+                    meaning: word.meaning,
+                    pinyinColor: .redBrand
+                )
                 
                 WaveformView(
-                    values: getTargetChaoValues(for: viewModel.selectedTone ?? 1),
-                    comparisonValues: nil,
-                    title: "Jejak nada"
+                    segments: [getTargetChaoValues(for: viewModel.selectedTone ?? 1)],
+                    userSegments: viewModel.pitchValues.isEmpty ? nil : [viewModel.pitchValues]
                 )
+                .padding(.horizontal, 28)
                 
                 Spacer(minLength: 30)
                 
@@ -272,19 +284,31 @@ struct SingleToneView: View {
         
         // 2. Tampilan saat ada Feedback
         private func feedbackContent(word: SingleTonePracticeWord, isSuccess: Bool) -> some View {
-            VStack(spacing: 18) {
+            let result = viewModel.lastValidationResult
+            let feedbackText = result?.feedbackText ?? (isSuccess ? "Mantap! Semuanya benar!" : "Belum tepat, coba lagi!")
+            let feedbackColor: Color = {
+                guard let r = result else { return isSuccess ? .green : Color.redBrand }
+                if r.isFullyCorrect { return .green }
+                if r.syllableCorrect { return Color.orangeBrand }  // nada salah, kata benar
+                if r.toneCorrect { return Color.yellowBrand }       // kata salah, nada benar
+                return Color.redBrand                               // keduanya salah
+            }()
+            
+            return VStack(spacing: 18) {
                 WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
                 
                 WaveformView(
-                    values: getTargetChaoValues(for: viewModel.selectedTone ?? 1),
-                    comparisonValues: nil,
-                    title: "Jejak nada"
+                    segments: [getTargetChaoValues(for: viewModel.selectedTone ?? 1)],
+                    userSegments: viewModel.pitchValues.isEmpty ? nil : [viewModel.pitchValues]
                 )
+                .padding(.horizontal, 28)
                 
-                // Feedback
-                Text(isSuccess ? "Mantap! Nadanya rapi dan stabil" : "Lebih stabil! Nadanya naik turun")
+                // Feedback dari PronunciationValidator
+                Text(feedbackText)
                     .font(Styles.headlineShandi)
-                    .foregroundStyle(Color.redBrand)
+                    .foregroundStyle(feedbackColor)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 8)
                 
                 // Tombol Dengar Nadamu
                 Button(action: {}) {
