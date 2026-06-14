@@ -12,7 +12,7 @@ struct BigCard<Content: View>: View {
     var body: some View {
         VStack {
             content
-                .padding(.vertical, 16)
+                .padding(.vertical, 10)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(
@@ -21,7 +21,7 @@ struct BigCard<Content: View>: View {
         )
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding(.horizontal, 24)
-        .padding(.vertical, 24)
+        .padding(.vertical, 10)
     }
 }
 

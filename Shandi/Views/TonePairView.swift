@@ -47,6 +47,7 @@ struct TonePairView: View {
         .background(Color.screen)
         .navigationBarBackButtonHidden()
         .toolbar(.hidden, for: .navigationBar)
+        .toolbarVisibility(.hidden, for: .tabBar) 
     }
 
     private var introView: some View {
@@ -94,25 +95,15 @@ struct TonePairView: View {
                 }
             )
 
-            Rectangle()
-                .fill(Color.text.opacity(0.35))
-                .frame(height: 1)
+//            Rectangle()
+//                .fill(Color.text.opacity(0.35))
+//                .frame(height: 1)
 
-            GeometryReader { proxy in
-                let cardHeight = max(proxy.size.height - practiceBottomActionHeight, 0)
-
-                VStack(spacing: 0) {
-                    BigCard {
-                        cardContent
-                    }
-                    .frame(height: cardHeight, alignment: .top)
-                    .clipped()
-
-                    bottomActionArea
-                        .frame(height: practiceBottomActionHeight, alignment: .top)
-                }
-                .frame(width: proxy.size.width, height: proxy.size.height, alignment: .top)
+            BigCard {
+                cardContent
             }
+
+            bottomActionArea
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .overlay {
@@ -156,8 +147,8 @@ struct TonePairView: View {
             }
         )
         .padding(.horizontal, 28)
-        .padding(.top, 8)
-        .padding(.bottom, 12)
+        .padding(.top, 12)
+        .padding(.bottom, 28)
         .opacity(hasAction ? 1 : 0)
         .allowsHitTesting(hasAction)
         .accessibilityHidden(!hasAction)
@@ -178,8 +169,8 @@ struct TonePairView: View {
                     TTSService.shared.speakMandarin(word.hanzi)
                 }
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
+            .padding(.horizontal, 12)
+            .padding(.bottom, 8)
 
             Group {
                 switch session.step {
@@ -210,51 +201,70 @@ struct TonePairView: View {
                 meaning: word.meaning,
                 pinyinColor: .orangeBrand
             )
-            .padding(.top, 18)
+            .padding(.bottom, 28)
 
             WaveformView(segments: [word.guidePitch])
-                .padding(.top, 28)
                 .padding(.horizontal, 28)
+                .padding(.bottom, 28)
 
-            Spacer()
+            // Feedback zone (empty placeholder)
+            VStack(spacing: 0) {
+                Color.clear
+            }
+            .frame(minHeight: 48, alignment: .top)
+            .padding(.bottom, 12)
+
+            Spacer(minLength: 0)
 
             ButtonRecord(action: session.advance)
-                .padding(.bottom, 22)
+                .padding(.bottom, 16)
         }
     }
 
     private var guidedRecordingContent: some View {
-        VStack(spacing: 18) {
+        VStack(spacing: 0) {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
                 meaning: word.meaning,
                 pinyinColor: .orangeBrand
             )
+            .padding(.bottom, 28)
+
             WaveformView(
                 segments: [word.guidePitch],
                 userSegments: [session.userPitch]
             )
             .padding(.horizontal, 28)
+            .padding(.bottom, 28)
 
-            Text("Lebih stabil ! Nadanya naik turun")
-                .font(.system(size: 14, weight: .bold, design: .rounded))
-                .foregroundStyle(Color.orangeBrand)
+            VStack(spacing: 12) {
+                Text("Lebih stabil ! Nadanya naik turun")
+                    .font(Styles.headlineShandi)
+                    .foregroundStyle(Color.orangeBrand)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
 
-            Button(action: {}) {
-                Label("Dengar Nadamu", systemImage: Icons.speaker)
-                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.text)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 8)
-                    .background(Color.yellowBrand)
-                    .clipShape(Capsule())
+                Button(action: {}) {
+                    Label("Dengar Nadamu", systemImage: Icons.speaker)
+                        .font(Styles.captionShandi).fontWeight(.semibold)
+                        .foregroundStyle(Color.text)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(Color.yellowBrand)
+                        .clipShape(Capsule())
+                }
             }
+            .frame(minHeight: 48, alignment: .top)
+            .padding(.bottom, 12)
 
-            Spacer(minLength: 10)
+            Spacer(minLength: 0)
+
             ButtonRecord()
+                .opacity(0) // Hide based on user request to keep consistent but unpressable
+                .disabled(true)
+                .padding(.bottom, 16)
         }
-        //.padding(.horizontal, 28)
     }
 
     private var questionContent: some View {
@@ -265,11 +275,11 @@ struct TonePairView: View {
                 meaning: word.meaning,
                 pinyinColor: .orangeBrand
             )
+            .padding(.bottom, 28) // Anchor point konsisten
 
             Rectangle()
                 .fill(Color.text.opacity(0.35))
                 .frame(height: 1)
-                .padding(.top, 26)
 
             VStack(alignment: .leading, spacing: 24) {
                 Text(questionPrompt)
@@ -291,6 +301,8 @@ struct TonePairView: View {
             }
             .padding(.horizontal, 32)
             .padding(.top, 24)
+
+            Spacer(minLength: 0)
         }
     }
 
@@ -301,48 +313,69 @@ struct TonePairView: View {
     }
 
     private var memoryContent: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 0) {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
                 meaning: word.meaning,
                 pinyinColor: .orangeBrand
             )
+            .padding(.bottom, 28)
+
             WaveformView(segments: [[]])
                 .padding(.horizontal, 28)
+                .padding(.bottom, 28)
 
-            Text(
-                "Sekarang giliranmu tanpa dipandu\nIngat nadanya lalu ucapkan!"
-            )
-            .font(.system(size: 14, design: .rounded))
-            .foregroundStyle(Color.text)
-            .multilineTextAlignment(.center)
+            VStack(spacing: 12) {
+                Text(
+                    "Sekarang giliranmu tanpa dipandu\nIngat nadanya lalu ucapkan!"
+                )
+                .font(Styles.headlineShandi)
+                .foregroundStyle(Color.text)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(minHeight: 48, alignment: .top)
+            .padding(.bottom, 12)
+
+            Spacer(minLength: 0)
 
             ButtonRecord(action: session.advance)
+                .padding(.bottom, 16)
         }
-        //.padding(.horizontal, 28)
     }
 
     private var wordCompleteContent: some View {
-        VStack(spacing: 26) {
+        VStack(spacing: 0) {
             WordDisplay(
                 pinyin: word.pinyin,
                 hanzi: word.hanzi,
                 meaning: word.meaning,
                 pinyinColor: .orangeBrand
             )
+            .padding(.bottom, 28)
 
             WaveformView(segments: [session.userPitch])
                 .padding(.horizontal, 28)
+                .padding(.bottom, 28)
 
-            Text("Hebat!\nKamu ingat nadanya")
-                .font(.system(size: 14, weight: .semibold, design: .rounded))
-                .foregroundStyle(Color.text)
-                .multilineTextAlignment(.center)
+            VStack(spacing: 12) {
+                Text("Hebat!\nKamu ingat nadanya")
+                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                    .foregroundStyle(Color.text)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(minHeight: 48, alignment: .top)
+            .padding(.bottom, 12)
+
+            Spacer(minLength: 0)
 
             ButtonRecord()
+                .opacity(0) // Hide based on user request to keep consistent but unpressable
+                .disabled(true)
+                .padding(.bottom, 16)
         }
-        //.padding(.horizontal, 28)
     }
 
     private var word: TonePairPracticeWord {
@@ -369,7 +402,7 @@ struct TonePairView: View {
                     Spacer(minLength: 0)
 
                     Text(cardTitle(for: category))
-                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .font(Styles.title3Shandi).fontWeight(.bold)
                         .foregroundStyle(Color.orangeBrand)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
@@ -399,7 +432,7 @@ struct TonePairView: View {
                         .padding(.top, 4)
 
                     Text("\(completedCount)/\(total) latihan kata")
-                        .font(.system(size: 11, design: .rounded))
+                        .font(Styles.caption2Shandi)
                         .foregroundStyle(Color.text)
 
                     Spacer(minLength: 0)

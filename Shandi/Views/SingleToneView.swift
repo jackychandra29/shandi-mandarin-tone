@@ -36,6 +36,7 @@ struct SingleToneView: View {
                 )
             } else if viewModel.selectedTone == nil {
                 introView
+                
             } else {
                 practiceView
             }
@@ -69,6 +70,7 @@ struct SingleToneView: View {
                 .zIndex(1)
             }
         }
+        .toolbarVisibility(.hidden, for: .tabBar) 
     }
 
     // MARK: - 1. Intro View (Memakai SingleToneCard milikmu)
@@ -177,17 +179,12 @@ struct SingleToneView: View {
                     }
                 )
 
-                Rectangle()
-                    .fill(Color.text.opacity(0.35))
-                    .frame(height: 1)
-
                 BigCard {
                     cardContent
                 }
 
                 bottomActionArea
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .overlay {
                 if viewModel.showsExitPrompt {
                     ExitAlertOverlay(
@@ -217,13 +214,25 @@ struct SingleToneView: View {
                     .padding(.top, 12)
                     .padding(.bottom, 28)
             }
+            else{
+                PrimaryActionButton(title: "Selanjutnya", action: {}).opacity(0)
+                    .padding(.horizontal, 28)
+                    .padding(.top, 12)
+                    .padding(.bottom, 28)
+                    .disabled(true)
+            }
         }
         
         // MARK: - Sub-komponen Card Content
         @ViewBuilder
         private var cardContent: some View {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
+                    Image("singleIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
+
                     Spacer()
 
                     SpeakerButton {
@@ -232,106 +241,88 @@ struct SingleToneView: View {
                         }
                     }
                 }
-                .padding(.horizontal,12)
-                
-                Spacer(minLength: 12)
-                
+                .padding(.horizontal, 12)
+                .padding(.bottom, 8)
+
                 if let word = viewModel.currentWord {
-                    switch viewModel.currentState {
-                    case .idle, .recording:
-                        idleContent(word: word)
-                    case .failed:
-                        feedbackContent(word: word, isSuccess: false)
-                    case .success:
-                        feedbackContent(word: word, isSuccess: true)
-                    case .analyzing:
-                        VStack {
-                            Spacer()
+                    // ── 1. Word (Posisi Tetap) ──
+                    WordDisplay(
+                        pinyin: word.pinyin,
+                        hanzi: word.hanzi,
+                        meaning: word.meaning,
+                        pinyinColor: .redBrand
+                    )
+                    .padding(.bottom, 28)
+
+                    // ── 2. Waveform (Posisi Tetap) ──
+                    WaveformView(
+                        segments: [getTargetChaoValues(for: viewModel.selectedTone ?? 1)],
+                        userSegments: viewModel.pitchValues.isEmpty ? nil : [viewModel.pitchValues]
+                    )
+                    .padding(.horizontal, 28)
+                    .padding(.bottom, 28) // Padding selalu sama di semua state
+
+                    // ── 3. Feedback Zone (Posisi Tetap, Disembunyikan dengan Opacity) ──
+                    let showFeedback = (viewModel.currentState == .failed || viewModel.currentState == .success)
+                    let isSuccess = viewModel.currentState == .success
+                    let result = viewModel.lastValidationResult
+                    let feedbackText = result?.feedbackText ?? "Mantap! Semuanya benar!"
+                    let feedbackColor: Color = {
+                        guard let r = result else { return isSuccess ? .green : Color.redBrand }
+                        if r.isFullyCorrect { return .green }
+                        if r.syllableCorrect { return Color.orangeBrand }
+                        if r.toneCorrect { return Color.yellowBrand }
+                        return Color.redBrand
+                    }()
+
+                    VStack(spacing: 12) {
+                        Text(feedbackText)
+                            .font(Styles.headlineShandi)
+                            .foregroundStyle(feedbackColor)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(minHeight: 48, alignment: .top) // Reserve space for up to 2 lines of text
+                            .padding(.horizontal, 16)
+                            // .padding(.bottom, 12) // removed to let VStack spacing handle it
+
+                        Button(action: {}) {
+                            Label("Dengar Nadamu", systemImage: Icons.speaker)
+                                .font(Styles.captionShandi).fontWeight(.semibold)
+                                .foregroundStyle(Color.text)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 8)
+                                .background(Color.yellowBrand)
+                                .clipShape(Capsule())
+                        }
+                        .disabled(!showFeedback)
+                    }
+                    .frame(minHeight: 48, alignment: .top)
+                    .opacity(showFeedback ? 1 : 0)
+                    .padding(.bottom, 12)
+
+                    // ── 4. Spacer menyerap sisa ruang kosong ──
+                    Spacer(minLength: 0)
+
+                    // ── 5. Mic Button / Loading (Posisi Tetap di bawah) ──
+                    ZStack {
+                        ButtonRecord {
+                            viewModel.toggleRecording()
+                        }
+                        .opacity((viewModel.currentState == .success || viewModel.currentState == .analyzing) ? 0 : 1)
+                        .disabled(viewModel.currentState == .success || viewModel.currentState == .analyzing)
+
+                        if viewModel.currentState == .analyzing {
                             ProgressView("Menganalisis...")
-                            Spacer()
                         }
                     }
+                    .frame(height: 78) // Tinggi tetap sesuai ButtonRecord
+                    .padding(.bottom, 16)
+
                 } else {
+                    Spacer()
                     ProgressView("Menyiapkan...")
+                    Spacer()
                 }
-            }
-        }
-        
-        // 1. Tampilan saat Awal / Sedang Merekam
-        private func idleContent(word: SingleTonePracticeWord) -> some View {
-            VStack(spacing: 28) {
-                WordDisplay(
-                    pinyin: word.pinyin,
-                    hanzi: word.hanzi,
-                    meaning: word.meaning,
-                    pinyinColor: .redBrand
-                )
-                
-                WaveformView(
-                    segments: [getTargetChaoValues(for: viewModel.selectedTone ?? 1)],
-                    userSegments: viewModel.pitchValues.isEmpty ? nil : [viewModel.pitchValues]
-                )
-                .padding(.horizontal, 28)
-                
-                Spacer(minLength: 30)
-                
-                ButtonRecord {
-                    viewModel.toggleRecording()
-                }
-                Spacer(minLength: 5)
-            }
-        }
-        
-        // 2. Tampilan saat ada Feedback
-        private func feedbackContent(word: SingleTonePracticeWord, isSuccess: Bool) -> some View {
-            let result = viewModel.lastValidationResult
-            let feedbackText = result?.feedbackText ?? (isSuccess ? "Mantap! Semuanya benar!" : "Belum tepat, coba lagi!")
-            let feedbackColor: Color = {
-                guard let r = result else { return isSuccess ? .green : Color.redBrand }
-                if r.isFullyCorrect { return .green }
-                if r.syllableCorrect { return Color.orangeBrand }  // nada salah, kata benar
-                if r.toneCorrect { return Color.yellowBrand }       // kata salah, nada benar
-                return Color.redBrand                               // keduanya salah
-            }()
-            
-            return VStack(spacing: 18) {
-                WordDisplay(pinyin: word.pinyin, hanzi: word.hanzi, meaning: word.meaning)
-                
-                WaveformView(
-                    segments: [getTargetChaoValues(for: viewModel.selectedTone ?? 1)],
-                    userSegments: viewModel.pitchValues.isEmpty ? nil : [viewModel.pitchValues]
-                )
-                .padding(.horizontal, 28)
-                
-                // Feedback dari PronunciationValidator
-                Text(feedbackText)
-                    .font(Styles.headlineShandi)
-                    .foregroundStyle(feedbackColor)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 8)
-                
-                // Tombol Dengar Nadamu
-                Button(action: {}) {
-                    Label("Dengar Nadamu", systemImage: "speaker.wave.2.fill")
-                        .font(Styles.captionShandi)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color.text)
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
-                        .background(Color.yellowBrand)
-                        .clipShape(Capsule())
-                }
-                
-                Spacer(minLength: 10)
-                
-                if !isSuccess {
-                    ButtonRecord {
-                        viewModel.toggleRecording()
-                    }
-                } else {
-                    Spacer(minLength: 60)
-                }
-                Spacer(minLength: 5)
             }
         }
     

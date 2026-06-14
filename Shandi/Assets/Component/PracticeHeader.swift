@@ -10,7 +10,7 @@ import SwiftUI
 struct PracticeHeader: View {
     let title: String
     let subtitle: String
-    
+
     let onExitTap: () -> Void
 
     var body: some View {
@@ -25,6 +25,10 @@ struct PracticeHeader: View {
                     .font(Styles.captionShandi)
                     .foregroundStyle(Color.text)
                     .lineLimit(1)
+
+                Rectangle()
+                    .fill(Color.text.opacity(0.35))
+                    .frame(height: 1)
             }
 
             HStack {
@@ -38,10 +42,11 @@ struct PracticeHeader: View {
                 }
             }
         }
-//        .frame(height: 16)
+        //        .frame(height: 16)
         .padding(.horizontal, 22)
-//        .padding(.top, 28)
         .padding(.bottom, 14)
+        .frame(maxWidth: .infinity, alignment: .top)
+        .padding(.top, 20)
     }
 }
 

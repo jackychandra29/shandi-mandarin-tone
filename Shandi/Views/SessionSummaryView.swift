@@ -75,6 +75,7 @@ struct SessionSummaryView: View {
             Spacer()
         }
         .background(Color.screen.ignoresSafeArea())
+        .toolbarVisibility(.hidden, for: .tabBar) 
     }
     
     // Angka & Pinyin
