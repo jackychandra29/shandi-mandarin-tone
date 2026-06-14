@@ -225,12 +225,14 @@ struct SingleToneView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Button {} label: {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.system(size: 26))
-                            .foregroundStyle(Color.text)
+
+                    SpeakerButton {
+                        if let word = viewModel.currentWord {
+                            TTSService.shared.speakMandarin(word.hanzi)
+                        }
                     }
                 }
+                .padding(.horizontal,12)
                 
                 Spacer(minLength: 12)
                 
@@ -269,6 +271,7 @@ struct SingleToneView: View {
                     segments: [getTargetChaoValues(for: viewModel.selectedTone ?? 1)],
                     userSegments: viewModel.pitchValues.isEmpty ? nil : [viewModel.pitchValues]
                 )
+                .padding(.horizontal, 28)
                 
                 Spacer(minLength: 30)
                 
@@ -298,6 +301,7 @@ struct SingleToneView: View {
                     segments: [getTargetChaoValues(for: viewModel.selectedTone ?? 1)],
                     userSegments: viewModel.pitchValues.isEmpty ? nil : [viewModel.pitchValues]
                 )
+                .padding(.horizontal, 28)
                 
                 // Feedback dari PronunciationValidator
                 Text(feedbackText)
