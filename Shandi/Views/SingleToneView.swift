@@ -42,6 +42,7 @@ struct SingleToneView: View {
         }
         .background(Color.screen.ignoresSafeArea())
         .navigationBarBackButtonHidden()
+        .toolbar(.hidden, for: .navigationBar)
         .onAppear {
             let store = ProgressStore(context: modelContext)
             let allWords = JSONLoader.load(fileName: "single_tone", type: [SingleTonePracticeWord].self) ?? []
@@ -68,7 +69,7 @@ struct SingleToneView: View {
             }
         }
     }
-    
+
     // MARK: - 1. Intro View (Memakai SingleToneCard milikmu)
     private var introView: some View {
         ScrollView(showsIndicators: false) {
@@ -174,25 +175,18 @@ struct SingleToneView: View {
                         }
                     }
                 )
-                
+
                 Rectangle()
-                    .fill(Color.text.opacity(0.28))
+                    .fill(Color.text.opacity(0.35))
                     .frame(height: 1)
-                
-                VStack(spacing: 0) {
-                    BigCard {
-                        cardContent
-                    }
-                    
-                    if viewModel.currentState == .success {
-                        PrimaryActionButton(title: "Selanjutnya", action: viewModel.nextWord)
-                            .padding(.horizontal, 28)
-                            .padding(.bottom, 28)
-                    } else {
-                        Spacer().frame(height: 70)
-                    }
+
+                BigCard {
+                    cardContent
                 }
+
+                bottomActionArea
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .overlay {
                 if viewModel.showsExitPrompt {
                     ExitAlertOverlay(
@@ -211,6 +205,16 @@ struct SingleToneView: View {
                     )
                     .zIndex(1)
                 }
+            }
+        }
+
+        @ViewBuilder
+        private var bottomActionArea: some View {
+            if viewModel.currentState == .success {
+                PrimaryActionButton(title: "Selanjutnya", action: viewModel.nextWord)
+                    .padding(.horizontal, 28)
+                    .padding(.top, 12)
+                    .padding(.bottom, 28)
             }
         }
         

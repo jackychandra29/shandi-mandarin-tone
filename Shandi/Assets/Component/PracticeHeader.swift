@@ -19,10 +19,12 @@ struct PracticeHeader: View {
                 Text(title)
                     .font(Styles.headlineShandi)
                     .foregroundStyle(Color.text)
+                    .lineLimit(1)
 
                 Text(subtitle)
                     .font(Styles.captionShandi)
                     .foregroundStyle(Color.text)
+                    .lineLimit(1)
             }
 
             HStack {
@@ -36,9 +38,10 @@ struct PracticeHeader: View {
                 }
             }
         }
+//        .frame(height: 16)
         .padding(.horizontal, 22)
-        .padding(.top, 24)
-        .padding(.bottom, 18)
+//        .padding(.top, 28)
+        .padding(.bottom, 14)
     }
 }
 
