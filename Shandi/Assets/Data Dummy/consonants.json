@@ -34,11 +34,11 @@
         "id": 4,
         "letter": "d",
         "desc": "Dibaca seperti huruf 't' pada kata 'Tahu'.",
-        "example": "De",
-        "read": "te",
-        "meaning": "milik (partikel)",
-        "hanzi": "的",
-        "tts": "的"
+        "example": "Dà",
+        "read": "ta",
+        "meaning": "besar",
+        "hanzi": "大",
+        "tts": "大"
     },
     {
         "id": 5,
@@ -222,11 +222,11 @@
         "id": 22,
         "letter": "ü",
         "desc": "Dibaca seperti 'yu' pada kata 'yuk'.",
-        "example": "女 (nǚ)",
+        "example": "Nǚ",
         "read": "nyu",
         "meaning": "perempuan",
         "hanzi": "女",
-        "tts": "迂"
+        "tts": "女"
     },
     {
         "id": 23,
