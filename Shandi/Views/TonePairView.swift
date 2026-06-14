@@ -214,6 +214,7 @@ struct TonePairView: View {
 
             WaveformView(segments: [word.guidePitch])
                 .padding(.top, 28)
+                .padding(.horizontal, 28)
 
             Spacer()
 
@@ -234,6 +235,7 @@ struct TonePairView: View {
                 segments: [word.guidePitch],
                 userSegments: [session.userPitch]
             )
+            .padding(.horizontal, 28)
 
             Text("Lebih stabil ! Nadanya naik turun")
                 .font(.system(size: 14, weight: .bold, design: .rounded))
@@ -307,6 +309,7 @@ struct TonePairView: View {
                 pinyinColor: .orangeBrand
             )
             WaveformView(segments: [[]])
+                .padding(.horizontal, 28)
 
             Text(
                 "Sekarang giliranmu tanpa dipandu\nIngat nadanya lalu ucapkan!"
@@ -330,6 +333,7 @@ struct TonePairView: View {
             )
 
             WaveformView(segments: [session.userPitch])
+                .padding(.horizontal, 28)
 
             Text("Hebat!\nKamu ingat nadanya")
                 .font(.system(size: 14, weight: .semibold, design: .rounded))

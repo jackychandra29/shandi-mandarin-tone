@@ -86,6 +86,7 @@ struct WaveformView: View {
         .padding(.vertical, 20)
         .background(Color.pitchtrack)
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .frame(height: 158)
     }
 
     // Smooth Curve
