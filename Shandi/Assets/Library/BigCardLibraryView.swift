@@ -30,7 +30,7 @@ private struct WordBubble: View {
     var body: some View {
         VStack(spacing: 6) {
             Text(syllable)
-                .font(Styles.title3Shandi)
+                .font(Styles.title3Shandi).fontWeight(.regular)
                 .foregroundColor(Color.text)
 
             Text(tone)
@@ -65,9 +65,9 @@ private struct ToneRow: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             Text(label)
-                .font(Styles.headlineShandi)
+                .font(Styles.subheadlineShandi).fontWeight(.bold)
                 .foregroundColor(Color.text)
-                .tracking(1.5)
+//                .tracking(1.5)
                 .textCase(.uppercase)
 
             HStack(spacing: 10) {
@@ -128,8 +128,8 @@ struct BigCardLibraryView: View {
                         .fixedSize(horizontal: false, vertical: true)
 
                     Text(data.ruleExplanation)
-                        .font(Styles.subheadlineShandi)
-                        .foregroundColor(Color.text.opacity(0.6))
+                        .font(Styles.bodyShandi)
+                        .foregroundColor(Color.text)
                         .multilineTextAlignment(.center)
                 }
                 .padding(.top, 4)
@@ -166,7 +166,7 @@ struct BigCardLibraryView: View {
                 // MARK: Contoh (original, unchanged)
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Contoh:")
-                        .font(Styles.subheadlineShandi)
+                        .font(Styles.subheadlineShandi).fontWeight(.semibold)
                         .foregroundColor(Color.text)
 
                     LazyVGrid(
@@ -200,6 +200,7 @@ struct BigCardLibraryView: View {
                                     )
                                 )
                             }
+                            .shadow(color: Color.yellowShadow, radius: 0 ,y: 4)
                         }
                     }
                 }
