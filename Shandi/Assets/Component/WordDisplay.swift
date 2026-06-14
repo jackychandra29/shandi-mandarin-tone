@@ -11,12 +11,13 @@ struct WordDisplay: View {
     let pinyin: String
     let hanzi: String
     let meaning: String
+    var pinyinColor: Color = .orangeBrand
 
     var body: some View {
         VStack(alignment: .center, spacing: 4) {
             Text(pinyin)
                 .font(Styles.largeTitleShandi)
-                .foregroundStyle(Color.orangeBrand)
+                .foregroundStyle(pinyinColor)
 
             Text(hanzi)
                 .font(Font.system(size: 70, weight: .bold))
@@ -30,5 +31,5 @@ struct WordDisplay: View {
 }
 
 #Preview {
-    WordDisplay(pinyin: "nǐ hǎo", hanzi: "你好", meaning: "Halo")
+    WordDisplay(pinyin: "nǐ hǎo", hanzi: "你好", meaning: "Halo", pinyinColor: .redBrand)
 }

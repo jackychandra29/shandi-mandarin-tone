@@ -27,11 +27,31 @@ class SingleToneViewModel: ObservableObject {
     private var wordQueue: [SingleTonePracticeWord] = []
     
     @Published var selectedTone: Int? = nil
-
+    
     var onWordSuccess: ((_ category: String, _ wordID: Int) -> Void)?
 
+    // MARK: - Audio Pipeline
+    let audioManager = AudioManager()
+    @Published var pitchValues: [CGFloat] = []
+    @Published var lastValidationResult: ValidationResult? = nil
+
+    private var cancellables = Set<AnyCancellable>()
+
+    init() {
+        // Forward pitch values dari AudioManager ke ViewModel agar View bisa observe
+        audioManager.$pitchValues
+            .receive(on: RunLoop.main)
+            .sink { [weak self] values in
+                self?.pitchValues = values
+            }
+            .store(in: &cancellables)
+    }
+    
+    // MARK: - Navigation
     func startPractice(for tone: Int) {
         self.selectedTone = tone
+        self.pitchValues = []
+        self.lastValidationResult = nil
         self.loadWords(for: tone)
     }
 
@@ -40,6 +60,8 @@ class SingleToneViewModel: ObservableObject {
             self.selectedTone = nil
             self.currentState = .idle
             self.isSessionComplete = false
+            self.pitchValues = []
+            self.lastValidationResult = nil
         }
     }
     
@@ -64,18 +86,19 @@ class SingleToneViewModel: ObservableObject {
         nextWord()
     }
     
-    
     func nextWord() {
         guard !wordQueue.isEmpty else {
-            // Jika kata habis, selesaikan sesi
             withAnimation { isSessionComplete = true }
             return
         }
         currentWord = wordQueue.removeFirst()
         currentState = .idle
+        pitchValues = []
+        lastValidationResult = nil
+        audioManager.reset()
     }
     
-    // MARK: - Logic Tombol Microphone
+    // MARK: - Recording
     func toggleRecording() {
         if currentState == .recording {
             stopRecordingAndValidate()
@@ -86,23 +109,30 @@ class SingleToneViewModel: ObservableObject {
     
     private func startRecording() {
         currentState = .recording
-        // TODO: Hubungkan dengan AudioSpeechManager.shared.start()
-    }
-    
-    private func reportSuccess() {
-        guard let tone = selectedTone, let word = currentWord else { return }
-        onWordSuccess?(PracticeCategory.singleTone(tone), word.id)
+        pitchValues = []
+        lastValidationResult = nil
+        audioManager.startRecording(targetTone: selectedTone ?? 1)
     }
 
     private func stopRecordingAndValidate() {
         currentState = .analyzing
-        // TODO: Hubungkan dengan AudioSpeechManager.shared.stop()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let isCorrect = Bool.random()
-            if isCorrect {
+
+        guard let word = currentWord, let tone = selectedTone else {
+            currentState = .failed
+            return
+        }
+
+        let result = audioManager.stopRecording(targetWord: word, targetTone: tone)
+        self.lastValidationResult = result
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if result.isFullyCorrect {
                 self.currentState = .success
                 self.wordsCompleted += 1
-                self.reportSuccess()
+                self.onWordSuccess?(
+                    PracticeCategory.singleTone(tone),
+                    word.id
+                )
             } else {
                 self.currentState = .failed
             }

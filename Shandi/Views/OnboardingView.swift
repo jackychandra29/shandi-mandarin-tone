@@ -133,9 +133,8 @@ struct OnboardingView: View {
                     WordDisplay(pinyin: "bīng", hanzi: "冰", meaning: "Es")
 
                     WaveformView(
-                        values: guidePitch,
-                        comparisonValues: userPitch,
-                        title: "Pitch track"
+                        segments: [guidePitch],
+                        userSegments: userPitch.isEmpty ? nil : [userPitch]
                     )
                     .spotlightAnchor(.waveform)
 
