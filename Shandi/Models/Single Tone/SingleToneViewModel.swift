@@ -129,6 +129,10 @@ class SingleToneViewModel: ObservableObject {
             if result.isFullyCorrect {
                 self.currentState = .success
                 self.wordsCompleted += 1
+                self.onWordSuccess?(
+                    PracticeCategory.singleTone(tone),
+                    word.id
+                )
             } else {
                 self.currentState = .failed
             }

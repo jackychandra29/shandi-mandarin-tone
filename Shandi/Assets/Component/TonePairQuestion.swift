@@ -5,7 +5,7 @@ struct TonePairQuestion: View {
     let question: String
 
     var body: some View {
-        VStack(alignment: .center, spacing: 12) {
+        VStack(alignment: .center, spacing: 10) {
             Text(tonePair)
                 .font(.system(size: 14))
                 .foregroundStyle(Color.text)
@@ -24,8 +24,8 @@ struct TonePairQuestion: View {
                 .foregroundStyle(Color.text)
         }
         .padding(.horizontal, 20)
-        .padding(.vertical, 16)
-        .frame(minHeight: 105)
+        .padding(.vertical, 12)
+        .frame(minHeight: 88)
         .background(Color.screen)
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
     }

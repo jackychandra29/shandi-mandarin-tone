@@ -2,17 +2,19 @@ import SwiftUI
 
 struct PrimaryActionButton: View {
     let title: String
+    var verticalPadding: CGFloat = 16
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
             Text(title)
                 .font(Styles.headlineShandi)
-                .foregroundStyle(Color.screen)
+                .foregroundStyle(Color.black)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(Color.redBrand)
+                .padding(.vertical, verticalPadding)
+                .background(Color.yellowBrand)
                 .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                .shadow(color: Color.yellowShadow, radius: 0, x: 0, y: 4)
         }
     }
 }
